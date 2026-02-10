@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Brand | Leading Food Manufacturers</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        :root { --primary: #2e7d32; --secondary: #1b5e20; --light: #f8f9fa; --dark: #212529; }
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; margin: 0; color: var(--dark); line-height: 1.6; }
+        
+        /* Top Bar */
+        .top-bar { background: var(--primary); color: white; padding: 8px 10%; display: flex; justify-content: space-between; font-size: 14px; }
+        
+        /* Header */
+        header { background: white; padding: 20px 10%; display: flex; justify-content: space-between; align-items: center; position: sticky; top: 0; z-index: 1000; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
+        .logo { font-size: 24px; font-weight: bold; color: var(--primary); text-decoration: none; }
+        nav a { margin-left: 20px; text-decoration: none; color: var(--dark); font-weight: 500; transition: 0.3s; }
+        nav a:hover { color: var(--primary); }
+
+        /* Hero Section */
+        .hero { background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=1600&q=80'); 
+                height: 70vh; background-size: cover; background-position: center; display: flex; flex-direction: column; justify-content: center; align-items: center; color: white; text-align: center; padding: 0 20px; }
+        .hero h1 { font-size: 3rem; margin-bottom: 10px; }
+        .hero p { font-size: 1.2rem; max-width: 800px; }
+        .btn { background: var(--primary); color: white; padding: 12px 30px; text-decoration: none; border-radius: 5px; margin-top: 20px; transition: 0.3s; }
+        .btn:hover { background: var(--secondary); }
+
+        /* Features Section */
+        .features { padding: 60px 10%; display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px; background: var(--light); }
+        .feature-card { background: white; padding: 30px; border-radius: 10px; text-align: center; box-shadow: 0 5px 15px rgba(0,0,0,0.05); }
+        .feature-card i { font-size: 40px; color: var(--primary); margin-bottom: 15px; }
+
+        /* Footer */
+        footer { background: #1a1a1a; color: white; padding: 50px 10%; display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 40px; }
+        footer h3 { border-bottom: 2px solid var(--primary); display: inline-block; margin-bottom: 20px; }
+        .footer-bottom { background: #111; color: #888; text-align: center; padding: 20px; font-size: 14px; }
+    </style>
+</head>
+<body>
+
+    <div class="top-bar">
+        <div><i class="fas fa-envelope"></i> info@yourdomain.com</div>
+        <div><i class="fas fa-phone"></i> +91 84848 58066</div>
+    </div>
+
+    <header>
+        <a href="#" class="logo">YOUR BRAND</a>
+        <nav>
+            <a href="#">Home</a>
+            <a href="#">About Us</a>
+            <a href="#">Process</a>
+            <a href="#">Quality</a>
+            <a href="#">Contact</a>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <h1>Leading Food Manufacturers & Exporters</h1>
+        <p>Providing high-quality, safe, and pure spices and specialty food ingredients to the world.</p>
+        <a href="#" class="btn">Explore Our Produce</a>
+    </section>
+
+    <section class="features">
+        <div class="feature-card">
+            <i class="fas fa-microscope"></i>
+            <h3>Quality Assurance</h3>
+            <p>In-depth analysis and testing of our products before, during, and after manufacturing.</p>
+        </div>
+        <div class="feature-card">
+            <i class="fas fa-leaf"></i>
+            <h3>Farm to Fork</h3>
+            <p>Our key products can be traced back fully from initial farming to final processing.</p>
+        </div>
+        <div class="feature-card">
+            <i class="fas fa-globe"></i>
+            <h3>Global Standards</h3>
+            <p>Adhering to USDA and European food safety standards for all international exports.</p>
+        </div>
+    </section>
+
+    <footer>
+        <div>
+            <h3>Quick Links</h3>
+            <p>Home</p><p>Process</p><p>Quality</p>
+        </div>
+        <div>
+            <h3>Our Produce</h3>
+            <p>Spices</p><p>Seasonings</p><p>Ingredients</p>
+        </div>
+        <div>
+            <h3>Contact Us</h3>
+            <p><i class="fas fa-map-marker-alt"></i> Gat No. 308/A, Satara, India</p>
+            <p><i class="fas fa-envelope"></i> info@yourdomain.com</p>
+        </div>
+    </footer>
+
+    <div class="footer-bottom">
+        &copy; 2026 Your Company Name. All Rights Reserved.
+    </div>
+
+</body>
+</html>
