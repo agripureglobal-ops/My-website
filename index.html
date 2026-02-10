@@ -3,101 +3,125 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Your Brand | Leading Food Manufacturers</title>
+    <title>Agripure Global LLP | Grown Quality, Trusted Trade, Healthy Snacking</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
-        :root { --primary: #2e7d32; --secondary: #1b5e20; --light: #f8f9fa; --dark: #212529; }
-        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; margin: 0; color: var(--dark); line-height: 1.6; }
+        :root { --primary: #1b4332; --accent: #74c69d; --gold: #ffd700; --light: #f7f9f7; --text: #2d3436; }
+        body { font-family: 'Helvetica Neue', Arial, sans-serif; margin: 0; color: var(--text); line-height: 1.8; }
         
-        /* Top Bar */
-        .top-bar { background: var(--primary); color: white; padding: 8px 10%; display: flex; justify-content: space-between; font-size: 14px; }
-        
-        /* Header */
-        header { background: white; padding: 20px 10%; display: flex; justify-content: space-between; align-items: center; position: sticky; top: 0; z-index: 1000; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
-        .logo { font-size: 24px; font-weight: bold; color: var(--primary); text-decoration: none; }
-        nav a { margin-left: 20px; text-decoration: none; color: var(--dark); font-weight: 500; transition: 0.3s; }
-        nav a:hover { color: var(--primary); }
+        /* Navigation */
+        header { background: white; padding: 10px 8%; display: flex; justify-content: space-between; align-items: center; position: sticky; top: 0; z-index: 1000; box-shadow: 0 2px 10px rgba(0,0,0,0.05); }
+        .logo-container { display: flex; align-items: center; text-decoration: none; }
+        .logo-img { height: 60px; width: auto; margin-right: 15px; }
+        .logo-text { font-size: 18px; font-weight: 800; color: var(--primary); letter-spacing: 1px; line-height: 1; }
+        nav a { margin-left: 25px; text-decoration: none; color: var(--text); font-size: 13px; text-transform: uppercase; font-weight: 700; transition: 0.3s; }
+        nav a:hover { color: var(--accent); }
 
         /* Hero Section */
-        .hero { background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=1600&q=80'); 
-                height: 70vh; background-size: cover; background-position: center; display: flex; flex-direction: column; justify-content: center; align-items: center; color: white; text-align: center; padding: 0 20px; }
-        .hero h1 { font-size: 3rem; margin-bottom: 10px; }
-        .hero p { font-size: 1.2rem; max-width: 800px; }
-        .btn { background: var(--primary); color: white; padding: 12px 30px; text-decoration: none; border-radius: 5px; margin-top: 20px; transition: 0.3s; }
-        .btn:hover { background: var(--secondary); }
+        .hero { height: 80vh; background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('https://images.unsplash.com/photo-1523348837708-15d4a09cfac2?auto=format&fit=crop&w=1600&q=80'); 
+                background-size: cover; background-position: center; display: flex; flex-direction: column; justify-content: center; align-items: center; color: white; text-align: center; padding: 0 10%; }
+        .hero h1 { font-size: 3.5rem; margin-bottom: 10px; font-weight: 900; text-shadow: 2px 2px 4px rgba(0,0,0,0.3); }
+        .hero p { font-size: 1.5rem; max-width: 800px; font-weight: 300; letter-spacing: 1px; }
 
-        /* Features Section */
-        .features { padding: 60px 10%; display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px; background: var(--light); }
-        .feature-card { background: white; padding: 30px; border-radius: 10px; text-align: center; box-shadow: 0 5px 15px rgba(0,0,0,0.05); }
-        .feature-card i { font-size: 40px; color: var(--primary); margin-bottom: 15px; }
+        /* Motto Bar */
+        .motto-bar { background: var(--primary); color: white; padding: 20px 0; width: 100%; text-align: center; font-weight: bold; letter-spacing: 3px; font-size: 14px; text-transform: uppercase; border-bottom: 4px solid var(--accent); }
+
+        /* Description */
+        .intro { padding: 100px 15%; text-align: center; background: white; }
+        .intro h2 { color: var(--primary); font-size: 2.2rem; margin-bottom: 30px; }
+        .intro p { font-size: 1.25rem; color: #444; max-width: 900px; margin: 0 auto; }
+
+        /* Features */
+        .pillars { padding: 80px 10%; display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 40px; background: var(--light); }
+        .pillar-card { background: white; padding: 40px; border-radius: 20px; text-align: center; transition: transform 0.3s; box-shadow: 0 10px 30px rgba(0,0,0,0.05); }
+        .pillar-card:hover { transform: translateY(-10px); }
+        .pillar-card i { font-size: 45px; color: var(--accent); margin-bottom: 20px; }
+        .pillar-card h3 { color: var(--primary); font-size: 1.6rem; margin-bottom: 15px; }
 
         /* Footer */
-        footer { background: #1a1a1a; color: white; padding: 50px 10%; display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 40px; }
-        footer h3 { border-bottom: 2px solid var(--primary); display: inline-block; margin-bottom: 20px; }
-        .footer-bottom { background: #111; color: #888; text-align: center; padding: 20px; font-size: 14px; }
+        footer { background: #0b1f16; color: white; padding: 80px 10% 40px; }
+        .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 60px; }
+        .footer-grid h4 { color: var(--accent); font-size: 1.2rem; margin-bottom: 25px; text-transform: uppercase; }
+        .contact-item { display: flex; align-items: flex-start; margin-bottom: 20px; color: #bdc3c7; }
+        .contact-item i { margin-right: 15px; margin-top: 5px; color: var(--accent); }
+        .footer-bottom { margin-top: 60px; padding-top: 30px; border-top: 1px solid rgba(255,255,255,0.1); text-align: center; font-size: 14px; color: #7f8c8d; }
+        
+        @media (max-width: 768px) { .hero h1 { font-size: 2.5rem; } .intro { padding: 60px 8%; } nav { display: none; } }
     </style>
 </head>
 <body>
 
-    <div class="top-bar">
-        <div><i class="fas fa-envelope"></i> info@yourdomain.com</div>
-        <div><i class="fas fa-phone"></i> +91 84848 58066</div>
-    </div>
-
     <header>
-        <a href="#" class="logo">YOUR BRAND</a>
+        <a href="#" class="logo-container">
+            <img src="logo.jpg" alt="Agripure Global Logo" class="logo-img">
+            <div class="logo-text">AGRIPURE<br>GLOBAL LLP</div>
+        </a>
         <nav>
-            <a href="#">Home</a>
-            <a href="#">About Us</a>
-            <a href="#">Process</a>
-            <a href="#">Quality</a>
-            <a href="#">Contact</a>
+            <a href="#about">Philosophy</a>
+            <a href="#trade">Our Pillars</a>
+            <a href="#contact">Inquiry</a>
         </nav>
     </header>
 
     <section class="hero">
-        <h1>Leading Food Manufacturers & Exporters</h1>
-        <p>Providing high-quality, safe, and pure spices and specialty food ingredients to the world.</p>
-        <a href="#" class="btn">Explore Our Produce</a>
+        <h1>Rooted in Integrity,<br>Harvested for Vitality.</h1>
+        <p>A global bridge between honest earth-wisdom and modern wellness.</p>
     </section>
 
-    <section class="features">
-        <div class="feature-card">
-            <i class="fas fa-microscope"></i>
-            <h3>Quality Assurance</h3>
-            <p>In-depth analysis and testing of our products before, during, and after manufacturing.</p>
+    <div class="motto-bar">
+        Grown Quality &bull; Trusted Trade &bull; Healthy Snacking
+    </div>
+
+    <section class="intro" id="about">
+        <h2>Earth Wisdom meets Modern Wellness</h2>
+        <p>At Agripure Global LLP, we don't just move commodities; we cultivate trust. We bridge the gap between the silent, honest labor of the fields and the high-performance needs of the global consumer. From soil to snack, we ensure every grain carries the promise of purity.</p>
+    </section>
+
+    <section class="pillars" id="trade">
+        <div class="pillar-card">
+            <i class="fas fa-seedling"></i>
+            <h3>Grown Quality</h3>
+            <p>Our commitment starts in the soil. We work with farmers who respect natural cycles to ensure nutrient-dense, chemical-free harvests.</p>
         </div>
-        <div class="feature-card">
-            <i class="fas fa-leaf"></i>
-            <h3>Farm to Fork</h3>
-            <p>Our key products can be traced back fully from initial farming to final processing.</p>
+        <div class="pillar-card">
+            <h3>Trusted Trade</h3>
+            <p>Transparency is our standard. Our supply chains are built on ethical sourcing and total compliance with global safety regulations.</p>
         </div>
-        <div class="feature-card">
-            <i class="fas fa-globe"></i>
-            <h3>Global Standards</h3>
-            <p>Adhering to USDA and European food safety standards for all international exports.</p>
+        <div class="pillar-card">
+            <h3>Healthy Snacking</h3>
+            <p>Nature's bounty, conveniently delivered. We transform raw potential into wholesome fuel for a conscious, fast-paced world.</p>
         </div>
     </section>
 
-    <footer>
-        <div>
-            <h3>Quick Links</h3>
-            <p>Home</p><p>Process</p><p>Quality</p>
+    <footer id="contact">
+        <div class="footer-grid">
+            <div>
+                <h4>Our Mission</h4>
+                <p>To lead the global agricultural trade with a conscience, ensuring that healthy snacking is accessible, sustainable, and rooted in quality.</p>
+            </div>
+            <div>
+                <h4>Headquarters</h4>
+                <div class="contact-item">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <span>Plot 34, Sector 36,<br>Manasarovar</span>
+                </div>
+            </div>
+            <div>
+                <h4>Connect</h4>
+                <div class="contact-item">
+                    <i class="fas fa-envelope"></i>
+                    <span>agripureglobal@gmail.com</span>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-globe"></i>
+                    <span>www.agripureglobal.com</span>
+                </div>
+            </div>
         </div>
-        <div>
-            <h3>Our Produce</h3>
-            <p>Spices</p><p>Seasonings</p><p>Ingredients</p>
-        </div>
-        <div>
-            <h3>Contact Us</h3>
-            <p><i class="fas fa-map-marker-alt"></i> Gat No. 308/A, Satara, India</p>
-            <p><i class="fas fa-envelope"></i> info@yourdomain.com</p>
+        <div class="footer-bottom">
+            &copy; 2026 Agripure Global LLP. Designed for Excellence.
         </div>
     </footer>
-
-    <div class="footer-bottom">
-        &copy; 2026 Your Company Name. All Rights Reserved.
-    </div>
 
 </body>
 </html>
