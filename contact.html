@@ -3,109 +3,55 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact Us | Agripure Global LLP</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <title>Inquiry | Agripure Global</title>
     <style>
         :root { --primary: #1b4332; --accent: #74c69d; --light: #f7f9f7; --text: #2d3436; }
-        body { font-family: 'Helvetica Neue', Arial, sans-serif; margin: 0; color: var(--text); background: white; }
-        
-        /* Navigation (Matches your Main Page) */
-        header { background: white; padding: 10px 8%; display: flex; justify-content: space-between; align-items: center; box-shadow: 0 2px 10px rgba(0,0,0,0.05); }
-        .logo-container { display: flex; align-items: center; text-decoration: none; }
-        .logo-img { height: 110px; width: auto; margin-right: 15px; transition: 0.3s; } /* Bigger Logo as requested */
-        .logo-text { font-size: 18px; font-weight: 800; color: var(--primary); letter-spacing: 1px; line-height: 1; }
-        nav a { margin-left: 25px; text-decoration: none; color: var(--text); font-size: 13px; text-transform: uppercase; font-weight: 700; }
-
-        /* Contact Header */
-        .contact-hero { background: var(--primary); color: white; padding: 60px 8%; text-align: center; }
-        .contact-hero h1 { font-size: 2.8rem; margin: 0; font-weight: 900; }
-        .contact-hero p { opacity: 0.8; font-size: 1.2rem; margin-top: 10px; font-style: italic; }
-
-        /* Main Container */
-        .contact-container { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; padding: 80px 8%; max-width: 1200px; margin: 0 auto; }
-        
-        /* Form Styling (Using your Formspree ID) */
-        .contact-form { background: var(--light); padding: 40px; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); }
-        .contact-form h2 { color: var(--primary); margin-bottom: 25px; font-size: 1.8rem; }
-        .form-group { margin-bottom: 20px; }
-        .form-group label { display: block; margin-bottom: 8px; font-weight: bold; color: var(--primary); }
-        .form-group input, .form-group textarea { width: 100%; padding: 15px; border: 1px solid #ddd; border-radius: 10px; box-sizing: border-box; font-family: inherit; font-size: 14px; }
-        .form-group input:focus, .form-group textarea:focus { border-color: var(--accent); outline: none; box-shadow: 0 0 5px rgba(116, 198, 157, 0.3); }
-        .submit-btn { background: var(--primary); color: white; padding: 18px 30px; border: none; border-radius: 10px; cursor: pointer; font-weight: bold; width: 100%; font-size: 16px; text-transform: uppercase; letter-spacing: 1px; transition: 0.3s; }
-        .submit-btn:hover { background: var(--accent); transform: translateY(-2px); }
-
-        /* Contact Details Cards */
-        .contact-info h2 { color: var(--primary); font-size: 1.8rem; margin-bottom: 30px; }
-        .info-card { display: flex; align-items: flex-start; margin-bottom: 35px; background: white; padding: 20px; border-radius: 15px; border-left: 5px solid var(--accent); box-shadow: 0 5px 15px rgba(0,0,0,0.03); }
-        .info-card i { color: var(--primary); font-size: 24px; margin-right: 20px; margin-top: 5px; }
-        .info-card h3 { margin: 0 0 5px 0; font-size: 1.1rem; color: var(--primary); }
-        .info-card p, .info-card a { margin: 0; color: #666; text-decoration: none; font-size: 1rem; }
-
-        @media (max-width: 900px) { .contact-container { grid-template-columns: 1fr; } .logo-img { height: 80px; } }
+        body { font-family: 'Helvetica Neue', Arial, sans-serif; margin: 0; background: var(--light); }
+        header { background: white; padding: 15px 8%; display: flex; align-items: center; box-shadow: 0 2px 15px rgba(0,0,0,0.05); }
+        .logo-img { height: 60px; }
+        nav { flex: 1; display: flex; justify-content: center; }
+        nav ul { list-style: none; display: flex; gap: 30px; margin: 0; padding: 0; }
+        nav a { text-decoration: none; color: var(--text); font-weight: 700; text-transform: uppercase; font-size: 13px; }
+        .form-container { max-width: 600px; margin: 60px auto; background: white; padding: 40px; border-radius: 15px; box-shadow: 0 20px 50px rgba(0,0,0,0.1); text-align: center; }
+        input, textarea { width: 100%; padding: 15px; margin-bottom: 20px; border: 1px solid #ddd; border-radius: 8px; font-size: 16px; box-sizing: border-box; }
+        button { background: var(--primary); color: white; border: none; padding: 18px; border-radius: 8px; font-weight: 700; cursor: pointer; width: 100%; transition: 0.3s; }
+        #form-status { margin-top: 20px; padding: 15px; border-radius: 8px; display: none; }
+        .success { display: block !important; background: #d4edda; color: #155724; }
     </style>
 </head>
 <body>
 
-    <header>
-        <a href="index.html" class="logo-container">
-            <img src="logo.jpg" alt="Agripure Global Logo" class="logo-img">
-            <div class="logo-text">AGRIPURE<br>GLOBAL LLP</div>
-        </a>
-        <nav>
-            <a href="index.html">Home</a>
-            <a href="contact.html">Contact</a>
-        </nav>
-    </header>
+<header>
+    <a href="index.html"><img src="logo.jpg" class="logo-img" alt="Agripure Global"></a>
+    <nav><ul><li><a href="index.html">Home</a></li><li><a href="contact.html">Inquiry</a></li></ul></nav>
+</header>
 
-    <section class="contact-hero">
-        <h1>Connect With Us</h1>
-        <p>Grown Quality &bull; Trusted Trade &bull; Healthy Snacking</p>
-    </section>
+<div class="form-container">
+    <h2>Global Inquiry</h2>
+    <p>Submit your bulk requirements below.</p>
+    <form id="contact-form" action="https://formspree.io/f/mykdelle" method="POST">
+        <input type="text" name="name" placeholder="Contact Name" required>
+        <input type="email" name="email" placeholder="Business Email" required>
+        <input type="text" name="product" placeholder="Product Interest">
+        <textarea name="message" rows="5" placeholder="Details..." required></textarea>
+        <button type="submit">Send Inquiry</button>
+    </form>
+    <div id="form-status"></div>
+</div>
 
-    <div class="contact-container">
-        <div class="contact-form">
-            <h2>Send an Inquiry</h2>
-            <form action="https://formspree.io/f/mykdelle" method="POST">
-                <div class="form-group">
-                    <label>Your Email Address</label>
-                    <input type="email" name="email" required>
-                </div>
-                <div class="form-group">
-                    <label>How can we help?</label>
-                    <textarea name="message" rows="6" placeholder="Tell us about your requirements..." required></textarea>
-                </div>
-                <button type="submit" class="submit-btn">Send Message</button>
-            </form>
-        </div>
-
-        <div class="contact-info">
-            <h2>Global Headquarters</h2>
-            
-            <div class="info-card">
-                <i class="fas fa-map-marker-alt"></i>
-                <div>
-                    <h3>Registered Address</h3>
-                    <p>Plot 34, Sector 36,<br>Manasarovar</p>
-                </div>
-            </div>
-
-            <div class="info-card">
-                <i class="fas fa-envelope-open-text"></i>
-                <div>
-                    <h3>Email Support</h3>
-                    <p><a href="mailto:info@agripureglobal.com">info@agripureglobal.com</a></p>
-                </div>
-            </div>
-
-            <div class="info-card">
-                <i class="fas fa-clock"></i>
-                <div>
-                    <h3>Business Hours</h3>
-                    <p>Monday - Saturday: 9:00 AM - 6:00 PM</p>
-                </div>
-            </div>
-        </div>
-    </div>
-
+<script>
+    const form = document.getElementById("contact-form");
+    const status = document.getElementById("form-status");
+    form.addEventListener("submit", async (e) => {
+        e.preventDefault();
+        const data = new FormData(e.target);
+        const response = await fetch(e.target.action, { method: 'POST', body: data, headers: { 'Accept': 'application/json' }});
+        if (response.ok) {
+            status.innerHTML = "Success! Inquiry received.";
+            status.className = "success";
+            form.reset();
+        }
+    });
+</script>
 </body>
 </html>
