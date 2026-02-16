@@ -62,9 +62,13 @@
     .product-grid { 
         grid-template-columns: 1fr !important; 
         gap: 60px !important; 
-        padding: 0 12% !important; 
+        padding: 0 10% !important; 
     }
-    .product-card img { height: 350px !important; }
+    .product-card img { 
+        height: auto !important; 
+        max-height: 350px !important; 
+        width: 100% !important;
+    }
     .grid, .faq-grid, .footer-grid { grid-template-columns: 1fr; }
 }
     </style>
