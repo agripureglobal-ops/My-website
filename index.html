@@ -14,18 +14,13 @@
             --white: #ffffff;
         }
 
-        @keyframes fadeInUp {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
         * { box-sizing: border-box; }
         body { font-family: 'Inter', sans-serif; margin: 0; color: var(--text); background: var(--white); line-height: 1.6; overflow-x: hidden; scroll-behavior: smooth; }
 
-        /* Tightened Header */
+        /* Compact Precision Header */
         header { 
             background: var(--white); 
-            padding: 15px 5% 10px; 
+            padding: 10px 0; 
             display: flex; 
             flex-direction: column; 
             align-items: center; 
@@ -34,82 +29,86 @@
             z-index: 1000; 
             box-shadow: 0 2px 10px rgba(0,0,0,0.05); 
         }
-        .logo-img { height: 70px; width: auto; margin-bottom: 5px; }
+        .logo-img { height: 55px; width: auto; margin-bottom: 5px; }
         .brand-name { 
-            font-size: 1.6rem; 
+            font-size: 1.4rem; 
             font-weight: 800; 
             color: var(--primary); 
             text-transform: uppercase;
-            letter-spacing: 2px;
-            margin-bottom: 10px;
+            letter-spacing: 1.5px;
+            margin-bottom: 8px;
         }
 
-        nav ul { list-style: none; display: flex; gap: 25px; padding: 0; margin: 0; }
-        nav a { text-decoration: none; color: var(--primary); font-weight: 700; font-size: 11px; text-transform: uppercase; letter-spacing: 1px; }
+        /* Apple-Style Navigation */
+        nav ul { list-style: none; display: flex; gap: 40px; padding: 0; margin: 0; }
+        nav a { 
+            text-decoration: none; 
+            color: var(--primary); 
+            font-weight: 700; 
+            font-size: 14px; 
+            text-transform: uppercase; 
+            letter-spacing: 0.5px;
+            position: relative;
+            padding-bottom: 5px;
+        }
+        nav a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: 0;
+            left: 0;
+            background-color: var(--accent);
+            transition: width 0.3s ease;
+        }
+        nav a:hover::after { width: 100%; }
 
-        /* Hero */
+        /* Hero Image Fix */
         .hero { 
-            background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('farmer.jpg'); 
+            background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('farmer.jpg'); 
             background-size: cover;
-            background-position: center 20%; 
-            height: 60vh; 
+            background-position: center 25%; 
+            height: 55vh; 
             display: flex; 
             align-items: center; 
             justify-content: center; 
             text-align: center; 
             color: var(--white); 
         }
-        .hero-content h1 { font-size: clamp(1.8rem, 5vw, 3.5rem); font-weight: 800; margin: 0; padding: 0 10%; }
 
-        /* Unified Sections */
+        /* 5-Column Product Grid */
+        .product-grid { 
+            display: grid; 
+            grid-template-columns: repeat(5, 1fr); 
+            gap: 15px; 
+            padding: 0 5%;
+        }
+        .product-card { border-radius: 8px; overflow: hidden; border: 1px solid #f0f0f0; text-align: center; background: #fff; transition: 0.3s; }
+        .product-card:hover { transform: scale(1.02); box-shadow: 0 10px 20px rgba(0,0,0,0.05); }
+        .product-card img { width: 100%; height: 180px; object-fit: cover; }
+        .product-info { padding: 12px; }
+        .product-info h4 { margin: 0 0 10px; font-size: 0.9rem; color: var(--primary); }
+        .btn-quote { display: inline-block; padding: 8px 15px; background: var(--primary); color: white; text-decoration: none; border-radius: 4px; font-weight: 700; font-size: 9px; text-transform: uppercase; }
+
+        /* Elevated Founder's Note */
+        .founder-section { background: var(--primary); padding: 80px 10%; text-align: center; color: var(--white); }
+        .founder-box p { font-style: italic; font-size: 1.4rem; line-height: 1.8; max-width: 900px; margin: 0 auto; color: #e0e0e0; border-left: 3px solid var(--accent); padding-left: 30px; }
+
+        /* Sections & Grids */
         section { padding: 60px 8%; }
         .section-header { text-align: center; margin-bottom: 40px; }
-        .section-header h2 { font-size: 2rem; color: var(--primary); text-transform: uppercase; margin: 0; }
+        .section-header h2 { font-size: 1.8rem; color: var(--primary); text-transform: uppercase; }
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; }
+        .card { background: white; border-radius: 12px; padding: 30px; border: 1px solid #eee; text-align: center; }
+        .card i { font-size: 2rem; color: var(--primary); margin-bottom: 15px; display: block; }
 
-        /* Stats Bar */
-        .stats-bar { background: var(--primary); color: var(--white); padding: 40px 8%; display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 30px; text-align: center; }
-        .stats-bar i { color: var(--accent); font-size: 2rem; margin-bottom: 10px; }
-        .stats-bar h4 { margin: 0; font-size: 0.9rem; letter-spacing: 1px; }
-        .stats-bar p { font-size: 0.8rem; opacity: 0.8; margin: 5px 0 0; }
-
-        /* Grid Layouts */
-        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 25px; }
-        .card { background: white; border-radius: 12px; padding: 30px; border: 1px solid #eee; text-align: center; transition: 0.3s; }
-        .card:hover { transform: translateY(-5px); border-color: var(--accent); }
-        .card i { font-size: 2.5rem; color: var(--primary); margin-bottom: 15px; display: block; }
-
-        /* Products */
-        .product-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(230px, 1fr)); gap: 20px; }
-        .product-card { border-radius: 10px; overflow: hidden; border: 1px solid #eee; text-align: center; background: #fff; }
-        .product-card img { width: 100%; height: 220px; object-fit: cover; }
-        .product-info { padding: 15px; }
-        .product-info h4 { margin: 0 0 10px; font-size: 1rem; color: var(--primary); }
-        .btn-quote { display: inline-block; padding: 10px 20px; background: var(--primary); color: white; text-decoration: none; border-radius: 4px; font-weight: 700; font-size: 10px; text-transform: uppercase; }
-
-        /* Founder Quote */
-        .founder-section { background: var(--light); padding: 60px 10%; text-align: center; }
-        .founder-box p { font-style: italic; color: #333; font-size: 1.2rem; line-height: 1.7; margin: 0; max-width: 800px; margin: 0 auto; }
-
-        /* FAQ & CTA */
-        .faq-container { max-width: 700px; margin: 0 auto; }
-        .faq-item { border-bottom: 1px solid #eee; padding: 15px 0; text-align: left; }
-        .faq-item h4 { margin: 0; font-size: 1rem; color: var(--primary); cursor: pointer; }
         .cta-banner { background: var(--accent); color: var(--primary); text-align: center; padding: 50px 5%; }
-        .btn-dark { display: inline-block; padding: 12px 30px; background: var(--primary); color: white; text-decoration: none; border-radius: 4px; font-weight: 700; text-transform: uppercase; margin-top: 15px; font-size: 12px; }
 
-        /* Footer */
         footer { background: #0b1a13; color: white; padding: 50px 8% 20px; text-align: center; }
-        .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 30px; margin-bottom: 30px; }
-        .footer-col h3 { color: var(--accent); margin-bottom: 15px; font-size: 1rem; }
-        .footer-col p, .footer-col a { color: rgba(255,255,255,0.6); text-decoration: none; font-size: 0.8rem; margin-bottom: 5px; display: block; }
+        .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 30px; }
+        .footer-col a { color: var(--accent); text-decoration: none; font-weight: 600; }
 
-        @media (max-width: 768px) {
-            .logo-img { height: 50px; }
-            .brand-name { font-size: 1.2rem; }
-            nav ul { gap: 15px; }
-            section { padding: 40px 5%; }
-            .hero { height: 45vh; }
-        }
+        @media (max-width: 1024px) { .product-grid { grid-template-columns: repeat(2, 1fr); } }
     </style>
 </head>
 <body>
@@ -128,15 +127,7 @@
 </header>
 
 <section class="hero">
-    <div class="hero-content">
-        <h1>Rooted in Integrity,<br>Harvested for Vitality.</h1>
-    </div>
-</section>
-
-<section class="stats-bar">
-    <div class="stat-item"><i class="fas fa-fingerprint"></i><h4>100% Traceable</h4><p>Farm to final package.</p></div>
-    <div class="stat-item"><i class="fas fa-recycle"></i><h4>Zero-Waste</h4><p>Sustainable practices.</p></div>
-    <div class="stat-item"><i class="fas fa-map-marker-alt"></i><h4>Direct-Source</h4><p>Eliminating middlemen.</p></div>
+    <h1 style="font-size: clamp(1.8rem, 5vw, 3.5rem); font-weight: 800; margin: 0;">Rooted in Integrity,<br>Harvested for Vitality.</h1>
 </section>
 
 <section id="products">
@@ -164,41 +155,22 @@
 <section>
     <div class="section-header"><h2>How We Work</h2></div>
     <div class="grid">
-        <div class="card"><i class="fas fa-search"></i><h3>Selection</h3><p>Hand-picking the best harvests from local Indian farms.</p></div>
-        <div class="card"><i class="fas fa-vial"></i><h3>Testing</h3><p>Rigorous quality checks for purity and nutrition.</p></div>
-        <div class="card"><i class="fas fa-ship"></i><h3>Delivery</h3><p>Premium packaging and seamless global logistics.</p></div>
-    </div>
-</section>
-
-<section style="background:var(--light)">
-    <div class="section-header"><h2>Our Core Values</h2></div>
-    <div class="grid">
-        <div class="card"><i class="fas fa-leaf"></i><h3>Grown Quality</h3><p>Natural, nutrient-dense produce.</p></div>
-        <div class="card"><i class="fas fa-handshake"></i><h3>Trusted Trade</h3><p>Transparency in every partnership.</p></div>
-        <div class="card"><i class="fas fa-heartbeat"></i><h3>Healthy Snacking</h3><p>Wholesome fuel for modern life.</p></div>
-    </div>
-</section>
-
-<section class="faq-section">
-    <div class="section-header"><h2>Trade FAQ</h2></div>
-    <div class="faq-container">
-        <div class="faq-item"><h4>What is the minimum order quantity (MOQ)?</h4><p>MOQs vary by product category to accommodate global trade needs.</p></div>
-        <div class="faq-item"><h4>Do you provide international shipping?</h4><p>Yes, we offer air and sea freight logistics with full documentation.</p></div>
+        <div class="card"><i class="fas fa-search"></i><h3>Selection</h3><p>Hand-picking the best harvests.</p></div>
+        <div class="card"><i class="fas fa-vial"></i><h3>Testing</h3><p>Rigorous quality checks for purity.</p></div>
+        <div class="card"><i class="fas fa-ship"></i><h3>Delivery</h3><p>Seamless global logistics.</p></div>
     </div>
 </section>
 
 <div class="cta-banner">
     <h2 style="margin:0">Ready to source the best of India?</h2>
-    <a href="contact.html" class="btn-dark">Request Your Quote</a>
+    <a href="contact.html" style="display:inline-block; padding:12px 30px; background:var(--primary); color:white; text-decoration:none; border-radius:4px; font-weight:700; text-transform:uppercase; margin-top:15px; font-size:12px;">Request Your Quote</a>
 </div>
 
 <footer>
     <div class="footer-grid">
-        <div class="footer-col"><h3>Agripure Global</h3><p>Rooted in integrity. Delivering vitality across the globe.</p></div>
-        <div class="footer-col"><h3>Quick Links</h3><a href="#products">Products</a><a href="#story">Our Story</a><a href="contact.html">Contact Us</a></div>
-        <div class="footer-col"><h3>Connect</h3><p>info@agripureglobal.com</p><div style="font-size:1.2rem; color:var(--accent);"><i class="fab fa-linkedin"></i></div></div>
+        <div class="footer-col"><h3>Agripure Global</h3><p>Rooted in integrity. Delivering vitality.</p></div>
+        <div class="footer-col"><h3>Connect</h3><p><a href="mailto:info@agripureglobal.com">info@agripureglobal.com</a></p></div>
     </div>
-    <div style="opacity:0.4; font-size:0.7rem;">&copy; 2026 Agripure Global LLP.</div>
 </footer>
 
 </body>
