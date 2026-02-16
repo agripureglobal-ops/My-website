@@ -14,6 +14,7 @@
             --white: #ffffff;
         }
         
+        * { box-sizing: border-box; }
         body { font-family: 'Inter', sans-serif; margin: 0; color: var(--text); background: var(--white); line-height: 1.7; scroll-behavior: smooth; }
         
         /* Navigation */
@@ -23,42 +24,133 @@
         nav a { text-decoration: none; color: var(--primary); font-weight: 600; font-size: 12px; text-transform: uppercase; letter-spacing: 1.2px; transition: 0.3s; }
         nav a:hover { color: var(--accent); }
 
-        /* Hero */
+        /* Hero Section */
         .hero { 
-            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('farmer.jpg') center/cover; 
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('farmer.jpg') center/cover no-repeat; 
             height: 60vh; display: flex; align-items: center; justify-content: center; text-align: center; color: var(--white); 
         }
-        .hero-content h1 { font-size: clamp(2rem, 5vw, 3.5rem); margin-bottom: 15px; font-weight: 800; }
+        .hero-content h1 { font-size: clamp(2rem, 5vw, 3.5rem); margin: 0; font-weight: 800; letter-spacing: -1px; }
 
-        /* QUALITY FIRST STATS BAR */
-        .stats-bar { background: var(--primary); color: var(--white); padding: 50px 8%; display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px; text-align: center; }
-        .stats-bar i { color: var(--accent); font-size: 1.8rem; margin-bottom: 15px; display: block; }
-        .stats-bar h4 { margin: 0; text-transform: uppercase; letter-spacing: 1px; font-size: 1rem; }
-        .stats-bar p { font-size: 0.85rem; opacity: 0.8; margin-top: 10px; }
+        /* Quality Stats Bar */
+        .stats-bar { background: var(--primary); color: var(--white); padding: 60px 8%; display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 40px; text-align: center; }
+        .stats-bar i { color: var(--accent); font-size: 2.2rem; margin-bottom: 20px; display: block; }
+        .stats-bar h4 { margin: 0; text-transform: uppercase; letter-spacing: 1px; font-size: 1.1rem; }
+        .stats-bar p { font-size: 0.9rem; opacity: 0.8; margin-top: 10px; padding: 0 20px; }
 
-        /* FOUNDER'S NOTE SECTION */
-        .founder-section { padding: 100px 8%; background: var(--white); display: flex; align-items: center; gap: 60px; flex-wrap: wrap; }
-        .founder-text { flex: 1; min-width: 300px; }
-        .founder-text h2 { color: var(--primary); font-size: 2.2rem; margin-bottom: 20px; }
-        .founder-text p { font-style: italic; color: #555; border-left: 3px solid var(--accent); padding-left: 20px; font-size: 1.1rem; }
-        .signature { margin-top: 20px; font-weight: 700; color: var(--primary); }
+        /* Founder's Note */
+        .founder-section { padding: 100px 8%; background: var(--white); text-align: center; }
+        .founder-container { max-width: 800px; margin: 0 auto; }
+        .founder-section h2 { color: var(--primary); font-size: 2.2rem; margin-bottom: 30px; }
+        .founder-section p { font-style: italic; color: #444; font-size: 1.2rem; line-height: 1.8; position: relative; padding: 0 40px; }
+        .signature { margin-top: 25px; font-weight: 700; color: var(--primary); font-size: 1.1rem; }
 
-        /* PROCESS SECTION */
+        /* Process Section */
         .process-section { padding: 80px 8%; background: var(--light); text-align: center; }
-        .process-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 25px; margin-top: 40px; }
-        .step-card { background: var(--white); padding: 35px; border-radius: 12px; }
-        .step-tag { color: var(--accent); font-weight: 800; font-size: 0.8rem; text-transform: uppercase; }
+        .process-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px; margin-top: 50px; }
+        .step-card { background: var(--white); padding: 40px; border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.03); }
+        .step-tag { color: var(--accent); font-weight: 800; font-size: 0.9rem; text-transform: uppercase; display: block; margin-bottom: 15px; }
 
-        /* BRAND PILLARS */
-        .brand-pillars { padding: 80px 8%; display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; }
-        .pillar-card { text-align: center; padding: 40px; border: 1px solid #f0f0f0; border-radius: 15px; }
-        .pillar-card i { font-size: 2.5rem; color: var(--primary); margin-bottom: 20px; display: block; }
+        /* Brand Pillars */
+        .brand-pillars { padding: 80px 8%; display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 40px; }
+        .pillar-card { text-align: center; padding: 50px 30px; border: 1px solid #eee; border-radius: 20px; transition: 0.3s; }
+        .pillar-card i { font-size: 2.8rem; color: var(--primary); margin-bottom: 25px; display: block; }
 
-        /* PRODUCTS */
-        .gallery { padding: 80px 8%; }
-        .product-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 25px; }
-        .product-card { background: white; border-radius: 10px; overflow: hidden; border: 1px solid #eee; text-align: center; transition: 0.3s; }
-        .product-card:hover { transform: translateY(-5px); box-shadow: 0 10px 20px rgba(0,0,0,0.05); }
-        .product-card img { width: 100%; height: 250px; object-fit: cover; }
-        .product-info { padding: 20px; }
-        .btn-quote { display: inline-block; padding: 10px 20px; background: var(--primary); color: white; text-decoration: none; border-radius: 4px; font-size: 1
+        /* Products Gallery */
+        .gallery { padding: 80px 8%; background: #fff; }
+        .product-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 30px; }
+        .product-card { background: white; border-radius: 12px; overflow: hidden; border: 1px solid #efefef; text-align: center; transition: 0.4s; }
+        .product-card:hover { transform: translateY(-10px); box-shadow: 0 20px 40px rgba(0,0,0,0.1); }
+        .product-card img { width: 100%; height: 280px; object-fit: cover; }
+        .product-info { padding: 25px; }
+        .product-info h4 { margin: 0 0 15px; color: var(--primary); font-size: 1.2rem; }
+        .btn-quote { display: inline-block; padding: 12px 24px; background: var(--primary); color: white; text-decoration: none; border-radius: 6px; font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; transition: 0.3s; }
+        .btn-quote:hover { background: var(--accent); }
+
+        footer { background: #0b1a13; color: white; padding: 60px 8%; text-align: center; }
+        .footer-bottom { margin-top: 30px; opacity: 0.5; font-size: 0.8rem; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 20px; }
+    </style>
+</head>
+<body>
+
+<header>
+    <img src="logo.jpg" alt="Agripure Global" class="logo-img">
+    <nav>
+        <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#story">Our Story</a></li>
+            <li><a href="#products">Products</a></li>
+            <li><a href="contact.html">Contact Us</a></li>
+        </ul>
+    </nav>
+</header>
+
+<section class="hero">
+    <div class="hero-content">
+        <h1>Rooted in Integrity,<br>Harvested for Vitality.</h1>
+    </div>
+</section>
+
+<section class="stats-bar">
+    <div class="stat-item">
+        <i class="fas fa-fingerprint"></i>
+        <h4>100% Traceable</h4>
+        <p>Every product is tracked from the farm to the final package.</p>
+    </div>
+    <div class="stat-item">
+        <i class="fas fa-recycle"></i>
+        <h4>Zero-Waste Sourcing</h4>
+        <p>Supporting sustainable farming practices that protect the earth.</p>
+    </div>
+    <div class="stat-item">
+        <i class="fas fa-map-marker-alt"></i>
+        <h4>Direct-to-Source</h4>
+        <p>Eliminating middlemen to ensure freshest quality and fair prices.</p>
+    </div>
+</section>
+
+<section class="founder-section" id="story">
+    <div class="founder-container">
+        <h2>A Note from Our Founder</h2>
+        <p>"Agripure Global was born from a simple realization: the world deserves the purity of Indian soil without the compromise of industrial processing. We don't just export produce; we export the trust of our farmers and the vitality of our land."</p>
+        <div class="signature">— Founder, Agripure Global</div>
+    </div>
+</section>
+
+<section class="process-section">
+    <h2 style="color:var(--primary)">How We Work</h2>
+    <div class="process-grid">
+        <div class="step-card"><span class="step-tag">Step 1</span><h3>Selection</h3><p>Hand-picking the best harvests from local Indian farms.</p></div>
+        <div class="step-card"><span class="step-tag">Step 2</span><h3>Testing</h3><p>Rigorous quality checks for purity and nutrition.</p></div>
+        <div class="step-card"><span class="step-tag">Step 3</span><h3>Delivery</h3><p>Premium packaging and seamless global logistics.</p></div>
+    </div>
+</section>
+
+<section class="brand-pillars">
+    <div class="pillar-card"><i class="fas fa-leaf"></i><h3>Grown Quality</h3><p>Commitment to natural, nutrient-dense produce.</p></div>
+    <div class="pillar-card"><i class="fas fa-handshake"></i><h3>Trusted Trade</h3><p>Building global partnerships through transparency.</p></div>
+    <div class="pillar-card"><i class="fas fa-heartbeat"></i><h3>Healthy Snacking</h3><p>Fueling modern lives with wholesome nutrition.</p></div>
+</section>
+
+<section class="gallery" id="products">
+    <h2 style="text-align:center; color:var(--primary); margin-bottom:50px; font-size: 2.2rem;">Our Premium Catalogue</h2>
+    <div class="product-grid">
+        <div class="product-card"><img src="jaggery-blocks.jpg"><div class="product-info"><h4>Jaggery Blocks</h4><a href="contact.html" class="btn-quote">Request Quote</a></div></div>
+        <div class="product-card"><img src="jaggery-liquid.jpg"><div class="product-info"><h4>Jaggery Liquid</h4><a href="contact.html" class="btn-quote">Request Quote</a></div></div>
+        <div class="product-card"><img src="jaggery-cubes.jpg"><div class="product-info"><h4>Jaggery Cubes</h4><a href="contact.html" class="btn-quote">Request Quote</a></div></div>
+        <div class="product-card"><img src="jaggery-powder.jpg"><div class="product-info"><h4>Jaggery Powder</h4><a href="contact.html" class="btn-quote">Request Quote</a></div></div>
+        <div class="product-card"><img src="honey.jpg"><div class="product-info"><h4>Raw Forest Honey</h4><a href="contact.html" class="btn-quote">Request Quote</a></div></div>
+        <div class="product-card"><img src="grapes.jpg"><div class="product-info"><h4>Export Grapes</h4><a href="contact.html" class="btn-quote">Request Quote</a></div></div>
+        <div class="product-card"><img src="onions.jpg"><div class="product-info"><h4>Red Onions</h4><a href="contact.html" class="btn-quote">Request Quote</a></div></div>
+        <div class="product-card"><img src="onion-powder.jpg"><div class="product-info"><h4>Onion Powder</h4><a href="contact.html" class="btn-quote">Request Quote</a></div></div>
+        <div class="product-card"><img src="pomegranates.jpg"><div class="product-info"><h4>Pomegranates</h4><a href="contact.html" class="btn-quote">Request Quote</a></div></div>
+        <div class="product-card"><img src="makhana.jpg"><div class="product-info"><h4>Premium Makhana</h4><a href="contact.html" class="btn-quote">Request Quote</a></div></div>
+    </div>
+</section>
+
+<footer>
+    <p><strong>Agripure Global LLP</strong><br>Integrity in every harvest.</p>
+    <div class="footer-bottom">&copy; 2026 Agripure Global. All Rights Reserved.</div>
+</footer>
+
+</body>
+</html>
