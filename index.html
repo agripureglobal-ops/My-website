@@ -6,101 +6,40 @@
     <title>Agripure Global | Premium Agricultural Export</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
-        :root { 
-            --primary: #1b4332; 
-            --accent: #c5a059; 
-            --light: #f9fbf9; 
-            --text: #2d3436; 
-            --white: #ffffff;
-        }
-
+        :root { --primary: #1b4332; --accent: #c5a059; --light: #f9fbf9; --text: #2d3436; --white: #ffffff; }
         * { box-sizing: border-box; }
         body { font-family: 'Inter', sans-serif; margin: 0; color: var(--text); background: var(--white); line-height: 1.6; overflow-x: hidden; scroll-behavior: smooth; }
 
-        /* Compact Header */
-        header { 
-            background: var(--white); 
-            padding: 10px 0; 
-            display: flex; 
-            flex-direction: column; 
-            align-items: center; 
-            position: sticky; 
-            top: 0; 
-            z-index: 1000; 
-            box-shadow: 0 2px 10px rgba(0,0,0,0.05); 
-        }
+        header { background: var(--white); padding: 10px 0; display: flex; flex-direction: column; align-items: center; position: sticky; top: 0; z-index: 1000; box-shadow: 0 2px 10px rgba(0,0,0,0.05); }
         .logo-img { height: 50px; width: auto; margin-bottom: 5px; }
         .brand-name { font-size: 1.3rem; font-weight: 800; color: var(--primary); text-transform: uppercase; letter-spacing: 1.5px; margin-bottom: 8px; }
 
-        /* Apple-Style Navigation */
         nav ul { list-style: none; display: flex; gap: 40px; padding: 0; margin: 0; }
-        nav a { 
-            text-decoration: none; color: var(--primary); font-weight: 700; font-size: 14px; text-transform: uppercase; 
-            position: relative; padding-bottom: 5px;
-        }
-        nav a::after {
-            content: ''; position: absolute; width: 0; height: 2px; bottom: 0; left: 0; background-color: var(--accent); transition: width 0.3s ease;
-        }
+        nav a { text-decoration: none; color: var(--primary); font-weight: 700; font-size: 14px; text-transform: uppercase; position: relative; padding-bottom: 5px; }
+        nav a::after { content: ''; position: absolute; width: 0; height: 2px; bottom: 0; left: 0; background-color: var(--accent); transition: width 0.3s ease; }
         nav a:hover::after { width: 100%; }
 
-        /* Hero Image - Optimized for Farmer Visibility */
-        .hero { 
-            background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('farmer.jpg'); 
-            background-size: cover; 
-            background-position: center top; /* Ensures the farmer's face/upper body stays visible */
-            height: 65vh; 
-            display: flex; 
-            align-items: center; 
-            justify-content: center; 
-            text-align: center; 
-            color: var(--white); 
-        }
+        .hero { background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('farmer.jpg'); background-size: cover; background-position: center 10%; height: 60vh; display: flex; align-items: center; justify-content: center; text-align: center; color: var(--white); }
 
-        /* Spacious Product Catalogue */
-        .product-grid { 
-            display: grid; 
-            grid-template-columns: repeat(5, 1fr); 
-            gap: 30px; 
-            padding: 0 8%;
-            margin-bottom: 40px;
-        }
+        .product-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 25px; padding: 0 8%; margin-bottom: 40px; }
         .product-card { border-radius: 8px; overflow: hidden; border: 1px solid #f0f0f0; text-align: center; background: #fff; transition: 0.3s; }
-        .product-card:hover { transform: translateY(-5px); box-shadow: 0 10px 25px rgba(0,0,0,0.08); }
-        .product-card img { width: 100%; height: 200px; object-fit: cover; }
-        .product-info { padding: 20px; }
-        .product-info h4 { margin: 0 0 12px; font-size: 0.95rem; color: var(--primary); }
-        .btn-quote { display: inline-block; padding: 10px 20px; background: var(--primary); color: white; text-decoration: none; border-radius: 4px; font-weight: 700; font-size: 9px; text-transform: uppercase; }
+        .product-card img { width: 100%; height: 180px; object-fit: cover; }
+        .product-info { padding: 15px; }
+        .btn-quote { display: inline-block; padding: 8px 15px; background: var(--primary); color: white; text-decoration: none; border-radius: 4px; font-weight: 700; font-size: 9px; text-transform: uppercase; }
 
-        /* Founder Section */
-        .founder-section { background: var(--primary); padding: 80px 10%; text-align: center; color: var(--white); }
-        .founder-box p { font-style: italic; font-size: 1.3rem; line-height: 1.8; max-width: 900px; margin: 0 auto; color: #e0e0e0; }
-
-        /* Standard Section Spacing */
         section { padding: 80px 8%; }
-        .section-header { text-align: center; margin-bottom: 50px; }
-        .section-header h2 { font-size: 2rem; color: var(--primary); text-transform: uppercase; }
+        .section-header { text-align: center; margin-bottom: 40px; }
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 25px; }
+        .card { background: white; border-radius: 12px; padding: 30px; border: 1px solid #eee; text-align: center; }
+        .card i { font-size: 2rem; color: var(--primary); margin-bottom: 15px; display: block; }
 
-        /* Values & FAQ */
-        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; }
-        .card { background: white; border-radius: 12px; padding: 40px; border: 1px solid #eee; text-align: center; }
-        .card i { font-size: 2.5rem; color: var(--primary); margin-bottom: 20px; display: block; }
-        .faq-item { border-bottom: 1px solid #eee; padding: 20px 0; max-width: 800px; margin: 0 auto; text-align: left; }
-        .faq-item h4 { color: var(--primary); margin: 0; }
-
-        /* Call to Action */
-        .cta-banner { background: var(--accent); color: var(--primary); text-align: center; padding: 60px 5%; }
-        .btn-dark { display: inline-block; padding: 15px 40px; background: var(--primary); color: white; text-decoration: none; border-radius: 4px; font-weight: 700; text-transform: uppercase; margin-top: 20px; font-size: 13px; }
-
-        /* Footer */
-        footer { background: #0b1a13; color: white; padding: 60px 8% 30px; }
-        .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 50px; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 40px; margin-bottom: 30px; }
-        .footer-col a { color: var(--accent); text-decoration: none; display: block; margin-top: 10px; font-weight: 600; }
-
-        @media (max-width: 1200px) { .product-grid { grid-template-columns: repeat(3, 1fr); } }
-        @media (max-width: 768px) { 
-            .product-grid { grid-template-columns: repeat(2, 1fr); gap: 15px; padding: 0 4%; }
-            .hero { height: 50vh; background-position: center 10%; } /* Extra mobile tweak for farmer visibility */
-        }
+        .founder-section { background: var(--primary); padding: 60px 10%; text-align: center; color: var(--white); }
+        .faq-item { border-bottom: 1px solid #ddd; padding: 20px 0; }
+        .cta-banner { background: var(--accent); color: var(--primary); text-align: center; padding: 50px 5%; }
+        footer { background: #0b1a13; color: white; padding: 60px 8% 20px; }
+        .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 40px; }
+        
+        @media (max-width: 1100px) { .product-grid { grid-template-columns: repeat(2, 1fr); } }
     </style>
 </head>
 <body>
@@ -108,17 +47,11 @@
 <header>
     <img src="logo.jpg" alt="Agripure Global" class="logo-img">
     <span class="brand-name">Agripure Global</span>
-    <nav>
-        <ul>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="#products">Products</a></li>
-            <li><a href="contact.html">Contact Us</a></li>
-        </ul>
-    </nav>
+    <nav><ul><li><a href="index.html">Home</a></li><li><a href="#products">Products</a></li><li><a href="contact.html">Contact Us</a></li></ul></nav>
 </header>
 
 <section class="hero">
-    <h1 style="font-size: clamp(1.8rem, 5vw, 3.5rem); font-weight: 800; margin: 0; padding: 0 10%;">Rooted in Integrity,<br>Harvested for Vitality.</h1>
+    <h1>Rooted in Integrity,<br>Harvested for Vitality.</h1>
 </section>
 
 <section id="products">
@@ -137,39 +70,34 @@
     </div>
 </section>
 
-<section class="founder-section" id="story">
-    <div class="founder-box">
-        <p>"Agripure Global was born from a simple realization: the world deserves the purity of Indian soil without the compromise of industrial processing. We don't just export produce; we export the trust of our farmers."</p>
-    </div>
-</section>
+<section class="founder-section"><p>"We don't just export produce; we export the trust of our farmers and the purity of Indian soil."</p></section>
 
 <section>
-    <div class="section-header"><h2>How We Work</h2></div>
+    <div class="section-header"><h2>Our Core Pillars</h2></div>
     <div class="grid">
-        <div class="card"><i class="fas fa-search"></i><h3>Selection</h3><p>Hand-picking the finest harvests from local farms.</p></div>
-        <div class="card"><i class="fas fa-vial"></i><h3>Testing</h3><p>Rigorous purity and nutritional analysis.</p></div>
-        <div class="card"><i class="fas fa-ship"></i><h3>Delivery</h3><p>Seamless export logistics and premium packaging.</p></div>
+        <div class="card"><i class="fas fa-leaf"></i><h3>Grown Quality</h3><p>Natural, nutrient-dense produce.</p></div>
+        <div class="card"><i class="fas fa-handshake"></i><h3>Trusted Trade</h3><p>Transparency from Navi Mumbai to the world.</p></div>
+        <div class="card"><i class="fas fa-heartbeat"></i><h3>Healthy Vitality</h3><p>Wholesome fuel for global life.</p></div>
     </div>
 </section>
 
-<section class="faq-section" style="background:var(--light)">
+<section style="background: #f1f4f2;">
     <div class="section-header"><h2>Trade FAQ</h2></div>
-    <div class="faq-item"><h4>What is your Minimum Order Quantity (MOQ)?</h4><p>MOQs depend on the product type and destination country.</p></div>
-    <div class="faq-item"><h4>Do you offer international shipping?</h4><p>Yes, we handle sea and air freight with all necessary export certifications.</p></div>
+    <div style="max-width:800px; margin:0 auto;">
+        <div class="faq-item"><h4>Standard MOQ?</h4><p>Varies by product. Contact us for specifics.</p></div>
+        <div class="faq-item"><h4>International Shipping?</h4><p>Full air and sea freight logistics provided.</p></div>
+        <div class="faq-item"><h4>Port of Origin?</h4><p>Primarily JNPT, Navi Mumbai.</p></div>
+        <div class="faq-item"><h4>Certifications?</h4><p>APEDA and Phyto-sanitary certificates included.</p></div>
+    </div>
 </section>
 
-<div class="cta-banner">
-    <h2 style="margin:0">Ready to source the best of India?</h2>
-    <a href="contact.html" class="btn-dark">Request Your Quote</a>
-</div>
+<div class="cta-banner"><h2>Ready to source the best of India?</h2><a href="contact.html" style="display:inline-block; padding:15px 40px; background:var(--primary); color:white; text-decoration:none; border-radius:4px; font-weight:700; margin-top:20px;">Request Quote</a></div>
 
 <footer>
     <div class="footer-grid">
-        <div class="footer-col"><h3>Agripure Global</h3><p>Rooted in integrity. Harvesting for vitality globally.</p></div>
-        <div class="footer-col"><h3>Quick Links</h3><a href="#products">Our Products</a><a href="contact.html">Product Inquiry</a></div>
-        <div class="footer-col"><h3>Connect</h3><p>Email: <a href="mailto:info@agripureglobal.com">info@agripureglobal.com</a></p><p>Call: <a href="tel:+917666170693" style="color: inherit; text-decoration: none;">+91 7666170693</a></p></div>
+        <div class="footer-col"><h3>Agripure Global</h3><p>Plot 34, Sector 36, Mansarovar, Navi Mumbai.</p></div>
+        <div class="footer-col"><h3>Connect</h3><p><a href="mailto:info@agripureglobal.com" style="color:var(--accent);">info@agripureglobal.com</a></p><p>+91 7666170693</p></div>
     </div>
-    <div style="text-align:center; opacity:0.4; font-size:0.8rem;">&copy; 2026 Agripure Global LLP. All Rights Reserved.</div>
 </footer>
 
 </body>
