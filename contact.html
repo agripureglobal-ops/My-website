@@ -117,8 +117,11 @@
     var status = document.getElementById("my-form-status");
     var data = new FormData(event.target);
     
-    status.innerHTML = "Sending...";
-    status.disabled = true;
+    status.innerHTML = "Thank you, we will reach out soon.";
+        status.style.backgroundColor = "#28a745"; 
+        status.style.width = "auto";
+        status.style.padding = "10px 20px";
+        status.style.fontSize = "14px";
 
     fetch(event.target.action, {
       method: form.method,
