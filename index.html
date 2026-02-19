@@ -9,34 +9,44 @@
         :root { --primary: #1b4332; --accent: #c5a059; --text: #2d3436; --white: #ffffff; }
         * { box-sizing: border-box; }
         body { font-family: 'Inter', sans-serif; margin: 0; color: var(--text); background: var(--white); line-height: 1.6; scroll-behavior: smooth; }
+
         header { background: var(--white); padding: 10px 0; display: flex; flex-direction: column; align-items: center; position: sticky; top: 0; z-index: 1000; box-shadow: 0 2px 10px rgba(0,0,0,0.05); }
         .logo-img { height: 50px; width: auto; margin-bottom: 5px; }
         .brand-name { font-size: 1.3rem; font-weight: 800; color: var(--primary); text-transform: uppercase; letter-spacing: 1.5px; margin-bottom: 8px; }
+
         nav ul { list-style: none; display: flex; gap: 40px; padding: 0; margin: 0; }
         nav a { text-decoration: none; color: var(--primary); font-weight: 700; font-size: 15px; text-transform: uppercase; position: relative; padding-bottom: 5px; }
         nav a::after { content: ''; position: absolute; width: 0; height: 2px; bottom: 0; left: 0; background-color: var(--accent); transition: width 0.3s ease; }
         nav a:hover::after { width: 100%; }
+
         .hero { background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('farmer.jpg'); background-size: cover; background-position: center 10%; height: 50vh; display: flex; align-items: center; justify-content: center; text-align: center; color: var(--white); }
+
         .product-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 30px; padding: 0 8%; margin-bottom: 40px; }
         .product-card { border-radius: 8px; overflow: hidden; border: 1px solid #f0f0f0; text-align: center; background: #fff; transition: 0.3s; }
         .product-card img { width: 100%; height: 200px; object-fit: cover; }
         .product-info { padding: 15px; }
         .btn-quote { display: inline-block; padding: 8px 15px; background: var(--primary); color: white; text-decoration: none; border-radius: 4px; font-weight: 700; font-size: 10px; text-transform: uppercase; }
+
         section { padding: 80px 8%; }
         .section-header { text-align: center; margin-bottom: 40px; }
         .section-header h2 { font-size: 1.8rem; color: var(--primary); text-transform: uppercase; letter-spacing: 1px; }
+
         .grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; }
         .card { background: #fdfdfd; border-radius: 12px; padding: 40px; border: 1px solid #eee; text-align: center; }
         .card i { font-size: 2.5rem; color: var(--primary); margin-bottom: 20px; display: block; }
+
         .founder-section { background: var(--primary); padding: 70px 10%; text-align: center; color: var(--white); }
         .founder-box p { font-style: italic; font-size: 1.3rem; max-width: 850px; margin: 0 auto; line-height: 1.8; }
+
         .faq-section { background: #f9f9f9; padding: 60px 8%; }
         .faq-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; max-width: 1000px; margin: 0 auto; }
         .faq-item { background: white; padding: 20px; border-radius: 8px; border: 1px solid #eee; }
         .faq-item h4 { margin: 0 0 10px; color: var(--primary); font-size: 1rem; }
         .faq-item p { margin: 0; font-size: 0.9rem; color: #666; }
+
         .cta-banner { background: var(--accent); color: var(--primary); text-align: center; padding: 60px 5%; }
         .cta-banner h2 { margin: 0; font-size: 2rem; font-weight: 800; }
+
         footer { background: #0b1a13; color: white; padding: 80px 8% 40px; }
         .footer-grid { display: grid; grid-template-columns: 1.5fr 1fr 1.2fr; gap: 60px; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 50px; margin-bottom: 30px; }
         .footer-col h4 { color: var(--accent); text-transform: uppercase; font-size: 0.9rem; letter-spacing: 2px; margin-bottom: 25px; }
@@ -44,7 +54,11 @@
         .footer-col a { color: #ffffff !important; text-decoration: none; display: block; margin-bottom: 12px; font-size: 0.95rem; transition: 0.3s; opacity: 0.8; }
         .footer-col a:hover { opacity: 1; color: var(--accent) !important; padding-left: 5px; }
         .footer-bottom { text-align: center; font-size: 0.8rem; opacity: 0.4; letter-spacing: 1px; }
-        @media (max-width: 768px) { .product-grid { grid-template-columns: 1fr !important; gap: 60px !important; } }
+
+        @media (max-width: 768px) {
+            .product-grid { grid-template-columns: 1fr !important; gap: 60px !important; }
+            .grid, .faq-grid, .footer-grid { grid-template-columns: 1fr; }
+        }
     </style>
 </head>
 <body>
@@ -75,6 +89,40 @@
     </div>
 </section>
 
+<section class="founder-section">
+    <div class="founder-box">
+        <p>"Our mission is to bridge the gap between local Indian farms and the global market through standardized quality and streamlined distribution from our base in Navi Mumbai."</p>
+    </div>
+</section>
+
+<section>
+    <div class="section-header"><h2>Our Core Pillars</h2></div>
+    <div class="grid">
+        <div class="card"><i class="fas fa-leaf"></i><h3>Grown Quality</h3><p>Natural, nutrient-dense produce direct from Indian soil.</p></div>
+        <div class="card"><i class="fas fa-handshake"></i><h3>Reliable Trade</h3><p>Professional global operations centered in Navi Mumbai.</p></div>
+        <div class="card"><i class="fas fa-heartbeat"></i><h3>Healthy Vitality</h3><p>Wholesome fuel for a modern, global lifestyle.</p></div>
+    </div>
+</section>
+
+<section id="how-we-work" style="background: #fdfdfd; border-top: 1px solid #eee;">
+    <div class="section-header"><h2>How We Work</h2></div>
+    <div class="grid">
+        <div class="card"><i class="fas fa-search"></i><h3>Sourcing</h3><p>Direct procurement from vetted regional farms across India.</p></div>
+        <div class="card"><i class="fas fa-vial"></i><h3>Quality Control</h3><p>Multi-stage testing ensuring premium export-grade standards.</p></div>
+        <div class="card"><i class="fas fa-ship"></i><h3>Logistics</h3><p>Custom packaging and worldwide shipping to international destinations.</p></div>
+    </div>
+</section>
+
+<section class="faq-section">
+    <div class="section-header"><h2>Trade FAQ</h2></div>
+    <div class="faq-grid">
+        <div class="faq-item"><h4>What is your standard MOQ?</h4><p>MOQs depend on the product category. Contact us for custom quotes.</p></div>
+        <div class="faq-item"><h4>What certifications do you provide?</h4><p>We provide full documentation including organic and purity certificates.</p></div>
+        <div class="faq-item"><h4>Do you offer international shipping?</h4><p>Yes, we handle sea and air freight to major global hubs.</p></div>
+        <div class="faq-item"><h4>Can I request custom packaging?</h4><p>Yes, we offer white-labeling and bulk packaging solutions.</p></div>
+    </div>
+</section>
+
 <div class="cta-banner">
     <h2>Ready to source the best of India?</h2>
     <a href="contact.html?product=Jaggery Blocks" style="display:inline-block; padding:15px 45px; background:var(--primary); color:white; text-decoration:none; border-radius:4px; font-weight:800; margin-top:20px; text-transform:uppercase;">Request Quote</a>
@@ -82,11 +130,24 @@
 
 <footer>
     <div class="footer-grid">
-        <div class="footer-col"><h4>Agripure Global</h4><p>Plot 34, Sector 36, Mansarovar,<br>Navi Mumbai, India.</p></div>
-        <div class="footer-col"><h4>Quick Links</h4><a href="index.html">Home</a><a href="#products">Our Products</a><a href="contact.html?product=Jaggery Blocks">Inquiry Form</a></div>
-        <div class="footer-col"><h4>Connect</h4><a href="mailto:info@agripureglobal.com">info@agripureglobal.com</a><p>+91 7666170693</p></div>
+        <div class="footer-col">
+            <h4>Agripure Global</h4>
+            <p>Plot 34, Sector 36, Mansarovar,<br>Navi Mumbai, Maharashtra, India.</p>
+        </div>
+        <div class="footer-col">
+            <h4>Quick Links</h4>
+            <a href="index.html">Home</a>
+            <a href="#products">Our Products</a>
+            <a href="contact.html?product=Jaggery Blocks">Inquiry Form</a>
+        </div>
+        <div class="footer-col">
+            <h4>Connect</h4>
+            <a href="mailto:info@agripureglobal.com">info@agripureglobal.com</a>
+            <p>+91 7666170693</p>
+        </div>
     </div>
-    <div class="footer-bottom">&copy; 2026 Agripure Global.</div>
+    <div class="footer-bottom">&copy; 2026 Agripure Global. All Rights Reserved.</div>
 </footer>
+
 </body>
 </html>
