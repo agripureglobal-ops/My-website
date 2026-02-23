@@ -27,6 +27,7 @@
         .logo-img { height: 70px; width: auto; } 
         .brand-name { font-size: 1.2rem; font-weight: 800; color: var(--primary); text-transform: uppercase; letter-spacing: 1px; }
 
+        /* DESKTOP NAV */
         nav { flex: 2; display: flex; justify-content: center; }
         nav ul { list-style: none; display: flex; gap: 40px; padding: 0; margin: 0; }
         nav a { 
@@ -36,84 +37,90 @@
         nav a:hover { transform: scale(1.2); color: var(--accent); }
         .header-spacer { flex: 1; }
 
+        /* HAMBURGER BUTTON */
+        .hamburger { display: none; cursor: pointer; font-size: 28px; color: var(--primary); z-index: 1100; }
+
+        /* MOBILE HEADER OVERRIDES */
+        @media (max-width: 992px) {
+            header { padding: 10px 5%; }
+            .hamburger { display: block; }
+            .header-spacer { display: none; }
+            nav {
+                display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100vh;
+                background: white; flex-direction: column; justify-content: center; align-items: center; z-index: 1050;
+            }
+            nav.active { display: flex; }
+            nav ul { flex-direction: column; align-items: center; gap: 30px; }
+            nav a { font-size: 1.5rem; }
+            .logo-img { height: 50px; }
+            .brand-name { font-size: 1rem; }
+        }
+
         /* HERO: FARMER ANCHORED 85% 35% */
         .hero { 
             background: linear-gradient(90deg, rgba(0,0,0,0.75) 20%, rgba(0,0,0,0.1) 100%), url('farmer.jpg'); 
             background-size: cover; background-position: 85% 35%; height: 75vh; display: flex; align-items: center; padding: 0 8%; color: var(--white); 
         }
-        .hero-text h1 { font-size: 3.5rem; line-height: 1.1; font-weight: 900; margin: 0; text-shadow: 0 4px 15px rgba(0,0,0,0.3); }
+        .hero-text h1 { font-size: clamp(2.2rem, 6vw, 3.5rem); line-height: 1.1; font-weight: 900; margin: 0; text-shadow: 0 4px 15px rgba(0,0,0,0.3); }
 
-        /* PRODUCT GRID (10 ITEMS) */
+        /* 10-PRODUCT GRID */
         .product-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 25px; padding: 0 8%; margin-bottom: 50px; }
-        .product-card { border-radius: 12px; overflow: hidden; border: 1px solid #eee; background: #fff; transition: 0.3s; }
+        .product-card { border-radius: 12px; overflow: hidden; border: 1px solid #eee; background: #fff; transition: 0.3s; display: flex; flex-direction: column; }
         .product-card:hover { transform: translateY(-8px); box-shadow: 0 15px 30px rgba(0,0,0,0.1); }
         .product-card img { width: 100%; height: 220px; object-fit: cover; display: block; }
-        .product-info { padding: 20px; text-align: center; }
+        .product-info { padding: 20px; text-align: center; flex-grow: 1; display: flex; flex-direction: column; justify-content: space-between; }
         .product-info h4 { font-size: 1rem; margin-bottom: 15px; color: var(--primary); font-weight: 700; }
         .btn-quote { display: block; padding: 12px; background: var(--primary); color: white; text-decoration: none; border-radius: 6px; font-weight: 800; font-size: 10px; text-transform: uppercase; }
 
-        /* MOTION GRAPHIC ANIMATIONS (SCROLL TRIGGER) */
+        @media (max-width: 1200px) { .product-grid { grid-template-columns: repeat(3, 1fr); } }
+        @media (max-width: 768px) { .product-grid { grid-template-columns: repeat(2, 1fr); } }
+        @media (max-width: 480px) { .product-grid { grid-template-columns: 1fr; } }
+
+        /* REVEAL ANIMATIONS */
         .reveal { opacity: 0; transform: translateY(50px); transition: all 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
         .reveal.active { opacity: 1; transform: translateY(0); }
         
         section { padding: 80px 8%; }
         .section-header { text-align: center; margin-bottom: 50px; }
         .section-header h2 { font-size: 1.8rem; color: var(--primary); text-transform: uppercase; letter-spacing: 2px; }
+
+        /* 6 VALUE CARDS (3 PILLARS + 3 HOW WE WORK) */
         .grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; }
         .card { background: #fff; border-radius: 15px; padding: 40px; border: 1px solid #f5f5f5; text-align: center; }
         .card i { font-size: 2.2rem; color: var(--accent); margin-bottom: 20px; display: block; }
-
-        /* Staggered Timing for Grid Cards */
-        .grid .card:nth-child(1) { transition-delay: 0.1s; }
-        .grid .card:nth-child(2) { transition-delay: 0.3s; }
-        .grid .card:nth-child(3) { transition-delay: 0.5s; }
+        @media (max-width: 900px) { .grid { grid-template-columns: 1fr; } }
 
         /* FAQ ACCORDION (4 QUESTIONS) */
         .faq-section { background: #f9f9f9; }
         .faq-container { max-width: 800px; margin: 0 auto; }
         .faq-item { background: white; margin-bottom: 15px; border-radius: 12px; border: 1px solid #eee; overflow: hidden; }
-        .faq-question { 
-            width: 100%; padding: 20px 25px; display: flex; justify-content: space-between; align-items: center;
-            background: none; border: none; cursor: pointer; font-weight: 700; color: var(--primary); font-size: 1.1rem; text-align: left;
-        }
+        .faq-question { width: 100%; padding: 20px 25px; display: flex; justify-content: space-between; align-items: center; background: none; border: none; cursor: pointer; font-weight: 700; color: var(--primary); font-size: 1.1rem; text-align: left; }
         .faq-answer { max-height: 0; padding: 0 25px; overflow: hidden; transition: 0.4s ease; color: #666; }
         .faq-item.active .faq-answer { max-height: 200px; padding-bottom: 25px; }
-        .faq-item i { transition: 0.3s; }
-        .faq-item.active i { transform: rotate(180deg); color: var(--accent); }
 
         /* HIGH-IMPACT CTA */
         .cta-box { background: var(--primary); padding: 80px 8%; text-align: center; color: white; }
-        .cta-btn { 
-            display: inline-block; background: var(--accent); color: var(--primary); padding: 18px 45px; 
-            border-radius: 50px; text-decoration: none; font-weight: 800; text-transform: uppercase; 
-            transition: 0.3s; margin-top: 25px; 
-        }
-        .cta-btn:hover { transform: scale(1.05); box-shadow: 0 10px 20px rgba(0,0,0,0.3); }
+        .cta-btn { display: inline-block; background: var(--accent); color: var(--primary); padding: 18px 45px; border-radius: 50px; text-decoration: none; font-weight: 800; text-transform: uppercase; transition: 0.3s; margin-top: 25px; }
 
         /* FOOTER + SPROUT ANIMATION */
         footer { background: #0b1a13; color: white; padding: 80px 8% 40px; }
         .footer-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 60px; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 50px; }
-        .footer-col h4 { color: var(--accent); text-transform: uppercase; font-size: 0.9rem; margin-bottom: 25px; }
-        .footer-col p { font-size: 14px; opacity: 0.8; margin-bottom: 10px; line-height: 1.8; }
-        .footer-col a { 
-            color: rgba(255,255,255,0.6); text-decoration: none; font-size: 14px; margin-bottom: 15px; 
-            display: flex; align-items: center; transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-        }
+        .footer-col h4 { color: var(--accent); text-transform: uppercase; margin-bottom: 25px; }
+        .footer-col a { color: rgba(255,255,255,0.6); text-decoration: none; font-size: 14px; margin-bottom: 15px; display: flex; align-items: center; transition: all 0.4s; }
         .footer-col a i { font-size: 0; margin-right: 0; color: var(--accent); transition: 0.3s; }
         .footer-col a:hover { color: var(--white); transform: translateX(10px); }
-        .footer-col a:hover i { font-size: 14px; margin-right: 10px; }
-
-        @media (max-width: 992px) { .product-grid { grid-template-columns: repeat(2, 1fr); } .grid, .footer-grid { grid-template-columns: 1fr; } }
+        .footer-col a:hover i { font-size: 14px; margin-right: 10px; } /* Sprout Icon reveal */
     </style>
 </head>
 <body>
 
 <header>
     <a href="index.html" class="logo-link">
-        <img src="logo.jpg" alt="Agripure Global Logo" class="logo-img">
+        <img src="logo.jpg" alt="Logo" class="logo-img">
         <span class="brand-name">Agripure Global</span>
     </a>
-    <nav>
+    <div class="hamburger" id="ham-menu"><i class="fas fa-bars"></i></div>
+    <nav id="nav-overlay">
         <ul>
             <li><a href="index.html">Home</a></li>
             <li><a href="#products">Products</a></li>
@@ -154,7 +161,7 @@
     </div>
 </section>
 
-<section id="how-we-work" style="background: #ffffff; border-top: 1px solid #eee;">
+<section style="background: #ffffff; border-top: 1px solid #eee;">
     <div class="section-header"><h2>How We Work</h2></div>
     <div class="grid">
         <div class="card reveal"><i class="fas fa-search"></i><h3>Sourcing</h3><p>Direct procurement from vetted regional farms across India.</p></div>
@@ -166,77 +173,52 @@
 <section class="faq-section">
     <div class="section-header"><h2>Trade FAQ</h2></div>
     <div class="faq-container">
-        <div class="faq-item">
-            <button class="faq-question">What is your standard MOQ? <i class="fas fa-chevron-down"></i></button>
-            <div class="faq-answer">Minimum Order Quantities depend on the product category. Contact us for specific trade quotes.</div>
-        </div>
-        <div class="faq-item">
-            <button class="faq-question">What certifications do you provide? <i class="fas fa-chevron-down"></i></button>
-            <div class="faq-answer">We provide full export documentation including phytosanitary certificates and lab reports.</div>
-        </div>
-        <div class="faq-item">
-            <button class="faq-question">Do you offer international shipping? <i class="fas fa-chevron-down"></i></button>
-            <div class="faq-answer">Yes, we manage end-to-end logistics, delivering via sea and air freight to major international markets and distribution hubs worldwide.</div>
-        </div>
-        <div class="faq-item">
-            <button class="faq-question">Can I request custom packaging? <i class="fas fa-chevron-down"></i></button>
-            <div class="faq-answer">Absolutely. We offer bulk bags, retail pouches, and white-labeling options for our global partners.</div>
-        </div>
+        <div class="faq-item"><button class="faq-question">What is your standard MOQ? <i class="fas fa-chevron-down"></i></button><div class="faq-answer">Minimum Order Quantities depend on the product category. Contact us for specific trade quotes.</div></div>
+        <div class="faq-item"><button class="faq-question">What certifications do you provide? <i class="fas fa-chevron-down"></i></button><div class="faq-answer">We provide full export documentation including phytosanitary certificates and lab reports.</div></div>
+        <div class="faq-item"><button class="faq-question">Do you offer international shipping? <i class="fas fa-chevron-down"></i></button><div class="faq-answer">Yes, we manage end-to-end logistics, delivering via sea and air freight to major international markets worldwide.</div></div>
+        <div class="faq-item"><button class="faq-question">Can I request custom packaging? <i class="fas fa-chevron-down"></i></button><div class="faq-answer">Absolutely. We offer bulk bags, retail pouches, and white-labeling options for our global partners.</div></div>
     </div>
 </section>
 
 <section class="cta-box">
-    <h2>Ready to Source Premium Indian Produce?</h2>
+    <h2>Start Your Export Journey</h2>
     <p>Join our network of global partners and experience the Agripure standard of quality and integrity.</p>
     <a href="contact.html" class="cta-btn">Get a Trade Quote Now</a>
 </section>
 
 <footer>
     <div class="footer-grid">
-        <div class="footer-col">
-            <h4>Agripure Global</h4>
-            <p>Plot 34, Sector 36,<br>Mansarovar, Navi Mumbai,<br>Maharashtra, India - 410209.</p>
-        </div>
-        <div class="footer-col">
-            <h4>Quick Links</h4>
-            <a href="index.html"><i class="fas fa-leaf"></i> Home</a>
-            <a href="#products"><i class="fas fa-leaf"></i> Our Products</a>
-            <a href="contact.html"><i class="fas fa-leaf"></i> Contact Us</a>
-        </div>
-        <div class="footer-col">
-            <h4>Connect</h4>
-            <a href="mailto:info@agripureglobal.com"><i class="fas fa-envelope"></i> info@agripureglobal.com</a>
-            <p>+91 7666170693</p>
-        </div>
+        <div class="footer-col"><h4>Agripure Global</h4><p>Plot 34, Sector 36,<br>Mansarovar, Navi Mumbai,<br>Maharashtra, India - 410209.</p></div>
+        <div class="footer-col"><h4>Quick Links</h4><a href="index.html"><i class="fas fa-leaf"></i> Home</a><a href="#products"><i class="fas fa-leaf"></i> Our Products</a><a href="contact.html"><i class="fas fa-leaf"></i> Contact Us</a></div>
+        <div class="footer-col"><h4>Connect</h4><a href="mailto:info@agripureglobal.com"><i class="fas fa-envelope"></i> info@agripureglobal.com</a><p>+91 7666170693</p></div>
     </div>
-    <div class="footer-bottom" style="padding-top: 30px; text-align: center; font-size: 11px; opacity: 0.5;">
-        &copy; 2026 Agripure Global. All Rights Reserved.
-    </div>
+    <div style="padding-top: 30px; text-align: center; font-size: 11px; opacity: 0.5;">&copy; 2026 Agripure Global. All Rights Reserved.</div>
 </footer>
 
 <script>
-    /* FAQ Toggle Logic */
-    document.querySelectorAll('.faq-question').forEach(button => {
-        button.addEventListener('click', () => {
-            const item = button.parentElement;
-            item.classList.toggle('active');
+    const ham = document.getElementById('ham-menu');
+    const nav = document.getElementById('nav-overlay');
+    ham.addEventListener('click', () => {
+        nav.classList.toggle('active');
+        ham.querySelector('i').classList.toggle('fa-bars');
+        ham.querySelector('i').classList.toggle('fa-times');
+    });
+
+    document.querySelectorAll('#nav-overlay a').forEach(link => {
+        link.addEventListener('click', () => {
+            nav.classList.remove('active');
+            ham.querySelector('i').className = 'fas fa-bars';
         });
     });
 
-    /* Scroll Motion Graphic Logic */
-    const observerOptions = { threshold: 0.2 };
+    document.querySelectorAll('.faq-question').forEach(btn => {
+        btn.addEventListener('click', () => btn.parentElement.classList.toggle('active'));
+    });
+
     const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('active');
-            }
-        });
-    }, observerOptions);
-
-    document.querySelectorAll('.reveal').forEach(card => {
-        observer.observe(card);
-    });
+        entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('active'); });
+    }, { threshold: 0.1 });
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 </script>
-
 </body>
 </html>
