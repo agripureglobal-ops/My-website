@@ -10,7 +10,7 @@
         * { box-sizing: border-box; }
         body { font-family: 'Inter', sans-serif; margin: 0; color: var(--text); background: var(--white); line-height: 1.6; scroll-behavior: smooth; overflow-x: hidden; }
 
-        /* HEADER & LOGO FIX */
+        /* HEADER & BRANDING */
         header { 
             background: rgba(255, 255, 255, 0.98); 
             backdrop-filter: blur(10px);
@@ -23,37 +23,35 @@
             z-index: 1000; 
             box-shadow: 0 2px 20px rgba(0,0,0,0.05); 
         }
-        .logo-link { display: flex; align-items: center; gap: 15px; text-decoration: none; flex: 1; }
-        .logo-img { height: 70px; width: auto; } 
+        .logo-link { display: flex; align-items: center; gap: 15px; text-decoration: none; z-index: 1100; }
+        .logo-img { height: 70px; width: auto; transition: 0.3s; } 
         .brand-name { font-size: 1.2rem; font-weight: 800; color: var(--primary); text-transform: uppercase; letter-spacing: 1px; }
 
-        /* DESKTOP NAV */
+        /* NAVIGATION (Desktop) */
         nav { flex: 2; display: flex; justify-content: center; }
         nav ul { list-style: none; display: flex; gap: 40px; padding: 0; margin: 0; }
         nav a { 
             text-decoration: none; color: var(--primary); font-weight: 700; font-size: 13px; 
-            text-transform: uppercase; transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); display: inline-block;
+            text-transform: uppercase; transition: all 0.3s; display: inline-block;
         }
-        nav a:hover { transform: scale(1.2); color: var(--accent); }
-        .header-spacer { flex: 1; }
+        nav a:hover { color: var(--accent); }
 
-        /* HAMBURGER BUTTON */
-        .hamburger { display: none; cursor: pointer; font-size: 28px; color: var(--primary); z-index: 1100; }
+        /* MOBILE HAMBURGER & OVERLAY [Reference: image_e2e79e.png] */
+        .hamburger { display: none; cursor: pointer; font-size: 32px; color: var(--primary); z-index: 1200; }
 
-        /* MOBILE HEADER OVERRIDES */
         @media (max-width: 992px) {
-            header { padding: 10px 5%; }
             .hamburger { display: block; }
-            .header-spacer { display: none; }
-            nav {
-                display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100vh;
-                background: white; flex-direction: column; justify-content: center; align-items: center; z-index: 1050;
-            }
-            nav.active { display: flex; }
-            nav ul { flex-direction: column; align-items: center; gap: 30px; }
-            nav a { font-size: 1.5rem; }
             .logo-img { height: 50px; }
             .brand-name { font-size: 1rem; }
+            nav {
+                display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100vh;
+                background: #2c3e50; /* Darker overlay like your reference image_e2e79e.png */
+                flex-direction: column; justify-content: center; align-items: center; z-index: 1150;
+            }
+            nav.active { display: flex; }
+            nav ul { flex-direction: column; align-items: center; gap: 35px; }
+            nav a { font-size: 1.5rem; color: #fff; opacity: 0.8; }
+            nav a:hover { opacity: 1; color: var(--accent); }
         }
 
         /* HERO: FARMER ANCHORED 85% 35% */
@@ -61,36 +59,35 @@
             background: linear-gradient(90deg, rgba(0,0,0,0.75) 20%, rgba(0,0,0,0.1) 100%), url('farmer.jpg'); 
             background-size: cover; background-position: 85% 35%; height: 75vh; display: flex; align-items: center; padding: 0 8%; color: var(--white); 
         }
-        .hero-text h1 { font-size: clamp(2.2rem, 6vw, 3.5rem); line-height: 1.1; font-weight: 900; margin: 0; text-shadow: 0 4px 15px rgba(0,0,0,0.3); }
+        .hero-text h1 { font-size: clamp(2rem, 6vw, 3.5rem); line-height: 1.1; font-weight: 900; margin: 0; text-shadow: 0 4px 15px rgba(0,0,0,0.3); }
 
-        /* 10-PRODUCT GRID */
+        /* 10-PRODUCT GRID (Mobile Fix) */
         .product-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 25px; padding: 0 8%; margin-bottom: 50px; }
         .product-card { border-radius: 12px; overflow: hidden; border: 1px solid #eee; background: #fff; transition: 0.3s; display: flex; flex-direction: column; }
-        .product-card:hover { transform: translateY(-8px); box-shadow: 0 15px 30px rgba(0,0,0,0.1); }
         .product-card img { width: 100%; height: 220px; object-fit: cover; display: block; }
         .product-info { padding: 20px; text-align: center; flex-grow: 1; display: flex; flex-direction: column; justify-content: space-between; }
         .product-info h4 { font-size: 1rem; margin-bottom: 15px; color: var(--primary); font-weight: 700; }
         .btn-quote { display: block; padding: 12px; background: var(--primary); color: white; text-decoration: none; border-radius: 6px; font-weight: 800; font-size: 10px; text-transform: uppercase; }
 
         @media (max-width: 1200px) { .product-grid { grid-template-columns: repeat(3, 1fr); } }
-        @media (max-width: 768px) { .product-grid { grid-template-columns: repeat(2, 1fr); } }
-        @media (max-width: 480px) { .product-grid { grid-template-columns: 1fr; } }
+        @media (max-width: 768px) { .product-grid { grid-template-columns: repeat(2, 1fr); gap: 15px; } }
+        @media (max-width: 480px) { .product-grid { grid-template-columns: 1fr; } } /* Clean vertical stack for mobile */
 
-        /* REVEAL ANIMATIONS */
-        .reveal { opacity: 0; transform: translateY(50px); transition: all 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
+        /* REVEAL MOTION */
+        .reveal { opacity: 0; transform: translateY(50px); transition: all 0.8s; }
         .reveal.active { opacity: 1; transform: translateY(0); }
         
         section { padding: 80px 8%; }
         .section-header { text-align: center; margin-bottom: 50px; }
         .section-header h2 { font-size: 1.8rem; color: var(--primary); text-transform: uppercase; letter-spacing: 2px; }
 
-        /* 6 VALUE CARDS (3 PILLARS + 3 HOW WE WORK) */
+        /* 6 VALUE CARDS */
         .grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; }
         .card { background: #fff; border-radius: 15px; padding: 40px; border: 1px solid #f5f5f5; text-align: center; }
         .card i { font-size: 2.2rem; color: var(--accent); margin-bottom: 20px; display: block; }
         @media (max-width: 900px) { .grid { grid-template-columns: 1fr; } }
 
-        /* FAQ ACCORDION (4 QUESTIONS) */
+        /* FAQ (4 QUESTIONS) */
         .faq-section { background: #f9f9f9; }
         .faq-container { max-width: 800px; margin: 0 auto; }
         .faq-item { background: white; margin-bottom: 15px; border-radius: 12px; border: 1px solid #eee; overflow: hidden; }
@@ -98,36 +95,37 @@
         .faq-answer { max-height: 0; padding: 0 25px; overflow: hidden; transition: 0.4s ease; color: #666; }
         .faq-item.active .faq-answer { max-height: 200px; padding-bottom: 25px; }
 
-        /* HIGH-IMPACT CTA */
+        /* CTA BOX */
         .cta-box { background: var(--primary); padding: 80px 8%; text-align: center; color: white; }
         .cta-btn { display: inline-block; background: var(--accent); color: var(--primary); padding: 18px 45px; border-radius: 50px; text-decoration: none; font-weight: 800; text-transform: uppercase; transition: 0.3s; margin-top: 25px; }
 
-        /* FOOTER + SPROUT ANIMATION */
+        /* FOOTER & SPROUT ANIMATION */
         footer { background: #0b1a13; color: white; padding: 80px 8% 40px; }
         .footer-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 60px; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 50px; }
         .footer-col h4 { color: var(--accent); text-transform: uppercase; margin-bottom: 25px; }
-        .footer-col a { color: rgba(255,255,255,0.6); text-decoration: none; font-size: 14px; margin-bottom: 15px; display: flex; align-items: center; transition: all 0.4s; }
+        .footer-col a { color: rgba(255,255,255,0.6); text-decoration: none; font-size: 14px; margin-bottom: 15px; display: flex; align-items: center; transition: 0.3s; }
         .footer-col a i { font-size: 0; margin-right: 0; color: var(--accent); transition: 0.3s; }
         .footer-col a:hover { color: var(--white); transform: translateX(10px); }
-        .footer-col a:hover i { font-size: 14px; margin-right: 10px; } /* Sprout Icon reveal */
+        .footer-col a:hover i { font-size: 14px; margin-right: 10px; } /* Sprout icon animation */
+        
+        @media (max-width: 768px) { .footer-grid { grid-template-columns: 1fr; gap: 40px; } }
     </style>
 </head>
 <body>
 
 <header>
     <a href="index.html" class="logo-link">
-        <img src="logo.jpg" alt="Logo" class="logo-img">
+        <img src="logo.jpg" alt="Agripure Global Logo" class="logo-img">
         <span class="brand-name">Agripure Global</span>
     </a>
-    <div class="hamburger" id="ham-menu"><i class="fas fa-bars"></i></div>
-    <nav id="nav-overlay">
+    <div class="hamburger" id="ham-toggle"><i class="fas fa-bars"></i></div>
+    <nav id="nav-menu">
         <ul>
             <li><a href="index.html">Home</a></li>
             <li><a href="#products">Products</a></li>
             <li><a href="contact.html">Contact Us</a></li>
         </ul>
     </nav>
-    <div class="header-spacer"></div>
 </header>
 
 <section class="hero">
@@ -188,25 +186,38 @@
 
 <footer>
     <div class="footer-grid">
-        <div class="footer-col"><h4>Agripure Global</h4><p>Plot 34, Sector 36,<br>Mansarovar, Navi Mumbai,<br>Maharashtra, India - 410209.</p></div>
-        <div class="footer-col"><h4>Quick Links</h4><a href="index.html"><i class="fas fa-leaf"></i> Home</a><a href="#products"><i class="fas fa-leaf"></i> Our Products</a><a href="contact.html"><i class="fas fa-leaf"></i> Contact Us</a></div>
-        <div class="footer-col"><h4>Connect</h4><a href="mailto:info@agripureglobal.com"><i class="fas fa-envelope"></i> info@agripureglobal.com</a><p>+91 7666170693</p></div>
+        <div class="footer-col">
+            <h4>Agripure Global</h4>
+            <p>Plot 34, Sector 36,<br>Mansarovar, Navi Mumbai,<br>Maharashtra, India - 410209.</p>
+        </div>
+        <div class="footer-col">
+            <h4>Quick Links</h4>
+            <a href="index.html"><i class="fas fa-leaf"></i> Home</a>
+            <a href="#products"><i class="fas fa-leaf"></i> Our Products</a>
+            <a href="contact.html"><i class="fas fa-leaf"></i> Contact Us</a>
+        </div>
+        <div class="footer-col">
+            <h4>Connect</h4>
+            <a href="mailto:info@agripureglobal.com"><i class="fas fa-envelope"></i> info@agripureglobal.com</a>
+            <p>+91 7666170693</p>
+        </div>
     </div>
     <div style="padding-top: 30px; text-align: center; font-size: 11px; opacity: 0.5;">&copy; 2026 Agripure Global. All Rights Reserved.</div>
 </footer>
 
 <script>
-    const ham = document.getElementById('ham-menu');
-    const nav = document.getElementById('nav-overlay');
+    // MOBILE OVERLAY LOGIC [Reference: image_e2e79e.png]
+    const ham = document.getElementById('ham-toggle');
+    const menu = document.getElementById('nav-menu');
     ham.addEventListener('click', () => {
-        nav.classList.toggle('active');
+        menu.classList.toggle('active');
         ham.querySelector('i').classList.toggle('fa-bars');
         ham.querySelector('i').classList.toggle('fa-times');
     });
 
-    document.querySelectorAll('#nav-overlay a').forEach(link => {
+    document.querySelectorAll('#nav-menu a').forEach(link => {
         link.addEventListener('click', () => {
-            nav.classList.remove('active');
+            menu.classList.remove('active');
             ham.querySelector('i').className = 'fas fa-bars';
         });
     });
