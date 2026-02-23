@@ -16,14 +16,25 @@
 
         .contact-container { max-width: 900px; margin: 40px auto; padding: 0 20px; }
         
-        /* Form Card Styling */
         .form-card { background: #fff; padding: 40px; border-radius: 12px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); border: 1px solid #eee; }
         .form-group { margin-bottom: 20px; }
         label { display: block; margin-bottom: 8px; font-weight: 700; color: var(--primary); }
-        input, select, textarea { width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 6px; font-family: inherit; font-size: 16px; } /* 16px prevents mobile zoom */
+        input, select, textarea { width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 6px; font-family: inherit; font-size: 16px; }
         .btn-submit { width: 100%; padding: 15px; background: var(--primary); color: white; border: none; border-radius: 6px; font-weight: 800; cursor: pointer; text-transform: uppercase; transition: 0.3s; }
 
-        /* Contact Details (Now Below Form) */
+        /* THE SUCCESS MESSAGE STYLE */
+        #success-box { 
+            display: none; 
+            margin-top: 20px; 
+            padding: 15px; 
+            border: 1px solid #28a745; 
+            background: #f4fff4; 
+            color: #1b5e20; 
+            border-radius: 6px; 
+            text-align: center; 
+            font-weight: 600; 
+        }
+
         .contact-details { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-top: 50px; text-align: center; margin-bottom: 50px; }
         .detail-card { background: white; padding: 25px; border-radius: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); }
         .detail-card i { color: var(--accent); font-size: 1.5rem; margin-bottom: 10px; }
@@ -76,6 +87,8 @@
             </div>
             <button type="submit" id="my-form-status" class="btn-submit">Send Inquiry</button>
         </form>
+
+        <div id="success-box">Thank you, Our team will reach out soon.</div>
     </section>
 
     <div class="contact-details">
@@ -98,7 +111,6 @@
 </div>
 
 <script>
-  // 1. AUTO-SELECT PRODUCT FROM URL
   window.addEventListener('DOMContentLoaded', () => {
     const urlParams = new URLSearchParams(window.location.search);
     const productToSelect = urlParams.get('product');
@@ -108,11 +120,12 @@
     }
   });
 
-  // 2. AJAX SUBMISSION (STAY ON PAGE)
   var form = document.getElementById("my-form");
+  var status = document.getElementById("my-form-status");
+  var successBox = document.getElementById("success-box");
+
   async function handleSubmit(event) {
     event.preventDefault();
-    var status = document.getElementById("my-form-status");
     var data = new FormData(event.target);
     status.innerHTML = "Sending...";
     status.disabled = true;
@@ -123,8 +136,10 @@
       headers: { 'Accept': 'application/json' }
     }).then(response => {
       if (response.ok) {
-        status.innerHTML = "Success! We will reach out soon.";
-        status.style.backgroundColor = "#28a745"; 
+        // Form remains same, status button resets, message appears below
+        status.innerHTML = "Send Inquiry";
+        status.disabled = false;
+        successBox.style.display = "block";
         form.reset(); 
       } else {
         status.innerHTML = "Error. Please try again.";
