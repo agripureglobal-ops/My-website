@@ -8,234 +8,170 @@
     <style>
         :root { --primary: #1b4332; --accent: #c5a059; --text: #2d3436; --white: #ffffff; }
         * { box-sizing: border-box; }
-        body { font-family: 'Inter', sans-serif; margin: 0; color: var(--text); background: var(--white); line-height: 1.6; scroll-behavior: smooth; overflow-x: hidden; }
+        body { font-family: 'Inter', sans-serif; margin: 0; color: var(--text); background: var(--white); line-height: 1.6; overflow-x: hidden; }
 
-        /* HEADER & LOGO FIX */
+        /* FIXED MOBILE HEADER WITH HAMBURGER */
         header { 
-            background: rgba(255, 255, 255, 0.98); 
-            backdrop-filter: blur(10px);
-            padding: 15px 8%; 
-            display: flex; 
-            justify-content: space-between; 
-            align-items: center; 
-            position: sticky; 
-            top: 0; 
-            z-index: 1000; 
-            box-shadow: 0 2px 20px rgba(0,0,0,0.05); 
+            background: #fff; padding: 15px 5%; display: flex; justify-content: space-between; 
+            align-items: center; position: sticky; top: 0; z-index: 1000; box-shadow: 0 2px 10px rgba(0,0,0,0.05); 
         }
-        .logo-link { display: flex; align-items: center; gap: 15px; text-decoration: none; flex: 1; }
-        .logo-img { height: 70px; width: auto; } 
-        .brand-name { font-size: 1.2rem; font-weight: 800; color: var(--primary); text-transform: uppercase; letter-spacing: 1px; }
+        .logo-link { display: flex; align-items: center; gap: 12px; text-decoration: none; }
+        .logo-img { height: 50px; }
+        .brand-name { font-size: 1.1rem; font-weight: 800; color: var(--primary); text-transform: uppercase; letter-spacing: 0.5px; }
 
-        nav { flex: 2; display: flex; justify-content: center; }
-        nav ul { list-style: none; display: flex; gap: 40px; padding: 0; margin: 0; }
-        nav a { 
-            text-decoration: none; color: var(--primary); font-weight: 700; font-size: 13px; 
-            text-transform: uppercase; transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); display: inline-block;
+        nav ul { list-style: none; display: flex; gap: 30px; margin: 0; padding: 0; }
+        nav a { text-decoration: none; color: var(--primary); font-weight: 700; font-size: 13px; text-transform: uppercase; transition: 0.3s; }
+        nav a:hover { color: var(--accent); }
+
+        .hamburger { display: none; cursor: pointer; font-size: 24px; color: var(--primary); }
+
+        @media (max-width: 850px) {
+            .hamburger { display: block; }
+            .brand-name { font-size: 0.9rem; }
+            nav {
+                display: none; position: absolute; top: 80px; left: 0; width: 100%;
+                background: #fff; box-shadow: 0 10px 10px rgba(0,0,0,0.05); border-top: 1px solid #eee;
+            }
+            nav.active { display: block; }
+            nav ul { flex-direction: column; padding: 15px; gap: 0; }
+            nav a { display: block; padding: 15px 0; font-size: 14px; border-bottom: 1px solid #f9f9f9; }
         }
-        nav a:hover { transform: scale(1.2); color: var(--accent); }
-        .header-spacer { flex: 1; }
 
-        /* HERO: FARMER ANCHORED 85% 35% */
+        /* HERO SECTION */
         .hero { 
-            background: linear-gradient(90deg, rgba(0,0,0,0.75) 20%, rgba(0,0,0,0.1) 100%), url('farmer.jpg'); 
-            background-size: cover; background-position: 85% 35%; height: 75vh; display: flex; align-items: center; padding: 0 8%; color: var(--white); 
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('farmer.jpg'); 
+            background-size: cover; background-position: center; height: 75vh; 
+            display: flex; align-items: center; justify-content: center; color: white; text-align: center; padding: 0 20px;
         }
-        .hero-text h1 { font-size: 3.5rem; line-height: 1.1; font-weight: 900; margin: 0; text-shadow: 0 4px 15px rgba(0,0,0,0.3); }
+        .hero-content h1 { font-size: clamp(2rem, 5vw, 3.5rem); text-transform: uppercase; font-weight: 900; margin-bottom: 20px; }
 
-        /* PRODUCT GRID (10 ITEMS) */
-        .product-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 25px; padding: 0 8%; margin-bottom: 50px; }
-        .product-card { border-radius: 12px; overflow: hidden; border: 1px solid #eee; background: #fff; transition: 0.3s; }
-        .product-card:hover { transform: translateY(-8px); box-shadow: 0 15px 30px rgba(0,0,0,0.1); }
-        .product-card img { width: 100%; height: 220px; object-fit: cover; display: block; }
-        .product-info { padding: 20px; text-align: center; }
-        .product-info h4 { font-size: 1rem; margin-bottom: 15px; color: var(--primary); font-weight: 700; }
-        .btn-quote { display: block; padding: 12px; background: var(--primary); color: white; text-decoration: none; border-radius: 6px; font-weight: 800; font-size: 10px; text-transform: uppercase; }
-
-        /* MOTION GRAPHIC ANIMATIONS (SCROLL TRIGGER) */
-        .reveal { opacity: 0; transform: translateY(50px); transition: all 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
-        .reveal.active { opacity: 1; transform: translateY(0); }
-        
-        section { padding: 80px 8%; }
+        /* PRODUCT GRID - MASTER MOBILE FIX */
+        .section-padding { padding: 80px 8%; }
         .section-header { text-align: center; margin-bottom: 50px; }
-        .section-header h2 { font-size: 1.8rem; color: var(--primary); text-transform: uppercase; letter-spacing: 2px; }
-        .grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; }
-        .card { background: #fff; border-radius: 15px; padding: 40px; border: 1px solid #f5f5f5; text-align: center; }
-        .card i { font-size: 2.2rem; color: var(--accent); margin-bottom: 20px; display: block; }
+        .section-header h2 { font-size: 2rem; color: var(--primary); text-transform: uppercase; letter-spacing: 2px; }
 
-        /* Staggered Timing for Grid Cards */
-        .grid .card:nth-child(1) { transition-delay: 0.1s; }
-        .grid .card:nth-child(2) { transition-delay: 0.3s; }
-        .grid .card:nth-child(3) { transition-delay: 0.5s; }
-
-        /* FAQ ACCORDION (4 QUESTIONS) */
-        .faq-section { background: #f9f9f9; }
-        .faq-container { max-width: 800px; margin: 0 auto; }
-        .faq-item { background: white; margin-bottom: 15px; border-radius: 12px; border: 1px solid #eee; overflow: hidden; }
-        .faq-question { 
-            width: 100%; padding: 20px 25px; display: flex; justify-content: space-between; align-items: center;
-            background: none; border: none; cursor: pointer; font-weight: 700; color: var(--primary); font-size: 1.1rem; text-align: left;
+        .product-grid { 
+            display: grid; 
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
+            gap: 30px; 
         }
-        .faq-answer { max-height: 0; padding: 0 25px; overflow: hidden; transition: 0.4s ease; color: #666; }
-        .faq-item.active .faq-answer { max-height: 200px; padding-bottom: 25px; }
-        .faq-item i { transition: 0.3s; }
-        .faq-item.active i { transform: rotate(180deg); color: var(--accent); }
-
-        /* HIGH-IMPACT CTA */
-        .cta-box { background: var(--primary); padding: 80px 8%; text-align: center; color: white; }
-        .cta-btn { 
-            display: inline-block; background: var(--accent); color: var(--primary); padding: 18px 45px; 
-            border-radius: 50px; text-decoration: none; font-weight: 800; text-transform: uppercase; 
-            transition: 0.3s; margin-top: 25px; 
+        .product-card { 
+            border-radius: 15px; overflow: hidden; border: 1px solid #eee; 
+            background: #fff; transition: 0.4s; display: flex; flex-direction: column; 
+            box-shadow: 0 5px 15px rgba(0,0,0,0.03);
         }
-        .cta-btn:hover { transform: scale(1.05); box-shadow: 0 10px 20px rgba(0,0,0,0.3); }
+        .product-card:hover { transform: translateY(-10px); box-shadow: 0 15px 30px rgba(0,0,0,0.1); }
+        .product-card img { width: 100%; height: 260px; object-fit: cover; }
+        .product-info { padding: 25px; text-align: center; flex-grow: 1; display: flex; flex-direction: column; }
+        .product-info h4 { font-size: 1.1rem; margin: 0 0 20px 0; color: var(--primary); font-weight: 800; min-height: 50px; }
+        
+        .btn-quote { 
+            margin-top: auto; display: inline-block; padding: 14px 30px; background: var(--primary); 
+            color: white; text-decoration: none; border-radius: 50px; 
+            font-weight: 800; font-size: 12px; text-transform: uppercase; transition: 0.3s;
+        }
+        .btn-quote:hover { background: var(--accent); }
 
-        /* FOOTER + SPROUT ANIMATION */
+        /* FORCE 1-COLUMN ON MOBILE */
+        @media (max-width: 550px) {
+            .section-padding { padding: 50px 5%; }
+            .product-grid { grid-template-columns: 1fr; gap: 35px; }
+            .product-card img { height: 280px; }
+        }
+
+        /* WHY CHOOSE US SECTION */
+        .features-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; margin-top: 40px; }
+        .feature-card { padding: 40px; background: #fdf6e9; border-radius: 20px; text-align: center; }
+        .feature-card i { font-size: 2.5rem; color: var(--accent); margin-bottom: 20px; }
+
+        @media (max-width: 768px) { .features-grid { grid-template-columns: 1fr; } }
+
+        /* FOOTER */
         footer { background: #0b1a13; color: white; padding: 80px 8% 40px; }
-        .footer-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 60px; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 50px; }
-        .footer-col h4 { color: var(--accent); text-transform: uppercase; font-size: 0.9rem; margin-bottom: 25px; }
-        .footer-col p { font-size: 14px; opacity: 0.8; margin-bottom: 10px; line-height: 1.8; }
-        .footer-col a { 
-            color: rgba(255,255,255,0.6); text-decoration: none; font-size: 14px; margin-bottom: 15px; 
-            display: flex; align-items: center; transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-        }
-        .footer-col a i { font-size: 0; margin-right: 0; color: var(--accent); transition: 0.3s; }
-        .footer-col a:hover { color: var(--white); transform: translateX(10px); }
-        .footer-col a:hover i { font-size: 14px; margin-right: 10px; }
+        .footer-content { display: grid; grid-template-columns: 1.5fr 1fr 1fr; gap: 50px; }
+        .footer-col h4 { color: var(--accent); text-transform: uppercase; margin-bottom: 20px; }
+        .footer-bottom { margin-top: 50px; padding-top: 30px; border-top: 1px solid rgba(255,255,255,0.1); text-align: center; font-size: 13px; opacity: 0.6; }
 
-        @media (max-width: 992px) { .product-grid { grid-template-columns: repeat(2, 1fr); } .grid, .footer-grid { grid-template-columns: 1fr; } }
+        @media (max-width: 768px) { .footer-content { grid-template-columns: 1fr; text-align: center; } }
     </style>
 </head>
 <body>
 
 <header>
     <a href="index.html" class="logo-link">
-        <img src="logo.jpg" alt="Agripure Global Logo" class="logo-img">
+        <img src="logo.jpg" alt="Logo" class="logo-img">
         <span class="brand-name">Agripure Global</span>
     </a>
-    <nav>
+    <div class="hamburger" onclick="toggleMenu()"><i class="fas fa-bars"></i></div>
+    <nav id="nav-menu">
         <ul>
             <li><a href="index.html">Home</a></li>
             <li><a href="#products">Products</a></li>
+            <li><a href="#why-us">Why Us</a></li>
             <li><a href="contact.html">Contact Us</a></li>
         </ul>
     </nav>
-    <div class="header-spacer"></div>
 </header>
 
 <section class="hero">
-    <div class="hero-text">
+    <div class="hero-content">
         <h1>Rooted in Integrity,<br>Harvested for Vitality.</h1>
     </div>
 </section>
 
-<section id="products">
+<section id="products" class="section-padding">
     <div class="section-header"><h2>Our Premium Catalogue</h2></div>
     <div class="product-grid">
-        <div class="product-card"><img src="jaggery-blocks.jpg"><div class="product-info"><h4>Jaggery Blocks</h4><a href="contact.html?product=Jaggery Blocks" class="btn-quote">Request Quote</a></div></div>
-        <div class="product-card"><img src="jaggery-liquid.jpg"><div class="product-info"><h4>Jaggery Liquid</h4><a href="contact.html?product=Jaggery Liquid" class="btn-quote">Request Quote</a></div></div>
-        <div class="product-card"><img src="jaggery-cubes.jpg"><div class="product-info"><h4>Jaggery Cubes</h4><a href="contact.html?product=Jaggery Cubes" class="btn-quote">Request Quote</a></div></div>
-        <div class="product-card"><img src="jaggery-powder.jpg"><div class="product-info"><h4>Jaggery Powder</h4><a href="contact.html?product=Jaggery Powder" class="btn-quote">Request Quote</a></div></div>
-        <div class="product-card"><img src="honey.jpg"><div class="product-info"><h4>Raw Forest Honey</h4><a href="contact.html?product=Raw Forest Honey" class="btn-quote">Request Quote</a></div></div>
-        <div class="product-card"><img src="grapes.jpg"><div class="product-info"><h4>Export Grapes</h4><a href="contact.html?product=Export Grapes" class="btn-quote">Request Quote</a></div></div>
-        <div class="product-card"><img src="onions.jpg"><div class="product-info"><h4>Red Onions</h4><a href="contact.html?product=Red Onions" class="btn-quote">Request Quote</a></div></div>
-        <div class="product-card"><img src="onion-powder.jpg"><div class="product-info"><h4>Onion Powder</h4><a href="contact.html?product=Onion Powder" class="btn-quote">Request Quote</a></div></div>
-        <div class="product-card"><img src="pomegranates.jpg"><div class="product-info"><h4>Pomegranates</h4><a href="contact.html?product=Pomegranates" class="btn-quote">Request Quote</a></div></div>
-        <div class="product-card"><img src="makhana.jpg"><div class="product-info"><h4>Premium Makhana</h4><a href="contact.html?product=Premium Makhana" class="btn-quote">Request Quote</a></div></div>
+        <div class="product-card"><img src="honey.jpg"> <div class="product-info"><h4>Raw Forest Honey</h4><a href="contact.html?product=Honey" class="btn-quote">Request Quote</a></div></div>
+        <div class="product-card"><img src="grapes.jpg"> <div class="product-info"><h4>Export Grapes</h4><a href="contact.html?product=Grapes" class="btn-quote">Request Quote</a></div></div>
+        <div class="product-card"><img src="onions.jpg"> <div class="product-info"><h4>Red Onions</h4><a href="contact.html?product=Onions" class="btn-quote">Request Quote</a></div></div>
+        <div class="product-card"><img src="onion-powder.jpg"> <div class="product-info"><h4>Onion Powder</h4><a href="contact.html?product=Onion Powder" class="btn-quote">Request Quote</a></div></div>
+        <div class="product-card"><img src="makhana.jpg"> <div class="product-info"><h4>Premium Makhana</h4><a href="contact.html?product=Makhana" class="btn-quote">Request Quote</a></div></div>
+        <div class="product-card"><img src="jaggery-blocks.jpg"> <div class="product-info"><h4>Jaggery Blocks</h4><a href="contact.html?product=Jaggery Blocks" class="btn-quote">Request Quote</a></div></div>
+        <div class="product-card"><img src="jaggery-liquid.jpg"> <div class="product-info"><h4>Jaggery Liquid</h4><a href="contact.html?product=Jaggery Liquid" class="btn-quote">Request Quote</a></div></div>
+        <div class="product-card"><img src="jaggery-cubes.jpg"> <div class="product-info"><h4>Jaggery Cubes</h4><a href="contact.html?product=Jaggery Cubes" class="btn-quote">Request Quote</a></div></div>
+        <div class="product-card"><img src="jaggery-powder.jpg"> <div class="product-info"><h4>Jaggery Powder</h4><a href="contact.html?product=Jaggery Powder" class="btn-quote">Request Quote</a></div></div>
+        <div class="product-card"><img src="pomegranates.jpg"> <div class="product-info"><h4>Pomegranates</h4><a href="contact.html?product=Pomegranates" class="btn-quote">Request Quote</a></div></div>
     </div>
 </section>
 
-<section>
-    <div class="section-header"><h2>Our Core Pillars</h2></div>
-    <div class="grid">
-        <div class="card reveal"><i class="fas fa-leaf"></i><h3>Grown Quality</h3><p>Natural, nutrient-dense produce direct from Indian soil.</p></div>
-        <div class="card reveal"><i class="fas fa-handshake"></i><h3>End-to-End Integrity</h3><p>Consistent supply chains and on-time international delivery.</p></div>
-        <div class="card reveal"><i class="fas fa-heartbeat"></i><h3>Healthy Vitality</h3><p>Wholesome fuel for a modern, global lifestyle.</p></div>
+<section id="why-us" class="section-padding" style="background: #fff;">
+    <div class="section-header"><h2>Why Trade With Us</h2></div>
+    <div class="features-grid">
+        <div class="feature-card"><i class="fas fa-check-circle"></i><h4>Direct Sourcing</h4><p>We work directly with farmers to ensure the freshest quality and fair trade.</p></div>
+        <div class="feature-card"><i class="fas fa-globe"></i><h4>Global Reach</h4><p>Certified export processes serving clients across the Middle East, Europe, and Asia.</p></div>
+        <div class="feature-card"><i class="fas fa-shield-alt"></i><h4>Quality Assured</h4><p>Rigorous testing and premium packaging for every shipment.</p></div>
     </div>
-</section>
-
-<section id="how-we-work" style="background: #ffffff; border-top: 1px solid #eee;">
-    <div class="section-header"><h2>How We Work</h2></div>
-    <div class="grid">
-        <div class="card reveal"><i class="fas fa-search"></i><h3>Sourcing</h3><p>Direct procurement from vetted regional farms across India.</p></div>
-        <div class="card reveal"><i class="fas fa-vial"></i><h3>Quality Control</h3><p>Multi-stage testing ensuring premium export-grade standards.</p></div>
-        <div class="card reveal"><i class="fas fa-ship"></i><h3>Logistics</h3><p>Custom packaging and worldwide shipping to international destinations.</p></div>
-    </div>
-</section>
-
-<section class="faq-section">
-    <div class="section-header"><h2>Trade FAQ</h2></div>
-    <div class="faq-container">
-        <div class="faq-item">
-            <button class="faq-question">What is your standard MOQ? <i class="fas fa-chevron-down"></i></button>
-            <div class="faq-answer">Minimum Order Quantities depend on the product category. Contact us for specific trade quotes.</div>
-        </div>
-        <div class="faq-item">
-            <button class="faq-question">What certifications do you provide? <i class="fas fa-chevron-down"></i></button>
-            <div class="faq-answer">We provide full export documentation including phytosanitary certificates and lab reports.</div>
-        </div>
-        <div class="faq-item">
-            <button class="faq-question">Do you offer international shipping? <i class="fas fa-chevron-down"></i></button>
-            <div class="faq-answer">Yes, we manage end-to-end logistics, delivering via sea and air freight to major international markets and distribution hubs worldwide.</div>
-        </div>
-        <div class="faq-item">
-            <button class="faq-question">Can I request custom packaging? <i class="fas fa-chevron-down"></i></button>
-            <div class="faq-answer">Absolutely. We offer bulk bags, retail pouches, and white-labeling options for our global partners.</div>
-        </div>
-    </div>
-</section>
-
-<section class="cta-box">
-    <h2>Ready to Source Premium Indian Produce?</h2>
-    <p>Join our network of global partners and experience the Agripure standard of quality and integrity.</p>
-    <a href="contact.html" class="cta-btn">Get a Trade Quote Now</a>
 </section>
 
 <footer>
-    <div class="footer-grid">
+    <div class="footer-content">
         <div class="footer-col">
             <h4>Agripure Global</h4>
-            <p>Plot 34, Sector 36,<br>Mansarovar, Navi Mumbai,<br>Maharashtra, India - 410209.</p>
+            <p>Exporting the finest Indian produce to the global market with transparency and excellence.</p>
         </div>
         <div class="footer-col">
             <h4>Quick Links</h4>
-            <a href="index.html"><i class="fas fa-leaf"></i> Home</a>
-            <a href="#products"><i class="fas fa-leaf"></i> Our Products</a>
-            <a href="contact.html"><i class="fas fa-leaf"></i> Contact Us</a>
+            <p><a href="index.html" style="color:white; text-decoration:none;">Home</a><br>
+            <a href="#products" style="color:white; text-decoration:none;">Products</a><br>
+            <a href="contact.html" style="color:white; text-decoration:none;">Contact</a></p>
         </div>
         <div class="footer-col">
-            <h4>Connect</h4>
-            <a href="mailto:info@agripureglobal.com"><i class="fas fa-envelope"></i> info@agripureglobal.com</a>
-            <p>+91 7666170693</p>
+            <h4>Contact Info</h4>
+            <p>Navi Mumbai, Maharashtra<br>info@agripureglobal.com<br>+91 7666170693</p>
         </div>
     </div>
-    <div class="footer-bottom" style="padding-top: 30px; text-align: center; font-size: 11px; opacity: 0.5;">
-        &copy; 2026 Agripure Global. All Rights Reserved.
-    </div>
+    <div class="footer-bottom">&copy; 2026 Agripure Global. All Rights Reserved.</div>
 </footer>
 
 <script>
-    /* FAQ Toggle Logic */
-    document.querySelectorAll('.faq-question').forEach(button => {
-        button.addEventListener('click', () => {
-            const item = button.parentElement;
-            item.classList.toggle('active');
-        });
-    });
-
-    /* Scroll Motion Graphic Logic */
-    const observerOptions = { threshold: 0.2 };
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('active');
-            }
-        });
-    }, observerOptions);
-
-    document.querySelectorAll('.reveal').forEach(card => {
-        observer.observe(card);
-    });
+    function toggleMenu() {
+        const nav = document.getElementById('nav-menu');
+        const icon = document.querySelector('.hamburger i');
+        nav.classList.toggle('active');
+        icon.classList.toggle('fa-bars');
+        icon.classList.toggle('fa-times');
+    }
 </script>
 
 </body>
