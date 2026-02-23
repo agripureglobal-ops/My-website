@@ -10,7 +10,7 @@
         * { box-sizing: border-box; }
         body { font-family: 'Inter', sans-serif; margin: 0; color: var(--text); background: var(--white); line-height: 1.6; scroll-behavior: smooth; overflow-x: hidden; }
 
-        /* HEADER */
+        /* HEADER & BRANDING */
         header { 
             background: rgba(255, 255, 255, 0.98); 
             backdrop-filter: blur(10px);
@@ -27,79 +27,67 @@
         .logo-img { height: 70px; width: auto; } 
         .brand-name { font-size: 1.2rem; font-weight: 800; color: var(--primary); text-transform: uppercase; letter-spacing: 1px; }
 
-        /* DESKTOP NAV */
-        nav ul { list-style: none; display: flex; gap: 40px; padding: 0; margin: 0; }
-        nav a { text-decoration: none; color: var(--primary); font-weight: 700; font-size: 13px; text-transform: uppercase; transition: 0.3s; }
+        /* MOBILE HAMBURGER & OVERLAY */
         .hamburger { display: none; cursor: pointer; font-size: 28px; color: var(--primary); z-index: 1200; }
 
-        /* AESTHETIC MOBILE OVERLAY [Reference: image_e2e79e.png] */
         @media (max-width: 992px) {
             .hamburger { display: block; }
             .logo-img { height: 50px; }
             nav {
                 display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100vh;
                 background: var(--dark-bg); flex-direction: column; justify-content: center; 
-                align-items: center; z-index: 1100; padding: 40px 0;
+                align-items: center; z-index: 1100;
             }
             nav.active { display: flex; }
-            nav ul { 
-                flex-direction: column; align-items: center; gap: 0; width: 100%; 
-                max-height: 80vh; overflow-y: auto; 
-            }
-            
-            /* Section Headers in Menu */
-            nav ul::before { content: 'Menu'; color: var(--accent); text-transform: uppercase; font-size: 12px; letter-spacing: 3px; margin-bottom: 20px; opacity: 0.7; }
-            
+            nav ul { flex-direction: column; align-items: center; gap: 0; width: 100%; }
             nav li { width: 100%; text-align: center; border-bottom: 1px solid rgba(255,255,255,0.05); }
             nav a { 
                 display: block; padding: 20px 0; font-size: 1.2rem; color: #fff; 
-                font-weight: 400; text-transform: capitalize; letter-spacing: 1px;
-                opacity: 0.9; transition: 0.3s;
+                font-weight: 400; text-transform: capitalize; opacity: 0.9; text-decoration: none;
             }
-            nav a:hover { color: var(--accent); opacity: 1; background: rgba(255,255,255,0.02); }
         }
 
-        /* HERO: 85% 35% */
+        /* HERO: FARMER ANCHORED 85% 35% */
         .hero { 
             background: linear-gradient(90deg, rgba(0,0,0,0.75) 20%, rgba(0,0,0,0.1) 100%), url('farmer.jpg'); 
             background-size: cover; background-position: 85% 35%; height: 75vh; display: flex; align-items: center; padding: 0 8%; color: var(--white); 
         }
-        .hero-text h1 { font-size: clamp(2.2rem, 6vw, 3.5rem); font-weight: 900; line-height: 1.1; }
+        .hero-text h1 { font-size: clamp(2.2rem, 6vw, 3.5rem); font-weight: 900; line-height: 1.1; margin: 0; }
 
-        /* PRODUCT GRID [Reference: image_c6b442.jpg] */
+        /* AESTHETIC DROPDOWN (Fixes the "Heavy/Blocky" look) */
+        .dropdown-container { max-width: 400px; margin: 40px auto; padding: 0 20px; }
+        select {
+            width: 100%; padding: 12px 15px; font-family: 'Inter', sans-serif; 
+            font-size: 14px; font-weight: 400; color: var(--text);
+            background-color: #ffffff; border: 1px solid #e0e0e0; border-radius: 8px;
+            appearance: none; cursor: pointer; outline: none;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' fill='%231b4332' viewBox='0 0 16 16'%3E%3Cpath d='M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z'/%3E%3C/svg%3E");
+            background-repeat: no-repeat; background-position: right 15px center;
+        }
+
+        /* 10-PRODUCT GRID */
         .product-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 25px; padding: 60px 8%; }
-        .product-card { border-radius: 12px; border: 1px solid #eee; overflow: hidden; background: #fff; transition: 0.3s; display: flex; flex-direction: column; }
+        .product-card { border-radius: 12px; border: 1px solid #eee; overflow: hidden; background: #fff; transition: 0.3s; }
         .product-card img { width: 100%; height: 220px; object-fit: cover; }
-        .product-info { padding: 20px; text-align: center; flex-grow: 1; }
-        .btn-quote { display: block; padding: 12px; background: var(--primary); color: white; text-decoration: none; border-radius: 6px; font-weight: 800; font-size: 10px; text-transform: uppercase; margin-top: 10px; }
+        .product-info { padding: 20px; text-align: center; }
+        .btn-quote { display: block; padding: 12px; background: var(--primary); color: white; text-decoration: none; border-radius: 6px; font-weight: 800; font-size: 10px; text-transform: uppercase; }
 
         @media (max-width: 1100px) { .product-grid { grid-template-columns: repeat(3, 1fr); } }
-        @media (max-width: 768px) { .product-grid { grid-template-columns: repeat(2, 1fr); } }
         @media (max-width: 480px) { .product-grid { grid-template-columns: 1fr; } }
 
-        /* VALUE CARDS & REVEAL */
-        .reveal { opacity: 0; transform: translateY(40px); transition: 0.8s ease-out; }
-        .reveal.active { opacity: 1; transform: translateY(0); }
+        /* REVEAL CARDS */
         .grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; padding: 0 8% 80px; }
         .card { background: #fff; border-radius: 15px; padding: 40px; border: 1px solid #f5f5f5; text-align: center; }
-        .card i { font-size: 2.2rem; color: var(--accent); margin-bottom: 20px; display: block; }
-        @media (max-width: 900px) { .grid { grid-template-columns: 1fr; } }
+        .reveal { opacity: 0; transform: translateY(30px); transition: 0.8s; }
+        .reveal.active { opacity: 1; transform: translateY(0); }
 
-        /* FAQ */
-        .faq-section { background: #f9f9f9; padding: 80px 8%; }
-        .faq-item { background: white; margin-bottom: 15px; border-radius: 12px; border: 1px solid #eee; }
-        .faq-question { width: 100%; padding: 20px; text-align: left; background: none; border: none; cursor: pointer; display: flex; justify-content: space-between; font-weight: 700; color: var(--primary); }
-        .faq-answer { max-height: 0; overflow: hidden; transition: 0.3s; padding: 0 20px; color: #666; }
-        .faq-item.active .faq-answer { max-height: 150px; padding-bottom: 20px; }
-
-        /* FOOTER [Reference: image_e2e740.jpg] */
+        /* FOOTER & SPROUT ANIMATION */
         footer { background: #0b1a13; color: white; padding: 80px 8% 40px; }
         .footer-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 60px; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 50px; }
         .footer-col a { color: rgba(255,255,255,0.6); text-decoration: none; font-size: 14px; margin-bottom: 12px; display: flex; align-items: center; transition: 0.3s; }
         .footer-col a i { font-size: 0; margin-right: 0; color: var(--accent); transition: 0.3s; }
         .footer-col a:hover { color: #fff; transform: translateX(8px); }
         .footer-col a:hover i { font-size: 14px; margin-right: 10px; }
-        @media (max-width: 768px) { .footer-grid { grid-template-columns: 1fr; } }
     </style>
 </head>
 <body>
@@ -113,49 +101,50 @@
     <nav id="nav-overlay">
         <ul>
             <li><a href="index.html">Home</a></li>
-            <li><a href="#products">Our Products</a></li>
+            <li><a href="#products">Products</a></li>
             <li><a href="contact.html">Contact Us</a></li>
-            <li><a href="#faq">Trade FAQ</a></li>
         </ul>
     </nav>
 </header>
 
 <section class="hero">
-    <div class="hero-text">
-        <h1>Rooted in Integrity,<br>Harvested for Vitality.</h1>
-    </div>
+    <div class="hero-text"><h1>Rooted in Integrity,<br>Harvested for Vitality.</h1></div>
 </section>
 
+<div class="dropdown-container">
+    <label style="display:block; margin-bottom:10px; font-weight:700; color:var(--primary); font-size:13px;">Product Interest</label>
+    <select>
+        <option value="" disabled selected>Select a product...</option>
+        <option>Jaggery Blocks</option>
+        <option>Jaggery Liquid</option>
+        <option>Jaggery Cubes</option>
+        <option>Jaggery Powder</option>
+        <option>Raw Forest Honey</option>
+        <option>Export Grapes</option>
+        <option>Red Onions</option>
+        <option>Onion Powder</option>
+        <option>Pomegranates</option>
+        <option>Premium Makhana</option>
+    </select>
+</div>
+
 <div class="product-grid" id="products">
-    <div class="product-card"><img src="jaggery-blocks.jpg"><div class="product-info"><h4>Jaggery Blocks</h4><a href="contact.html?product=Jaggery Blocks" class="btn-quote">Request Quote</a></div></div>
-    <div class="product-card"><img src="jaggery-liquid.jpg"><div class="product-info"><h4>Jaggery Liquid</h4><a href="contact.html?product=Jaggery Liquid" class="btn-quote">Request Quote</a></div></div>
-    <div class="product-card"><img src="jaggery-cubes.jpg"><div class="product-info"><h4>Jaggery Cubes</h4><a href="contact.html?product=Jaggery Cubes" class="btn-quote">Request Quote</a></div></div>
-    <div class="product-card"><img src="jaggery-powder.jpg"><div class="product-info"><h4>Jaggery Powder</h4><a href="contact.html?product=Jaggery Powder" class="btn-quote">Request Quote</a></div></div>
-    <div class="product-card"><img src="honey.jpg"><div class="product-info"><h4>Raw Forest Honey</h4><a href="contact.html?product=Raw Forest Honey" class="btn-quote">Request Quote</a></div></div>
-    <div class="product-card"><img src="grapes.jpg"><div class="product-info"><h4>Export Grapes</h4><a href="contact.html?product=Export Grapes" class="btn-quote">Request Quote</a></div></div>
-    <div class="product-card"><img src="onions.jpg"><div class="product-info"><h4>Red Onions</h4><a href="contact.html?product=Red Onions" class="btn-quote">Request Quote</a></div></div>
-    <div class="product-card"><img src="onion-powder.jpg"><div class="product-info"><h4>Onion Powder</h4><a href="contact.html?product=Onion Powder" class="btn-quote">Request Quote</a></div></div>
-    <div class="product-card"><img src="pomegranates.jpg"><div class="product-info"><h4>Pomegranates</h4><a href="contact.html?product=Pomegranates" class="btn-quote">Request Quote</a></div></div>
-    <div class="product-card"><img src="makhana.jpg"><div class="product-info"><h4>Premium Makhana</h4><a href="contact.html?product=Premium Makhana" class="btn-quote">Request Quote</a></div></div>
+    <div class="product-card"><img src="jaggery-blocks.jpg"><div class="product-info"><h4>Jaggery Blocks</h4><a href="contact.html" class="btn-quote">Request Quote</a></div></div>
+    <div class="product-card"><img src="jaggery-liquid.jpg"><div class="product-info"><h4>Jaggery Liquid</h4><a href="contact.html" class="btn-quote">Request Quote</a></div></div>
+    <div class="product-card"><img src="jaggery-cubes.jpg"><div class="product-info"><h4>Jaggery Cubes</h4><a href="contact.html" class="btn-quote">Request Quote</a></div></div>
+    <div class="product-card"><img src="jaggery-powder.jpg"><div class="product-info"><h4>Jaggery Powder</h4><a href="contact.html" class="btn-quote">Request Quote</a></div></div>
+    <div class="product-card"><img src="honey.jpg"><div class="product-info"><h4>Raw Forest Honey</h4><a href="contact.html" class="btn-quote">Request Quote</a></div></div>
+    <div class="product-card"><img src="grapes.jpg"><div class="product-info"><h4>Export Grapes</h4><a href="contact.html" class="btn-quote">Request Quote</a></div></div>
+    <div class="product-card"><img src="onions.jpg"><div class="product-info"><h4>Red Onions</h4><a href="contact.html" class="btn-quote">Request Quote</a></div></div>
+    <div class="product-card"><img src="onion-powder.jpg"><div class="product-info"><h4>Onion Powder</h4><a href="contact.html" class="btn-quote">Request Quote</a></div></div>
+    <div class="product-card"><img src="pomegranates.jpg"><div class="product-info"><h4>Pomegranates</h4><a href="contact.html" class="btn-quote">Request Quote</a></div></div>
+    <div class="product-card"><img src="makhana.jpg"><div class="product-info"><h4>Premium Makhana</h4><a href="contact.html" class="btn-quote">Request Quote</a></div></div>
 </div>
 
 <div class="grid">
     <div class="card reveal"><i class="fas fa-leaf"></i><h3>Grown Quality</h3><p>Natural produce direct from Indian soil.</p></div>
     <div class="card reveal"><i class="fas fa-handshake"></i><h3>End-to-End Integrity</h3><p>Consistent supply chains and delivery.</p></div>
     <div class="card reveal"><i class="fas fa-heartbeat"></i><h3>Healthy Vitality</h3><p>Wholesome fuel for global life.</p></div>
-</div>
-
-<div class="grid" style="padding-top: 0;">
-    <div class="card reveal"><i class="fas fa-search"></i><h3>Sourcing</h3><p>Direct procurement from regional farms.</p></div>
-    <div class="card reveal"><i class="fas fa-vial"></i><h3>Quality Control</h3><p>Multi-stage export-grade testing.</p></div>
-    <div class="card reveal"><i class="fas fa-ship"></i><h3>Logistics</h3><p>Custom packaging and worldwide shipping.</p></div>
-</div>
-
-<div class="faq-section" id="faq">
-    <div class="faq-item"><button class="faq-question">Standard MOQ? <i class="fas fa-chevron-down"></i></button><div class="faq-answer">Depends on category. Contact us for quotes.</div></div>
-    <div class="faq-item"><button class="faq-question">Certifications? <i class="fas fa-chevron-down"></i></button><div class="faq-answer">Phytosanitary certificates and lab reports provided.</div></div>
-    <div class="faq-item"><button class="faq-question">International Shipping? <i class="fas fa-chevron-down"></i></button><div class="faq-answer">Sea and air freight to major global markets.</div></div>
-    <div class="faq-item"><button class="faq-question">Custom Packaging? <i class="fas fa-chevron-down"></i></button><div class="faq-answer">Bulk, retail, and white-label options available.</div></div>
 </div>
 
 <footer>
@@ -168,7 +157,6 @@
             <h4>Quick Links</h4>
             <a href="index.html"><i class="fas fa-leaf"></i> Home</a>
             <a href="#products"><i class="fas fa-leaf"></i> Our Products</a>
-            <a href="contact.html"><i class="fas fa-leaf"></i> Contact Us</a>
         </div>
         <div class="footer-col">
             <h4>Connect</h4>
@@ -182,28 +170,15 @@
 <script>
     const ham = document.getElementById('ham-toggle');
     const nav = document.getElementById('nav-overlay');
-    
     ham.onclick = () => {
         nav.classList.toggle('active');
         ham.querySelector('i').classList.toggle('fa-bars');
         ham.querySelector('i').classList.toggle('fa-times');
     };
-
-    document.querySelectorAll('#nav-overlay a').forEach(link => {
-        link.onclick = () => {
-            nav.classList.remove('active');
-            ham.querySelector('i').className = 'fas fa-bars';
-        };
-    });
-
-    document.querySelectorAll('.faq-question').forEach(q => {
-        q.onclick = () => q.parentElement.classList.toggle('active');
-    });
-
-    const observer = new IntersectionObserver(entries => {
-        entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('active'); });
+    const obs = new IntersectionObserver(es => {
+        es.forEach(e => { if(e.isIntersecting) e.target.classList.add('active'); });
     }, { threshold: 0.1 });
-    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+    document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
 </script>
 </body>
 </html>
