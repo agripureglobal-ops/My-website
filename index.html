@@ -10,7 +10,7 @@
         * { box-sizing: border-box; }
         body { font-family: 'Inter', sans-serif; margin: 0; color: var(--text); background: var(--white); line-height: 1.6; scroll-behavior: smooth; }
 
-        /* HEADER */
+        /* HEADER: Logo Left, Menu Center */
         header { 
             background: rgba(255, 255, 255, 0.98); 
             backdrop-filter: blur(10px);
@@ -24,10 +24,10 @@
             box-shadow: 0 2px 20px rgba(0,0,0,0.05); 
         }
         .logo-container { display: flex; align-items: center; gap: 15px; flex: 1; }
-        .logo-img { height: 65px; width: auto; }
+        .logo-img { height: 70px; width: auto; transition: 0.3s; }
         .brand-name { font-size: 1.2rem; font-weight: 800; color: var(--primary); text-transform: uppercase; letter-spacing: 1px; }
 
-        /* CENTER NAV - APPLE POP */
+        /* CENTER NAV - APPLE POP ANIMATION */
         nav { flex: 2; display: flex; justify-content: center; }
         nav ul { list-style: none; display: flex; gap: 40px; padding: 0; margin: 0; }
         nav a { 
@@ -42,83 +42,67 @@
         nav a:hover { transform: scale(1.2); color: var(--accent); }
         .header-spacer { flex: 1; }
 
-        /* HERO */
+        /* HERO: Farmer Positioned at 85% to show his face on the right */
         .hero { 
-            background: linear-gradient(90deg, rgba(0,0,0,0.7) 20%, rgba(0,0,0,0.2) 100%), url('farmer.jpg'); 
+            background: linear-gradient(90deg, rgba(0,0,0,0.75) 25%, rgba(0,0,0,0.1) 100%), url('farmer.jpg'); 
             background-size: cover; 
-            background-position: right center; 
-            height: 60vh; 
+            background-position: 85% center; 
+            height: 65vh; 
             display: flex; 
             align-items: center; 
             padding: 0 8%;
             color: var(--white); 
         }
-        .hero-text h1 { font-size: 3.5rem; line-height: 1.1; font-weight: 900; margin: 0; }
+        .hero-text h1 { font-size: 3.5rem; line-height: 1.1; font-weight: 900; margin: 0; text-shadow: 0 4px 15px rgba(0,0,0,0.2); }
 
-        /* PRODUCT GRID - LARGER IMAGES */
+        /* PRODUCT GRID: Larger, uncropped images */
         .product-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 25px; padding: 0 8%; margin-bottom: 50px; }
         .product-card { border-radius: 12px; overflow: hidden; border: 1px solid #eee; background: #fff; transition: 0.3s; }
         .product-card:hover { transform: translateY(-8px); box-shadow: 0 15px 30px rgba(0,0,0,0.1); }
-        .product-card img { 
-            width: 100%; 
-            height: 220px; /* Increased height so they don't look small */
-            object-fit: cover; /* Ensures a full-bleed premium look */
-            display: block;
-        }
+        .product-card img { width: 100%; height: 220px; object-fit: cover; display: block; }
         .product-info { padding: 20px; text-align: center; }
         .product-info h4 { font-size: 1rem; margin-bottom: 15px; color: var(--primary); font-weight: 700; }
-        .btn-quote { display: block; padding: 12px; background: var(--primary); color: white; text-decoration: none; border-radius: 6px; font-weight: 800; font-size: 11px; text-transform: uppercase; }
+        .btn-quote { display: block; padding: 12px; background: var(--primary); color: white; text-decoration: none; border-radius: 6px; font-weight: 800; font-size: 10px; text-transform: uppercase; }
 
-        /* SECTIONS */
+        /* COMPACT SECTIONS */
         section { padding: 80px 8%; }
         .section-header { text-align: center; margin-bottom: 50px; }
-        .section-header h2 { font-size: 1.8rem; color: var(--primary); text-transform: uppercase; letter-spacing: 2px; }
+        .section-header h2 { font-size: 1.8rem; color: var(--primary); text-transform: uppercase; letter-spacing: 2px; position: relative; padding-bottom: 15px; }
+        .section-header h2::after { content: ''; position: absolute; bottom: 0; left: 50%; transform: translateX(-50%); width: 50px; height: 3px; background: var(--accent); }
 
         .grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; }
         .card { background: #fff; border-radius: 15px; padding: 40px; border: 1px solid #f5f5f5; text-align: center; }
         .card i { font-size: 2.2rem; color: var(--accent); margin-bottom: 20px; display: block; }
-        .card h3 { font-size: 1.2rem; margin-bottom: 12px; }
-        .card p { font-size: 0.9rem; color: #666; }
 
         .founder-section { background: var(--primary); padding: 100px 15%; text-align: center; color: var(--white); }
-        .founder-box p { font-style: italic; font-size: 1.5rem; line-height: 1.8; opacity: 0.9; }
+        .founder-box p { font-style: italic; font-size: 1.5rem; line-height: 1.8; }
 
         /* FAQ */
         .faq-container { max-width: 850px; margin: 0 auto; }
         .faq-item { background: white; margin-bottom: 15px; border: 1px solid #eee; border-radius: 12px; overflow: hidden; }
-        .faq-question { padding: 25px; width: 100%; display: flex; justify-content: space-between; align-items: center; cursor: pointer; background: none; border: none; font-weight: 700; color: var(--primary); font-size: 1.1rem; }
+        .faq-question { padding: 20px; width: 100%; display: flex; justify-content: space-between; align-items: center; cursor: pointer; background: none; border: none; font-weight: 700; color: var(--primary); font-size: 1.1rem; }
         .faq-answer { max-height: 0; padding: 0 25px; overflow: hidden; transition: 0.4s; color: #666; background: #fafafa; }
         .faq-item.active .faq-answer { max-height: 200px; padding: 25px; border-top: 1px solid #eee; }
 
-        /* FOOTER - SLIDING UNDERLINE ANIMATION */
+        /* FOOTER: Sliding Underline Animation */
         footer { background: #0b1a13; color: white; padding: 80px 8% 40px; }
         .footer-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 80px; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 50px; }
-        .footer-col h4 { color: var(--accent); text-transform: uppercase; font-size: 0.9rem; margin-bottom: 30px; }
-        
         .footer-col a { 
             color: rgba(255,255,255,0.7); 
             text-decoration: none; 
             font-size: 14px; 
-            margin-bottom: 18px; 
+            margin-bottom: 12px; 
             display: inline-block;
             position: relative;
-            transition: 0.3s;
         }
         .footer-col a::after {
-            content: '';
-            position: absolute;
-            width: 0;
-            height: 1px;
-            bottom: -5px;
-            left: 0;
-            background-color: var(--accent);
-            transition: width 0.3s ease;
+            content: ''; position: absolute; width: 0; height: 1px; bottom: -3px; left: 0; background: var(--accent); transition: 0.3s;
         }
-        .footer-col a:hover { color: var(--white); }
         .footer-col a:hover::after { width: 100%; }
+        .footer-col a:hover { color: white; }
 
         @media (max-width: 1200px) { .product-grid { grid-template-columns: repeat(3, 1fr); } }
-        @media (max-width: 768px) { .product-grid { grid-template-columns: 1fr; } .grid { grid-template-columns: 1fr; } }
+        @media (max-width: 768px) { .product-grid, .grid, .footer-grid { grid-template-columns: 1fr; } }
     </style>
 </head>
 <body>
@@ -175,15 +159,6 @@
     </div>
 </section>
 
-<section id="how-we-work" style="background: #fdfdfd; border-top: 1px solid #eee;">
-    <div class="section-header"><h2>How We Work</h2></div>
-    <div class="grid">
-        <div class="card"><i class="fas fa-search"></i><h3>Sourcing</h3><p>Direct procurement from vetted regional farms.</p></div>
-        <div class="card"><i class="fas fa-vial"></i><h3>Quality Control</h3><p>Multi-stage testing ensuring export-grade standards.</p></div>
-        <div class="card"><i class="fas fa-ship"></i><h3>Logistics</h3><p>Worldwide shipping to international destinations.</p></div>
-    </div>
-</section>
-
 <section class="faq-section" style="background: #f9f9f9;">
     <div class="section-header"><h2>Trade FAQ</h2></div>
     <div class="faq-container">
@@ -208,21 +183,9 @@
 
 <footer>
     <div class="footer-grid">
-        <div class="footer-col">
-            <h4>Agripure Global</h4>
-            <p style="opacity:0.7; font-size:14px;">Plot 34, Sector 36, Mansarovar,Navi Mumbai, Maharashtra, India.</p>
-        </div>
-        <div class="footer-col">
-            <h4>Quick Links</h4>
-            <a href="index.html">Home</a><br>
-            <a href="#products">Our Products</a><br>
-            <a href="contact.html">Contact Us</a>
-        </div>
-        <div class="footer-col">
-            <h4>Connect</h4>
-            <a href="mailto:info@agripureglobal.com">info@agripureglobal.com</a><br>
-            <p style="opacity:0.7; font-size:14px;">+91 7666170693</p>
-        </div>
+        <div class="footer-col"><h4>Agripure Global</h4><p style="opacity:0.7; font-size:14px;">Navi Mumbai, Maharashtra, India.</p></div>
+        <div class="footer-col"><h4>Quick Links</h4><a href="index.html">Home</a><br><a href="#products">Our Products</a><br><a href="contact.html">Contact Us</a></div>
+        <div class="footer-col"><h4>Connect</h4><a href="mailto:info@agripureglobal.com">info@agripureglobal.com</a><br><p style="opacity:0.7; font-size:14px;">+91 7666170693</p></div>
     </div>
     <div class="footer-bottom" style="padding-top: 30px; text-align: center; font-size: 11px; opacity: 0.5;">&copy; 2026 Agripure Global. All Rights Reserved.</div>
 </footer>
