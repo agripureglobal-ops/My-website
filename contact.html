@@ -22,7 +22,6 @@
         input, select, textarea { width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 6px; font-family: inherit; font-size: 16px; }
         .btn-submit { width: 100%; padding: 15px; background: var(--primary); color: white; border: none; border-radius: 6px; font-weight: 800; cursor: pointer; text-transform: uppercase; transition: 0.3s; }
 
-        /* THE SUCCESS MESSAGE STYLE */
         #success-box { 
             display: none; 
             margin-top: 20px; 
@@ -69,16 +68,39 @@
             <div class="form-group">
                 <label>Product Interest</label>
                 <select name="product" id="product-dropdown">
-                    <option value="Jaggery Blocks">Jaggery Blocks</option>
-                    <option value="Jaggery Liquid">Jaggery Liquid</option>
-                    <option value="Jaggery Cubes">Jaggery Cubes</option>
-                    <option value="Jaggery Powder">Jaggery Powder</option>
-                    <option value="Raw Forest Honey">Raw Forest Honey</option>
-                    <option value="Export Grapes">Export Grapes</option>
-                    <option value="Red Onions">Red Onions</option>
-                    <option value="Onion Powder">Onion Powder</option>
-                    <option value="Pomegranates">Pomegranates</option>
-                    <option value="Premium Makhana">Premium Makhana</option>
+                    <optgroup label="Natural Sweeteners">
+                        <option value="Jaggery Blocks">Jaggery Blocks</option>
+                        <option value="Jaggery Liquid">Jaggery Liquid (Kakvi)</option>
+                        <option value="Jaggery Cubes">Jaggery Cubes</option>
+                        <option value="Jaggery Powder">Jaggery Powder</option>
+                        <option value="Raw Forest Honey">Raw Forest Honey</option>
+                    </optgroup>
+                    <optgroup label="Premium Export Fruits">
+                        <option value="Export Grapes">Export Grapes (Green/Black/Red)</option>
+                        <option value="Pomegranates">Pomegranates (Bhagwa)</option>
+                        <option value="Banana">Banana (G9 Cavendish)</option>
+                        <option value="Guava">Guava (VNR/Allahabad)</option>
+                        <option value="Papaya">Papaya (Red Lady)</option>
+                    </optgroup>
+                    <optgroup label="Farm-Fresh Vegetables">
+                        <option value="Red Onions">Red Onions</option>
+                        <option value="Tomato">Tomato</option>
+                        <option value="Okra">Okra (Lady Finger)</option>
+                        <option value="Green Chilli">Green Chilli</option>
+                        <option value="Bottle Gourd">Bottle Gourd</option>
+                        <option value="Ridge Gourd">Ridge Gourd</option>
+                        <option value="Bitter Gourd">Bitter Gourd</option>
+                        <option value="Cabbage">Cabbage</option>
+                        <option value="Cauliflower">Cauliflower</option>
+                        <option value="Capsicum">Capsicum</option>
+                        <option value="Baby Potato">Baby Potato</option>
+                    </optgroup>
+                    <optgroup label="Dehydrated Products">
+                        <option value="Onion Powder">Onion Powder (Industrial)</option>
+                    </optgroup>
+                    <optgroup label="Superfood Snacks">
+                        <option value="Premium Makhana">Premium Makhana (Fox Nuts)</option>
+                    </optgroup>
                 </select>
             </div>
             <div class="form-group">
@@ -112,11 +134,15 @@
 
 <script>
   window.addEventListener('DOMContentLoaded', () => {
+    // Auto-selection logic for Request Quote buttons
     const urlParams = new URLSearchParams(window.location.search);
     const productToSelect = urlParams.get('product');
     if (productToSelect) {
         const selectElement = document.getElementById('product-dropdown');
-        if (selectElement) { selectElement.value = productToSelect; }
+        if (selectElement) { 
+            // Matches the 'value' of the option exactly
+            selectElement.value = decodeURIComponent(productToSelect); 
+        }
     }
   });
 
@@ -136,7 +162,6 @@
       headers: { 'Accept': 'application/json' }
     }).then(response => {
       if (response.ok) {
-        // Form remains same, status button resets, message appears below
         status.innerHTML = "Send Inquiry";
         status.disabled = false;
         successBox.style.display = "block";
