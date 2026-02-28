@@ -33,10 +33,10 @@
 
         .catalog-grid { 
             display: grid; 
-            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); 
-            gap: 30px; 
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); 
+            gap: 25px; 
             padding: 5rem 5%; 
-            max-width: 1400px; 
+            max-width: 1300px; 
             margin: 0 auto; 
         }
 
@@ -47,25 +47,19 @@
         }
         .product-card:hover { transform: translateY(-10px); }
         .product-img { width: 100%; height: 220px; object-fit: cover; }
-        .product-body { padding: 25px; flex-grow: 1; display: flex; flex-direction: column; }
-        .product-body h3 { color: var(--primary); font-size: 1.3rem; margin-bottom: 15px; border-bottom: 2px solid var(--accent); display: inline-block; }
+        .product-body { padding: 20px; flex-grow: 1; display: flex; flex-direction: column; text-align: center;}
+        .product-body h3 { color: var(--primary); font-size: 1.2rem; margin-bottom: 15px; text-transform: uppercase; letter-spacing: 1px;}
         
-        .spec-mini { width: 100%; border-collapse: collapse; margin-bottom: 20px; font-size: 0.85rem; }
-        .spec-mini td { padding: 6px 0; border-bottom: 1px dotted #ddd; }
-        .spec-mini td:last-child { text-align: right; font-weight: bold; color: var(--primary); }
-
         .btn-inquire { 
-            margin-top: auto; text-align: center; padding: 12px; 
+            margin-top: auto; padding: 10px; 
             background: var(--primary); color: white; text-decoration: none; 
-            border-radius: 5px; font-weight: bold; transition: 0.3s;
+            border-radius: 5px; font-weight: bold; font-size: 0.9rem;
         }
 
-        footer { background: #0f1a12; color: white; padding: 5rem 5% 2rem; margin-top: 5rem; }
-        .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1.5fr; gap: 4rem; }
-        .footer-col a { color: #999; text-decoration: none; display: flex; align-items: center; margin-bottom: 12px; transition: 0.3s; }
-        .footer-col a i { color: var(--accent); margin-right: 12px; transition: 0.4s; }
-        .footer-col a:hover { color: var(--accent); transform: translate3d(8px, 0, 0); }
-        .footer-col a:hover i { transform: rotate(25deg) scale(1.3); }
+        footer { background: #0f1a12; color: white; padding: 4rem 5% 2rem; margin-top: 5rem; }
+        .footer-grid { display: grid; grid-template-columns: 2fr 1.5fr; gap: 4rem; }
+        .footer-col h4 { color: var(--accent); margin-bottom: 1rem;}
+        .footer-col p { color: #aaa; font-size: 0.9rem;}
     </style>
 </head>
 <body>
@@ -74,138 +68,94 @@
 
 <header class="suite-hero">
     <h1>Farm-Fresh Vegetables</h1>
-    <p>Premium Graded Produce. Exported with 7+ Years of Integrity.</p>
+    <p>Premium Graded Produce | Navi Mumbai Export Hub</p>
 </header>
 
 <section class="catalog-grid">
     <div class="product-card">
-        <img src="red-onion.jpg" class="product-img">
+        <img src="onions.jpg" class="product-img" alt="Red Onions">
         <div class="product-body">
             <h3>Red Onions</h3>
-            <table class="spec-mini">
-                <tr><td>Size</td><td>45mm / 55mm+</td></tr>
-                <tr><td>Origin</td><td>Nashik, Maharashtra</td></tr>
-            </table>
             <a href="contact.html" class="btn-inquire">Request Quote</a>
         </div>
     </div>
 
     <div class="product-card">
-        <img src="tomato.jpg" class="product-img">
+        <img src="tomato.jpg" class="product-img" alt="Tomato">
         <div class="product-body">
-            <h3>Fresh Tomato</h3>
-            <table class="spec-mini">
-                <tr><td>Grade</td><td>A-Grade Export</td></tr>
-                <tr><td>Quality</td><td>Firm & Hand-Picked</td></tr>
-            </table>
+            <h3>Tomato</h3>
             <a href="contact.html" class="btn-inquire">Request Quote</a>
         </div>
     </div>
 
     <div class="product-card">
-        <img src="okra.jpg" class="product-img">
+        <img src="okra.jpg" class="product-img" alt="Okra">
         <div class="product-body">
-            <h3>Okra (Lady Finger)</h3>
-            <table class="spec-mini">
-                <tr><td>Length</td><td>3 - 5 Inches</td></tr>
-                <tr><td>Color</td><td>Deep Green</td></tr>
-            </table>
+            <h3>Okra</h3>
             <a href="contact.html" class="btn-inquire">Request Quote</a>
         </div>
     </div>
 
     <div class="product-card">
-        <img src="green-chilli.jpg" class="product-img">
+        <img src="green-chilli.jpg" class="product-img" alt="Green Chilli">
         <div class="product-body">
             <h3>Green Chilli</h3>
-            <table class="spec-mini">
-                <tr><td>Variety</td><td>G4 / Teja</td></tr>
-                <tr><td>Pungency</td><td>High</td></tr>
-            </table>
             <a href="contact.html" class="btn-inquire">Request Quote</a>
         </div>
     </div>
 
     <div class="product-card">
-        <img src="bottle-gourd.jpg" class="product-img">
+        <img src="bottle-gourd.jpg" class="product-img" alt="Bottle Gourd">
         <div class="product-body">
             <h3>Bottle Gourd</h3>
-            <table class="spec-mini">
-                <tr><td>Texture</td><td>Tender & Fresh</td></tr>
-                <tr><td>Packaging</td><td>Vented Crates</td></tr>
-            </table>
             <a href="contact.html" class="btn-inquire">Request Quote</a>
         </div>
     </div>
 
     <div class="product-card">
-        <img src="ridge-gourd.jpg" class="product-img">
+        <img src="ridge-gourd.jpg" class="product-img" alt="Ridge Gourd">
         <div class="product-body">
             <h3>Ridge Gourd</h3>
-            <table class="spec-mini">
-                <tr><td>Quality</td><td>Uniform Size</td></tr>
-                <tr><td>Sourcing</td><td>Direct Farm Gate</td></tr>
-            </table>
             <a href="contact.html" class="btn-inquire">Request Quote</a>
         </div>
     </div>
 
     <div class="product-card">
-        <img src="bitter-gourd.jpg" class="product-img">
+        <img src="bitter-gourd.jpg" class="product-img" alt="Bitter Gourd">
         <div class="product-body">
             <h3>Bitter Gourd</h3>
-            <table class="spec-mini">
-                <tr><td>Color</td><td>Dark Green</td></tr>
-                <tr><td>Grade</td><td>Export Premium</td></tr>
-            </table>
             <a href="contact.html" class="btn-inquire">Request Quote</a>
         </div>
     </div>
 
     <div class="product-card">
-        <img src="cabbage.jpg" class="product-img">
+        <img src="cabbage.jpg" class="product-img" alt="Cabbage">
         <div class="product-body">
             <h3>Cabbage</h3>
-            <table class="spec-mini">
-                <tr><td>Form</td><td>Compact Heads</td></tr>
-                <tr><td>Storage</td><td>Cold-Chain Managed</td></tr>
-            </table>
             <a href="contact.html" class="btn-inquire">Request Quote</a>
         </div>
     </div>
 
     <div class="product-card">
-        <img src="cauliflower.jpg" class="product-img">
+        <img src="cauliflower.jpg" class="product-img" alt="Cauliflower">
         <div class="product-body">
             <h3>Cauliflower</h3>
-            <table class="spec-mini">
-                <tr><td>Color</td><td>Snow White Curds</td></tr>
-                <tr><td>Standard</td><td>Graded & Trimmed</td></tr>
-            </table>
             <a href="contact.html" class="btn-inquire">Request Quote</a>
         </div>
     </div>
 
     <div class="product-card">
-        <img src="capsicum.jpg" class="product-img">
+        <img src="capsicum.jpg" class="product-img" alt="Capsicum">
         <div class="product-body">
-            <h3>Capsicum (Bell Pepper)</h3>
-            <table class="spec-mini">
-                <tr><td>Quality</td><td>Shiny, Thick Walls</td></tr>
-                <tr><td>Color</td><td>Green</td></tr>
-            </table>
+            <h3>Capsicum</h3>
             <a href="contact.html" class="btn-inquire">Request Quote</a>
         </div>
     </div>
 
     <div class="product-card">
-        <img src="baby-potato.jpg" class="product-img">
+        <img src="potato.jpg" class="product-img" alt="Baby Potato">
         <div class="product-body">
             <h3>Baby Potato</h3>
-            <table class="spec-mini">
-                <tr><td>Size</td><td>Uniform Small Diameter</td></tr>
-                <tr><td>Packaging</td><td>Mesh Bags / Custom</td></tr>
-            </table>
             <a href="contact.html" class="btn-inquire">Request Quote</a>
         </div>
     </div>
@@ -217,15 +167,10 @@
             <h4>Agripure Global</h4>
             <p>Plot 34, Sector 36, Mansarovar,<br>Navi Mumbai, India - 410209.</p>
         </div>
-        <div class="footer-col">
-            <h4>Quick Links</h4>
-            <a href="index.html"><i class="fas fa-leaf"></i> Home</a>
-            <a href="contact.html"><i class="fas fa-leaf"></i> Contact Us</a>
-        </div>
-        <div class="footer-col">
+        <div class="footer-col" style="text-align: right;">
             <h4>Connect</h4>
             <p>info@agripureglobal.com</p>
-            <p style="color: var(--accent); font-weight: 800; font-size: 1.3rem; margin-top: 10px;">+91 7666170693</p>
+            <p style="color: var(--accent); font-weight: bold;">+91 7666170693</p>
         </div>
     </div>
 </footer>
