@@ -14,157 +14,85 @@
             --text: #333;
         }
 
-        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', sans-serif; }
         body { background-color: var(--light); color: var(--text); line-height: 1.6; scroll-behavior: smooth; }
 
-        /* Navigation & Mobile Menu */
+        /* Navigation */
         nav { 
-            background: var(--white); 
-            padding: 1rem 5%; 
-            display: flex; 
-            justify-content: space-between; 
-            align-items: center; 
-            position: sticky; 
-            top: 0; 
-            z-index: 1000; 
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1); 
+            background: var(--white); padding: 1rem 5%; display: flex; 
+            justify-content: space-between; align-items: center; 
+            position: sticky; top: 0; z-index: 1000; box-shadow: 0 2px 10px rgba(0,0,0,0.1); 
         }
-        .logo { font-size: 1.5rem; font-weight: bold; color: var(--primary); text-transform: uppercase; letter-spacing: 1px; }
-        
+        .logo { font-size: 1.5rem; font-weight: bold; color: var(--primary); text-transform: uppercase; }
         #nav-menu { display: flex; list-style: none; align-items: center; }
-        #nav-menu li { margin-left: 2rem; position: relative; }
+        #nav-menu li { margin-left: 2rem; }
         #nav-menu a { text-decoration: none; color: var(--primary); font-weight: 600; transition: 0.3s; }
         #nav-menu a:hover { color: var(--accent); }
 
-        .ham-toggle { display: none; font-size: 1.5rem; color: var(--primary); cursor: pointer; }
-
-        /* Hero Section - The Farmer Hook */
+        /* Hero - Fixed Farmer.jpg */
         .hero { 
             height: 75vh; 
-            background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('farmer.jpg');
-            background-size: cover;
-            background-position: center;
-            display: flex; align-items: center; justify-content: center; text-align: center; color: white; padding: 0 20px;
+            background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('farmer.jpg');
+            background-size: cover; background-position: center;
+            display: flex; align-items: center; justify-content: center; text-align: center; color: white;
         }
         .hero-content h1 { font-size: 3.5rem; margin-bottom: 1rem; text-shadow: 2px 2px 4px rgba(0,0,0,0.5); }
-        .hero-content p { font-size: 1.3rem; max-width: 800px; margin: 0 auto; text-shadow: 1px 1px 2px rgba(0,0,0,0.5); }
 
-        /* Minimalist Suite Gateway Grid */
+        /* Product Suite - Text Below Layout */
         .suite-section { padding: 5rem 5%; background: var(--white); text-align: center; }
-        .suite-section h2 { margin-bottom: 3rem; color: var(--primary); font-size: 2.2rem; }
-        
-        .suite-grid {
-            display: grid;
-            grid-template-columns: repeat(5, 1fr);
-            gap: 15px;
-        }
+        .suite-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 25px; margin-top: 3rem; }
+        .suite-card { text-decoration: none; color: inherit; transition: 0.3s; }
+        .suite-img-container { width: 100%; height: 250px; border-radius: 8px; overflow: hidden; margin-bottom: 15px; }
+        .suite-card img { width: 100%; height: 100%; object-fit: cover; transition: 0.5s; }
+        .suite-card:hover img { transform: scale(1.1); }
+        .suite-card h3 { color: var(--primary); font-size: 1.1rem; margin-bottom: 5px; }
+        .suite-card p { font-size: 0.85rem; color: #666; margin-bottom: 12px; }
+        .view-link { color: var(--accent); font-weight: bold; font-size: 0.9rem; text-transform: uppercase; border-bottom: 2px solid transparent; transition: 0.3s; }
+        .suite-card:hover .view-link { border-bottom: 2px solid var(--accent); }
 
-        .suite-card {
-            position: relative;
-            height: 400px;
-            border-radius: 8px;
-            overflow: hidden;
-            display: block;
-            text-decoration: none;
-            transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-        }
+        /* Core Pillars - Restored */
+        .pillars { padding: 6rem 5%; background: var(--light); text-align: center; }
+        .pillar-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 2rem; margin-top: 3rem; }
+        .pillar-item { background: white; padding: 3rem 1.5rem; border-radius: 12px; transition: 0.3s; }
+        .pillar-item i { font-size: 3rem; color: var(--accent); margin-bottom: 1.5rem; }
+        .pillar-item h3 { color: var(--primary); margin-bottom: 10px; }
 
-        .suite-card:hover { transform: translateY(-12px); box-shadow: 0 15px 30px rgba(0,0,0,0.2); }
+        /* How We Work */
+        .how-we-work { padding: 6rem 5%; text-align: center; }
+        .steps-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 2rem; margin-top: 3rem; }
+        .step-card { padding: 2rem; border-bottom: 4px solid var(--accent); background: white; border-radius: 8px; }
+        .step-card i { font-size: 2.5rem; color: var(--accent); margin-bottom: 1rem; }
 
-        .suite-card img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            filter: brightness(60%);
-            transition: 0.6s ease;
-        }
+        /* FAQ */
+        .faq-section { padding: 5rem 5%; max-width: 900px; margin: 0 auto; }
+        .faq-item { border-bottom: 1px solid #ddd; padding: 20px 0; }
+        .faq-question { width: 100%; background: none; border: none; text-align: left; font-weight: bold; font-size: 1.1rem; cursor: pointer; display: flex; justify-content: space-between; }
+        .faq-answer { max-height: 0; overflow: hidden; transition: 0.3s ease-out; color: #666; margin-top: 10px; }
+        .faq-item.active .faq-answer { max-height: 200px; }
 
-        .suite-card:hover img { filter: brightness(35%); transform: scale(1.1); }
+        /* CTA */
+        .cta-box { padding: 5rem 5%; background: var(--primary); color: white; text-align: center; }
+        .cta-btn { display: inline-block; margin-top: 2rem; padding: 15px 40px; background: var(--accent); color: white; text-decoration: none; font-weight: bold; border-radius: 5px; }
 
-        .suite-overlay {
-            position: absolute;
-            top: 0; left: 0; width: 100%; height: 100%;
-            display: flex;
-            flex-direction: column;
-            justify-content: flex-end;
-            padding: 25px;
-            color: white;
-            text-align: left;
-        }
-
-        .suite-overlay h3 { font-size: 1.2rem; color: var(--accent); margin-bottom: 8px; text-transform: uppercase; letter-spacing: 1px; }
-        .suite-overlay span { font-size: 0.8rem; font-weight: bold; background: var(--accent); color: white; padding: 6px 12px; border-radius: 3px; width: fit-content; }
-
-        /* How We Work - Icons Restored */
-        .how-we-work { padding: 6rem 5%; background: var(--light); text-align: center; }
-        .how-we-work h2 { font-size: 2.2rem; color: var(--primary); margin-bottom: 4rem; }
-        .steps-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 2.5rem; }
-        .step-card { background: white; padding: 3rem 2rem; border-radius: 12px; box-shadow: 0 5px 15px rgba(0,0,0,0.05); transition: 0.3s; }
-        .step-card:hover { transform: translateY(-5px); }
-        .step-card i { font-size: 3rem; color: var(--accent); margin-bottom: 1.5rem; display: block; }
-        .step-card h4 { color: var(--primary); margin-bottom: 10px; font-size: 1.2rem; }
-
-        /* Trade FAQ - Original Accordion Logic */
-        .faq-section { padding: 6rem 5%; background: var(--white); }
-        .faq-section h2 { text-align: center; margin-bottom: 4rem; color: var(--primary); font-size: 2.2rem; }
-        .faq-container { max-width: 850px; margin: 0 auto; }
-        .faq-item { margin-bottom: 15px; border: 1px solid #eaeaea; border-radius: 8px; transition: 0.3s; }
-        .faq-question { 
-            width: 100%; padding: 20px 25px; background: none; border: none; text-align: left; 
-            font-weight: 700; color: var(--primary); cursor: pointer; display: flex; 
-            justify-content: space-between; align-items: center; font-size: 1.1rem;
-        }
-        .faq-answer { padding: 0 25px; max-height: 0; overflow: hidden; transition: 0.4s ease-in-out; color: #555; line-height: 1.8; }
-        .faq-item.active { border-color: var(--accent); background: #fdfbf7; }
-        .faq-item.active .faq-answer { padding: 0 25px 25px; max-height: 300px; }
-        .faq-item.active .faq-question i { transform: rotate(180deg); color: var(--accent); }
-
-        /* CTA Box */
-        .cta-box { padding: 6rem 5%; background: var(--primary); color: white; text-align: center; }
-        .cta-box h2 { font-size: 2.5rem; margin-bottom: 1.5rem; color: var(--accent); }
-        .cta-box p { font-size: 1.2rem; margin-bottom: 2.5rem; opacity: 0.9; }
-        .cta-btn { 
-            display: inline-block; padding: 15px 40px; background: var(--accent); color: white; 
-            text-decoration: none; border-radius: 5px; font-weight: bold; font-size: 1.1rem; 
-            transition: 0.3s; box-shadow: 0 4px 15px rgba(0,0,0,0.2); 
-        }
-        .cta-btn:hover { background: #b08e4a; transform: scale(1.05); }
-
-        /* Footer & Golden Leaf Motion */
-        footer { background: #111; color: #eee; padding: 5rem 5% 2rem; }
+        /* Footer & Leaf Motion */
+        footer { background: #111; color: white; padding: 5rem 5% 2rem; }
         .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1.5fr; gap: 4rem; }
-        .footer-col h4 { color: var(--accent); margin-bottom: 1.8rem; text-transform: uppercase; letter-spacing: 1px; }
-        .footer-col p { line-height: 1.8; color: #999; }
-        .footer-col a { color: #999; text-decoration: none; display: flex; align-items: center; margin-bottom: 12px; transition: 0.3s; }
-        
-        /* The Golden Leaf Motion */
-        .footer-col a i { color: var(--accent); margin-right: 12px; font-size: 0.9rem; transition: 0.4s ease; }
-        .footer-col a:hover { color: var(--accent); transform: translateX(10px); }
-        .footer-col a:hover i { transform: rotate(30deg) scale(1.3); filter: drop-shadow(0 0 5px var(--accent)); }
+        .footer-col a { color: #888; text-decoration: none; display: flex; align-items: center; margin-bottom: 12px; transition: 0.3s; }
+        .footer-col a i { color: var(--accent); margin-right: 12px; transition: 0.4s; }
+        .footer-col a:hover { color: var(--accent); padding-left: 10px; }
+        .footer-col a:hover i { transform: rotate(30deg) scale(1.3); }
 
-        @media (max-width: 1024px) { .suite-grid { grid-template-columns: repeat(3, 1fr); } }
-        @media (max-width: 768px) {
-            .hero-content h1 { font-size: 2.5rem; }
-            .suite-grid { grid-template-columns: repeat(2, 1fr); }
-            .footer-grid { grid-template-columns: 1fr; gap: 3rem; }
-            .ham-toggle { display: block; }
-            #nav-menu { 
-                display: none; position: absolute; top: 100%; left: 0; width: 100%; 
-                background: white; flex-direction: column; padding: 2rem; box-shadow: 0 10px 10px rgba(0,0,0,0.1); 
-            }
-            #nav-menu.active { display: flex; }
-            #nav-menu li { margin: 1rem 0; }
-        }
+        @media (max-width: 1024px) { .suite-grid, .pillar-grid, .steps-grid { grid-template-columns: repeat(2, 1fr); } }
+        @media (max-width: 600px) { .suite-grid, .pillar-grid, .steps-grid { grid-template-columns: 1fr; } }
     </style>
 </head>
 <body>
 
 <nav>
     <div class="logo">Agripure Global</div>
-    <div class="ham-toggle" id="ham-toggle"><i class="fas fa-bars"></i></div>
     <ul id="nav-menu">
         <li><a href="index.html">Home</a></li>
-        <li><a href="#suites">Our Suites</a></li>
+        <li><a href="#suites">Suites</a></li>
         <li><a href="contact.html">Contact Us</a></li>
     </ul>
 </nav>
@@ -172,48 +100,68 @@
 <section class="hero">
     <div class="hero-content">
         <h1>7+ Years of Export Excellence</h1>
-        <p>Premium Agricultural Produce Delivered From Indian Soil to Global Ports.</p>
+        <p>Premium Agricultural Produce Delivered Globally.</p>
     </div>
 </section>
 
 <section id="suites" class="suite-section">
-    <h2>Explore Our Product Suites</h2>
+    <h2>Our Product Suites</h2>
     <div class="suite-grid">
         <a href="sweeteners.html" class="suite-card">
-            <img src="sweeteners-banner.jpg" alt="Sweeteners">
-            <div class="suite-overlay"><h3>01. Sweeteners</h3><span>VIEW CATALOGUE</span></div>
+            <div class="suite-img-container"><img src="sweeteners-banner.jpg" alt="Sweeteners"></div>
+            <h3>01. Sweeteners</h3>
+            <p>7+ Years of Purity</p>
+            <span class="view-link">View Catalogue</span>
         </a>
         <a href="fruits.html" class="suite-card">
-            <img src="fruits-banner.jpg" alt="Fruits">
-            <div class="suite-overlay"><h3>02. Fruits</h3><span>VIEW CATALOGUE</span></div>
+            <div class="suite-img-container"><img src="fruits-banner.jpg" alt="Fruits"></div>
+            <h3>02. Fruits</h3>
+            <p>Premium Export Grade</p>
+            <span class="view-link">View Catalogue</span>
         </a>
         <a href="vegetables.html" class="suite-card">
-            <img src="veggies-banner.jpg" alt="Vegetables">
-            <div class="suite-overlay"><h3>03. Vegetables</h3><span>VIEW CATALOGUE</span></div>
+            <div class="suite-img-container"><img src="veggies-banner.jpg" alt="Vegetables"></div>
+            <h3>03. Vegetables</h3>
+            <p>Farm Fresh Daily</p>
+            <span class="view-link">View Catalogue</span>
         </a>
         <a href="dehydrated.html" class="suite-card">
-            <img src="dehydrated-banner.jpg" alt="Dehydrated">
-            <div class="suite-overlay"><h3>04. Dehydrated</h3><span>VIEW CATALOGUE</span></div>
+            <div class="suite-img-container"><img src="dehydrated-banner.jpg" alt="Dehydrated"></div>
+            <h3>04. Dehydrated</h3>
+            <p>Maximum Potency</p>
+            <span class="view-link">View Catalogue</span>
         </a>
         <a href="snacks.html" class="suite-card">
-            <img src="snacks-banner.jpg" alt="Snacks">
-            <div class="suite-overlay"><h3>05. Snacks</h3><span>VIEW CATALOGUE</span></div>
+            <div class="suite-img-container"><img src="snacks-banner.jpg" alt="Snacks"></div>
+            <h3>05. Snacks</h3>
+            <p>Superfood Makhana</p>
+            <span class="view-link">View Catalogue</span>
         </a>
+    </div>
+</section>
+
+<section class="pillars">
+    <h2>Our Core Pillars</h2>
+    <div class="pillar-grid">
+        <div class="pillar-item"><i class="fas fa-leaf"></i><h3>Purity</h3><p>Chemical-free and natural sourcing for all commodities.</p></div>
+        <div class="pillar-item"><i class="fas fa-handshake"></i><h3>Integrity</h3><p>Transparent trade practices and ethical relations.</p></div>
+        <div class="pillar-item"><i class="fas fa-shield-alt"></i><h3>Quality</h3><p>Multi-stage grading and export inspection protocols.</p></div>
+        <div class="pillar-item"><i class="fas fa-truck"></i><h3>Reliability</h3><p>On-time global deliveries and robust cold-chain.</p></div>
     </div>
 </section>
 
 <section class="how-we-work">
     <h2>How We Work</h2>
     <div class="steps-grid">
-        <div class="step-card"><i class="fas fa-seedling"></i><h4>Step 01</h4><p>Direct Sourcing</p></div>
-        <div class="step-card"><i class="fas fa-check-circle"></i><h4>Step 02</h4><p>Quality Grading</p></div>
-        <div class="step-card"><i class="fas fa-box-open"></i><h4>Step 03</h4><p>Secure Packing</p></div>
-        <div class="step-card"><i class="fas fa-ship"></i><h4>Step 04</h4><p>Global Export</p></div>
+        <div class="step-card"><i class="fas fa-seedling"></i><h4>01. Sourcing</h4><p>Direct from Farmers</p></div>
+        <div class="step-card"><i class="fas fa-check-circle"></i><h4>02. Grading</h4><p>Strict Quality Check</p></div>
+        <div class="step-card"><i class="fas fa-box-open"></i><h4>03. Packing</h4><p>Export Standards</p></div>
+        <div class="step-card"><i class="fas fa-ship"></i><h4>04. Export</h4><p>Global Delivery</p></div>
     </div>
 </section>
 
 <section class="faq-section">
-    <h2>Trade FAQ</h2>
+    <h2 style="text-align: center; margin-bottom: 3rem;">Trade FAQ</h2>
     <div class="faq-container">
         <div class="faq-item">
             <button class="faq-question">What is your standard MOQ? <i class="fas fa-chevron-down"></i></button>
@@ -223,20 +171,12 @@
             <button class="faq-question">What certifications do you provide? <i class="fas fa-chevron-down"></i></button>
             <div class="faq-answer">We provide full export documentation including phytosanitary certificates and lab reports.</div>
         </div>
-        <div class="faq-item">
-            <button class="faq-question">Do you offer international shipping? <i class="fas fa-chevron-down"></i></button>
-            <div class="faq-answer">Yes, we manage end-to-end logistics, delivering via sea and air freight to major international markets worldwide.</div>
-        </div>
-        <div class="faq-item">
-            <button class="faq-question">Can I request custom packaging? <i class="fas fa-chevron-down"></i></button>
-            <div class="faq-answer">Absolutely. We offer bulk bags, retail pouches, and white-labeling options for our global partners.</div>
-        </div>
     </div>
 </section>
 
 <section class="cta-box">
     <h2>Start Your Export Journey</h2>
-    <p>Join our network of global partners and experience the Agripure standard of quality and integrity.</p>
+    <p>Join our network of global partners today.</p>
     <a href="contact.html" class="cta-btn">Get a Trade Quote Now</a>
 </section>
 
@@ -244,46 +184,24 @@
     <div class="footer-grid">
         <div class="footer-col">
             <h4>Agripure Global</h4>
-            <p>Plot 34, Sector 36,<br>Mansarovar, Navi Mumbai,<br>Maharashtra, India - 410209.</p>
+            <p>Plot 34, Sector 36, Mansarovar,<br>Navi Mumbai, Maharashtra - 410209.</p>
         </div>
         <div class="footer-col">
             <h4>Quick Links</h4>
             <a href="index.html"><i class="fas fa-leaf"></i> Home</a>
             <a href="#suites"><i class="fas fa-leaf"></i> Our Products</a>
-            <a href="contact.html"><i class="fas fa-leaf"></i> Contact Us</a>
         </div>
         <div class="footer-col">
             <h4>Connect</h4>
-            <a href="mailto:info@agripureglobal.com"><i class="fas fa-envelope"></i> info@agripureglobal.com</a>
-            <p style="color:var(--accent); font-weight:bold; font-size:1.2rem; margin-top:10px;">+91 7666170693</p>
+            <p>info@agripureglobal.com</p>
+            <p style="color: var(--accent); font-weight: bold; font-size: 1.2rem;">+91 7666170693</p>
         </div>
-    </div>
-    <div style="padding-top: 40px; text-align: center; font-size: 11px; opacity: 0.5; border-top: 1px solid #222; margin-top: 40px;">
-        &copy; 2026 Agripure Global. All Rights Reserved.
     </div>
 </footer>
 
 <script>
-    // FAQ Accordion Logic
     document.querySelectorAll('.faq-question').forEach(btn => {
-        btn.addEventListener('click', () => {
-            const item = btn.parentElement;
-            item.classList.toggle('active');
-        });
-    });
-
-    // Mobile Menu Logic
-    const ham = document.getElementById('ham-toggle');
-    const menu = document.getElementById('nav-menu');
-    ham.addEventListener('click', () => {
-        menu.classList.toggle('active');
-        ham.querySelector('i').classList.toggle('fa-bars');
-        ham.querySelector('i').classList.toggle('fa-times');
-    });
-
-    // Close menu on click
-    document.querySelectorAll('#nav-menu a').forEach(link => {
-        link.addEventListener('click', () => menu.classList.remove('active'));
+        btn.addEventListener('click', () => btn.parentElement.classList.toggle('active'));
     });
 </script>
 </body>
