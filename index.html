@@ -9,8 +9,6 @@
         :root { --p: #1b4332; --a: #c5a059; --d: #0b140e; --l: #f9fbf7; --w: #fff; }
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', sans-serif; }
         body { color: #333; line-height: 1.6; background: var(--w); overflow-x: hidden; }
-        
-        cite, .cite-tag { display: none !important; opacity: 0 !important; visibility: hidden !important; position: absolute !important; }
 
         header { padding: 15px 5%; display: flex; flex-direction: column; align-items: center; box-shadow: 0 2px 15px rgba(0,0,0,0.05); position: sticky; top: 0; background: var(--w); z-index: 1000; }
         .logo-img { height: 50px; margin-bottom: 8px; }
@@ -42,15 +40,12 @@
         .bg-grey { background: var(--l); padding: 60px 8%; border-top: 1px solid #eee; }
         .box-grid { display: grid; gap: 20px; max-width: 1100px; margin: 0 auto; }
         
-        /* Uniform Pillars Style */
         .g3 { grid-template-columns: repeat(3, 1fr); margin-bottom: 70px; }
         .pillar { background: var(--w); padding: 50px 30px; border: 1px solid #e8ede4; text-align: center; border-bottom: 4px solid var(--a); transition: 0.3s; }
-        .pillar:hover { background: #fff; box-shadow: 0 10px 30px rgba(0,0,0,0.05); }
         .pillar i { font-size: 2.2rem; color: var(--a); margin-bottom: 20px; display: block; }
         .pillar h3 { color: var(--p); font-size: 0.9rem; text-transform: uppercase; font-weight: 800; margin-bottom: 15px; }
         .pillar p { font-size: 0.8rem; color: #666; }
 
-        /* How We Work Style with Icons */
         .g4 { grid-template-columns: repeat(4, 1fr); }
         .work-box { background: var(--w); padding: 35px 20px; border: 1px solid #e8ede4; text-align: center; position: relative; }
         .work-box i { font-size: 1.8rem; color: var(--p); margin-bottom: 15px; opacity: 0.8; }
@@ -76,8 +71,7 @@
         .trade-card { background: rgba(255,255,255,0.03); padding: 35px; border: 1px solid rgba(255,255,255,0.08); border-radius: 4px; }
         .trade-card p { color: var(--w); font-weight: 800; font-size: 1.2rem; margin-bottom: 20px; display: flex; align-items: center; }
         .trade-card i { color: var(--a); margin-right: 15px; }
-        .quote-btn { background: var(--a); color: var(--w) !important; padding: 15px 30px; display: block; font-weight: 900; text-transform: uppercase; font-size: 0.8rem; letter-spacing: 2px; text-decoration: none; text-align: center; transition: 0.3s; }
-        .quote-btn:hover { background: #b08d4a; }
+        .quote-btn { background: var(--a); color: var(--w) !important; padding: 15px 30px; display: block; font-weight: 900; text-transform: uppercase; font-size: 0.8rem; letter-spacing: 2px; text-decoration: none; text-align: center; }
 
         @media (max-width: 1100px) { .suite-grid, .f-grid, .g3, .g4 { grid-template-columns: 1fr; } }
     </style>
@@ -86,12 +80,17 @@
 
 <header>
     <img src="logo.jpg" alt="Agripure Global" class="logo-img">
-    <nav><a href="index.html">Home</a><a href="story.html">Story</a><a href="#catalogue">Catalogue</a><a href="contact.html">Contact</a></nav>
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="story.html">Story</a>
+        <a href="index.html#catalogue">Catalogue</a>
+        <a href="contact.html">Contact</a>
+    </nav>
 </header>
 
 <section class="hero">
     <h1>7+ Years of Export Integrity</h1>
-    <p>Premium Indian Produce • Direct From Verified Farm Networks </p>
+    <p>Premium Indian Produce • Direct From Verified Farm Networks</p>
 </section>
 
 <section class="section" id="catalogue">
@@ -107,24 +106,24 @@
         </a>
         <a href="vegetables.html" class="suite-card">
             <img src="veggies-banner.jpg">
-            <div class="content"><h4>Fresh Veggies</h4><p>Red Onions, Tomato, Okra, Green Chilli, Gourds, Cabbage, Cauliflower, Capsicum, Baby Potato.</p></div>
+            <div class="content"><h4>Fresh Veggies</h4><p>Red Onions, Tomato, Okra, Green Chilli, 3 Gourds, Cabbage, Cauliflower, Capsicum, Baby Potato.</p></div>
         </a>
         <a href="dehydrated.html" class="suite-card">
             <img src="dehydrated-banner.jpg">
-            <div class="content"><h4>Dehydrated</h4><p>Industrial Onion Powder. Moisture-controlled expertise.</p></div>
+            <div class="content"><h4>Dehydrated</h4><p>Industrial Onion Powder. 7+ years moisture-controlled expertise.</p></div>
         </a>
         <a href="snacks.html" class="suite-card">
             <img src="snacks-banner.jpg">
-            <div class="content"><h4>Superfoods</h4><p>Premium Makhana. High in Protein, Export-graded crunch.</p></div>
+            <div class="content"><h4>Superfoods</h4><p>Premium Makhana (makhana.jpg). Export-graded crunch.</p></div>
         </a>
     </div>
 </section>
 
 <section class="acc-strip">
     <div class="acc-grid">
-        <div class="acc-item"><h2>APEDA & NPPO</h2><p>Phytosanitary Protocol </p></div>
-        <div class="acc-item"><h2>100% QUALITY</h2><p>Batch-Level Inspected </p></div>
-        <div class="acc-item"><h2>FSSAI / NABL</h2><p>Accredited Certification </p></div>
+        <div class="acc-item"><h2>APEDA & NPPO</h2><p>Phytosanitary Protocol</p></div>
+        <div class="acc-item"><h2>100% QUALITY</h2><p>Batch-Level Inspected</p></div>
+        <div class="acc-item"><h2>FSSAI / NABL</h2><p>Accredited Certification</p></div>
     </div>
 </section>
 
@@ -178,13 +177,13 @@
             <a href="fruits.html">Export Fruits</a>
             <a href="vegetables.html">Fresh Veggies</a>
             <a href="dehydrated.html">Dehydrated Line</a>
-            <a href="snacks.html">Superfood Snacks</a>
+            <a href="contact.html">Contact Us</a>
         </div>
         <div class="f-col">
             <h4>Trade Desk</h4>
             <div class="trade-card">
                 <p><i class="fas fa-phone-alt"></i> +91 7666170693</p>
-                <a href="mailto:info@agripureglobal.com" class="quote-btn">Email Trade Quote</a>
+                <a href="contact.html" class="quote-btn">Inquiry Form</a>
             </div>
         </div>
     </div>
