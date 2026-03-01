@@ -6,7 +6,8 @@
     <title>Agripure Global | Premium Indian Exports</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
-        :root { --p: #1b4332; --a: #c5a059; --d: #0b140e; --l: #f9fbf7; --w: #fff; }
+        /* THEME: Updated --d to Deep Forest Charcoal */
+        :root { --p: #1b4332; --a: #c5a059; --d: #141d18; --l: #f9fbf7; --w: #fff; }
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', sans-serif; }
         body { color: #333; line-height: 1.6; background: var(--w); overflow-x: hidden; }
 
@@ -30,9 +31,10 @@
         .suite-card h4 { color: var(--p); text-transform: uppercase; font-size: 0.85rem; font-weight: 900; margin-bottom: 8px; border-bottom: 2px solid var(--a); display: inline-block; }
         .suite-card p { font-size: 0.7rem; color: #666; line-height: 1.4; }
 
-        /* 3. ACCREDITATION */
+        /* 3. ACCREDITATION - ALIGNMENT FIX */
         .acc-strip { background: var(--p); color: var(--w); padding: 50px 8%; text-align: center; border-bottom: 5px solid var(--a); }
-        .acc-grid { display: flex; justify-content: space-around; max-width: 1000px; margin: 0 auto; gap: 30px; }
+        .acc-grid { display: flex; flex-wrap: wrap; justify-content: center; max-width: 1000px; margin: 0 auto; gap: 30px; }
+        .acc-item { flex: 1; min-width: 250px; padding: 10px; }
         .acc-item h2 { color: var(--a); font-size: 1.5rem; font-weight: 900; margin-bottom: 5px; }
         .acc-item p { text-transform: uppercase; font-size: 0.7rem; letter-spacing: 2px; opacity: 0.8; }
 
@@ -59,7 +61,7 @@
         .faq-a { max-height: 0; overflow: hidden; transition: 0.4s; padding: 0 22px; color: #555; font-size: 0.88rem; line-height: 1.7; }
         .faq-item.active .faq-a { max-height: 400px; padding: 15px 22px 30px; border-top: 1px solid #f9f9f9; }
 
-        /* 7. PREMIUM FOOTER */
+        /* 7. PREMIUM FOOTER - Deep Charcoal */
         footer { background: var(--d); color: #999; padding: 100px 8% 50px; border-top: 5px solid var(--a); position: relative; }
         footer::before { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 1px; background: linear-gradient(90deg, transparent, var(--a), transparent); }
         .f-grid { display: grid; grid-template-columns: 1.5fr 1fr 1.5fr; gap: 80px; max-width: 1200px; margin: 0 auto; }
@@ -73,7 +75,11 @@
         .trade-card i { color: var(--a); margin-right: 15px; }
         .quote-btn { background: var(--a); color: var(--w) !important; padding: 15px 30px; display: block; font-weight: 900; text-transform: uppercase; font-size: 0.8rem; letter-spacing: 2px; text-decoration: none; text-align: center; }
 
-        @media (max-width: 1100px) { .suite-grid, .f-grid, .g3, .g4 { grid-template-columns: 1fr; } }
+        @media (max-width: 1100px) { 
+            .suite-grid, .f-grid, .g3, .g4 { grid-template-columns: 1fr; }
+            .acc-item { border-bottom: 1px solid rgba(255,255,255,0.1); padding: 25px 0; }
+            .acc-item:last-child { border-bottom: none; }
+        }
     </style>
 </head>
 <body>
@@ -97,7 +103,7 @@
     <h2 class="sec-title">Our Premium Catalogue</h2>
     <div class="suite-grid">
         <a href="sweeteners.html" class="suite-card">
-            <img src="sweeteners-banner.jpg">
+            <img src="jaggery-blocks.jpg">
             <div class="content"><h4>Sweeteners</h4><p>Jaggery Blocks, Powder, Cubes, & Honey.</p></div>
         </a>
         <a href="fruits.html" class="suite-card">
@@ -166,7 +172,7 @@
     </div>
 </section>
 
-<footer id="contact">
+<footer>
     <div class="f-grid">
         <div class="f-col">
             <h4>Agripure Global</h4>
