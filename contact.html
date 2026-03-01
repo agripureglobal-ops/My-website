@@ -6,196 +6,155 @@
     <title>Contact Our Trade Desk | Agripure Global</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
-        /* MASTER THEME */
         :root { --p: #1b4332; --a: #c5a059; --d: #141d18; --l: #f9fbf7; --w: #fff; }
-        
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', sans-serif; }
-        body { color: #333; line-height: 1.6; background: var(--l); overflow-x: hidden; }
+        body { color: #333; line-height: 1.6; background: var(--l); }
 
         header { padding: 15px 5%; display: flex; flex-direction: column; align-items: center; box-shadow: 0 2px 15px rgba(0,0,0,0.05); position: sticky; top: 0; background: var(--w); z-index: 1000; }
         .logo-img { height: 50px; margin-bottom: 8px; }
         nav a { text-decoration: none; color: var(--p); font-weight: 700; text-transform: uppercase; font-size: 11px; letter-spacing: 1.5px; margin: 0 15px; }
 
         .contact-hero { background: var(--p); color: var(--w); padding: 60px 5%; text-align: center; border-bottom: 5px solid var(--a); }
-        .contact-hero h1 { font-size: 2.2rem; text-transform: uppercase; font-weight: 900; letter-spacing: -1px; }
-        .contact-hero p { opacity: 0.8; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 2px; margin-top: 10px; }
+        .contact-hero h1 { font-size: 2.2rem; text-transform: uppercase; font-weight: 900; }
 
-        .contact-container { 
-            max-width: 1200px; margin: 40px auto; padding: 0 5%; 
-            display: grid; grid-template-columns: 1fr 1.5fr; gap: 30px; 
-            grid-template-areas: "info form";
-        }
+        .contact-container { max-width: 1100px; margin: 40px auto; padding: 0 5%; display: grid; grid-template-columns: 1fr 1.5fr; gap: 30px; }
 
-        /* INFO PANE */
-        .info-pane { grid-area: info; background: var(--d); color: var(--w); padding: 40px; border-radius: 4px; display: flex; flex-direction: column; justify-content: space-between; border-bottom: 4px solid var(--a); }
-        .info-group { margin-bottom: 30px; }
+        .info-pane { background: var(--d); color: var(--w); padding: 40px; border-bottom: 4px solid var(--a); display: flex; flex-direction: column; justify-content: space-between; }
         .info-group h3 { color: var(--a); font-size: 0.7rem; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 10px; }
-        .info-group p, .info-group a { font-size: 1rem; font-weight: 700; color: #fff; text-decoration: none; transition: 0.3s; }
-        .info-group i { margin-right: 12px; color: var(--a); }
 
-        /* FORM CARD */
-        .form-card { grid-area: form; background: var(--w); padding: 40px; border-radius: 4px; box-shadow: 0 15px 40px rgba(0,0,0,0.05); border: 1px solid #eee; border-bottom: 4px solid var(--a); }
-        .form-group { margin-bottom: 25px; }
-        label { display: block; margin-bottom: 12px; font-weight: 900; color: var(--p); text-transform: uppercase; font-size: 0.75rem; letter-spacing: 1px; }
+        .form-card { background: var(--w); padding: 40px; box-shadow: 0 15px 40px rgba(0,0,0,0.05); border-bottom: 4px solid var(--a); }
+        .form-group { margin-bottom: 25px; position: relative; }
+        label { display: block; margin-bottom: 10px; font-weight: 900; color: var(--p); text-transform: uppercase; font-size: 0.75rem; }
+
+        /* SMART SEARCH BOX */
+        .search-container { position: relative; width: 100%; }
+        .search-input { width: 100%; padding: 15px; border: 1px solid #eee; background: #fbfbfb; font-size: 15px; outline: none; }
+        .search-input:focus { border-color: var(--a); }
         
-        /* INTERACTIVE SUITE SELECTOR */
-        .suite-selector { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-bottom: 20px; }
-        .suite-opt { 
-            border: 1px solid #eee; padding: 15px 10px; text-align: center; cursor: pointer; 
-            transition: 0.3s; background: #fbfbfb; border-bottom: 3px solid transparent; 
+        .search-results { 
+            position: absolute; top: 100%; left: 0; right: 0; 
+            background: #fff; border: 1px solid #eee; border-top: none;
+            max-height: 200px; overflow-y: auto; z-index: 10; display: none;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
         }
-        .suite-opt i { display: block; font-size: 1.2rem; color: var(--a); margin-bottom: 8px; }
-        .suite-opt span { font-size: 0.65rem; font-weight: 800; text-transform: uppercase; color: var(--p); display: block; }
-        .suite-opt:hover { border-color: var(--a); background: #fff; }
-        .suite-opt.active { border-color: var(--a); border-bottom-color: var(--a); background: #fdfaf4; }
+        .result-item { padding: 12px 15px; cursor: pointer; font-size: 0.9rem; border-bottom: 1px solid #f9f9f9; }
+        .result-item:hover { background: var(--l); color: var(--p); font-weight: 700; }
+        .result-item span { font-size: 0.7rem; color: var(--a); float: right; text-transform: uppercase; }
 
-        /* DYNAMIC PRODUCT LIST */
-        .product-pills { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 15px; display: none; }
-        .product-pills.active { display: flex; }
-        .pill { 
-            padding: 8px 15px; border: 1px solid #ddd; border-radius: 20px; font-size: 0.75rem; 
-            cursor: pointer; background: #fff; transition: 0.3s; font-weight: 600; 
-        }
-        .pill:hover, .pill.selected { background: var(--p); color: #fff; border-color: var(--p); }
-
-        input, textarea { width: 100%; padding: 14px; border: 1px solid #eee; background: #fbfbfb; font-size: 15px; outline: none; transition: 0.3s; }
-        input:focus, textarea:focus { border-color: var(--a); background: var(--w); }
+        input[type="text"], input[type="email"], textarea { width: 100%; padding: 15px; border: 1px solid #eee; background: #fbfbfb; font-size: 15px; outline: none; }
         
-        .btn-submit { width: 100%; padding: 18px; background: var(--p); color: white; border: none; font-weight: 900; cursor: pointer; text-transform: uppercase; letter-spacing: 2px; margin-top: 10px; }
+        .btn-submit { width: 100%; padding: 18px; background: var(--p); color: white; border: none; font-weight: 900; cursor: pointer; text-transform: uppercase; letter-spacing: 2px; }
         .btn-submit:hover { background: var(--a); }
 
-        #success-box { display: none; margin-top: 20px; padding: 15px; border: 1px solid #28a745; background: #f4fff4; color: #1b5e20; text-align: center; font-weight: 600; }
-
-        footer { background: var(--d); color: #999; padding: 60px 8% 40px; border-top: 5px solid var(--a); }
-        .f-grid { display: grid; grid-template-columns: 1.5fr 1fr 1.5fr; gap: 40px; max-width: 1200px; margin: 0 auto; }
-        .f-col h4 { color: var(--w); margin-bottom: 20px; text-transform: uppercase; font-size: 0.8rem; letter-spacing: 2px; position: relative; padding-bottom: 10px; }
-        .f-col h4::after { content: ''; position: absolute; left: 0; bottom: 0; width: 30px; height: 2px; background: var(--a); }
-        .f-links a { color: #bbb; text-decoration: none; display: block; margin-bottom: 15px; font-size: 0.9rem; transition: 0.3s; }
-
-        @media (max-width: 900px) { 
-            .contact-container { grid-template-columns: 1fr; grid-template-areas: "form" "info"; } 
-            .suite-selector { grid-template-columns: 1fr 1fr; }
-        }
+        @media (max-width: 800px) { .contact-container { grid-template-columns: 1fr; } }
     </style>
 </head>
 <body>
 
 <header>
     <img src="logo.jpg" alt="Agripure Global" class="logo-img">
-    <nav>
-        <a href="index.html">Home</a>
-        <a href="story.html">Story</a>
-        <a href="index.html#catalogue">Catalogue</a>
-        <a href="contact.html" style="color:var(--a)">Contact</a>
-    </nav>
+    <nav><a href="index.html">Home</a> <a href="story.html">Story</a> <a href="index.html#catalogue">Catalogue</a> <a href="contact.html" style="color:var(--a)">Contact</a></nav>
 </header>
 
 <section class="contact-hero">
     <h1>Trade Inquiry</h1>
-    <p>Premium Sourcing Desk</p>
+    <p>Direct Sourcing Desk</p>
 </section>
 
 <div class="contact-container">
-    <section class="form-card">
-        <form id="my-form" action="https://formspree.io/f/mykdelle" method="POST">
-            <div class="form-group">
-                <label>Identify Produce Suite</label>
-                <div class="suite-selector">
-                    <div class="suite-opt" data-target="suite01"><i class="fas fa-leaf"></i><span>Sweeteners</span></div>
-                    <div class="suite-opt" data-target="suite02"><i class="fas fa-apple-alt"></i><span>Fruits</span></div>
-                    <div class="suite-opt" data-target="suite03"><i class="fas fa-carrot"></i><span>Vegetables</span></div>
-                    <div class="suite-opt" data-target="suite04"><i class="fas fa-wind"></i><span>Dehydrated</span></div>
-                    <div class="suite-opt" data-target="suite05"><i class="fas fa-bolt"></i><span>Superfoods</span></div>
-                </div>
-
-                <div id="suite01" class="product-pills"><div class="pill">Jaggery Blocks</div><div class="pill">Liquid</div><div class="pill">Powder</div><div class="pill">Honey</div></div>
-                <div id="suite02" class="product-pills"><div class="pill">Grapes</div><div class="pill">Pomegranate</div><div class="pill">Banana</div><div class="pill">Guava</div><div class="pill">Papaya</div></div>
-                <div id="suite03" class="product-pills"><div class="pill">Onion</div><div class="pill">Tomato</div><div class="pill">Okra</div><div class="pill">Chilli</div><div class="pill">Gourds</div><div class="pill">Baby Potato</div></div>
-                <div id="suite04" class="product-pills"><div class="pill">Onion Powder</div></div>
-                <div id="suite05" class="product-pills"><div class="pill">Makhana</div></div>
-
-                <input type="hidden" name="Selection" id="final-selection" required>
-            </div>
-
-            <div class="form-group">
-                <label>Company & Professional Details</label>
-                <div style="display:grid; grid-template-columns: 1fr 1fr; gap: 15px;">
-                    <input type="text" name="name" placeholder="Name/House" required>
-                    <input type="email" name="email" placeholder="Email" required>
-                </div>
-            </div>
-
-            <div class="form-group">
-                <label>Trade Requirements</label>
-                <textarea name="message" rows="3" placeholder="Port, Tonnage, Packing Details..." required></textarea>
-            </div>
-
-            <button type="submit" id="my-form-status" class="btn-submit">Dispatch Inquiry</button>
-        </form>
-        <div id="success-box">Inquiry Dispatched. Expect a response within 24 hours.</div>
-    </section>
-
     <div class="info-pane">
         <div class="info-group">
             <h3>Trade Line</h3>
-            <p><a href="https://wa.me/917666170693"><i class="fab fa-whatsapp"></i> +91 7666170693</a></p>
+            <p><a href="https://wa.me/917666170693" style="color:#fff; text-decoration:none;"><i class="fab fa-whatsapp"></i> +91 7666170693</a></p>
         </div>
         <div class="info-group">
-            <h3>HQ</h3>
-            <p><i class="fas fa-map-marker-alt"></i> Mansarovar, Navi Mumbai, India.</p>
+            <h3>Email</h3>
+            <p>info@agripureglobal.com</p>
         </div>
-        <p style="font-size: 0.7rem; color: var(--a); font-weight: 800; text-transform: uppercase;">Direct Farm-Gate Access</p>
+        <p style="font-size: 0.7rem; color: var(--a); font-weight: 800; text-transform: uppercase;">7+ Years Integrity</p>
     </div>
+
+    <section class="form-card">
+        <form id="trade-form" action="https://formspree.io/f/mykdelle" method="POST">
+            <div class="form-group">
+                <label>What are you looking for?</label>
+                <div class="search-container">
+                    <input type="text" id="product-search" class="search-input" placeholder="Start typing... (e.g. Grapes, Onion, Makhana)" autocomplete="off">
+                    <div id="results-box" class="search-results"></div>
+                </div>
+                <input type="hidden" name="Product_Interest" id="final-product-value" required>
+            </div>
+
+            <div class="form-group" style="display:grid; grid-template-columns: 1fr 1fr; gap:15px;">
+                <div><label>Name</label><input type="text" name="name" required></div>
+                <div><label>Email</label><input type="email" name="email" required></div>
+            </div>
+
+            <div class="form-group">
+                <label>Message / Requirements</label>
+                <textarea name="message" rows="3" placeholder="Tonnage, Destination Port..." required></textarea>
+            </div>
+
+            <button type="submit" class="btn-submit">Dispatch Inquiry</button>
+        </form>
+    </section>
 </div>
 
-<footer>
-    <div class="f-grid">
-        <div class="f-col"><h4>Agripure Global</h4><p>7+ years of export integrity.</p></div>
-        <div class="f-col f-links">
-            <h4>Portals</h4>
-            <a href="index.html">Home</a>
-            <a href="index.html#catalogue">Catalogue</a>
-        </div>
-    </div>
-</footer>
-
 <script>
-    // Handle Suite Selection
-    document.querySelectorAll('.suite-opt').forEach(opt => {
-        opt.addEventListener('click', () => {
-            document.querySelectorAll('.suite-opt').forEach(o => o.classList.remove('active'));
-            document.querySelectorAll('.product-pills').forEach(p => p.classList.remove('active'));
-            opt.classList.add('active');
-            const target = opt.getAttribute('data-target');
-            document.getElementById(target).classList.add('active');
-        });
+    // The "Growing" Product Database
+    const products = [
+        { name: "Export Grapes", cat: "Suite 02" },
+        { name: "Pomegranates", cat: "Suite 02" },
+        { name: "Banana", cat: "Suite 02" },
+        { name: "Guava", cat: "Suite 02" },
+        { name: "Papaya", cat: "Suite 02" },
+        { name: "Red Onions", cat: "Suite 03" },
+        { name: "Tomato", cat: "Suite 03" },
+        { name: "Okra", cat: "Suite 03" },
+        { name: "Green Chilli", cat: "Suite 03" },
+        { name: "Gourds (Bottle/Bitter/Ridge)", cat: "Suite 03" },
+        { name: "Cabbage", cat: "Suite 03" },
+        { name: "Cauliflower", cat: "Suite 03" },
+        { name: "Capsicum", cat: "Suite 03" },
+        { name: "Baby Potato", cat: "Suite 03" },
+        { name: "Onion Powder", cat: "Suite 04" },
+        { name: "Premium Makhana", cat: "Suite 05" },
+        { name: "Jaggery Blocks", cat: "Suite 01" }
+    ];
+
+    const searchInput = document.getElementById('product-search');
+    const resultsBox = document.getElementById('results-box');
+    const hiddenInput = document.getElementById('final-product-value');
+
+    searchInput.addEventListener('input', function() {
+        const val = this.value.toLowerCase();
+        resultsBox.innerHTML = '';
+        if (val.length < 1) { resultsBox.style.display = 'none'; return; }
+
+        const filtered = products.filter(p => p.name.toLowerCase().includes(val));
+        
+        if (filtered.length > 0) {
+            resultsBox.style.display = 'block';
+            filtered.forEach(p => {
+                const div = document.createElement('div');
+                div.className = 'result-item';
+                div.innerHTML = `${p.name} <span>${p.cat}</span>`;
+                div.onclick = function() {
+                    searchInput.value = p.name;
+                    hiddenInput.value = p.name;
+                    resultsBox.style.display = 'none';
+                };
+                resultsBox.appendChild(div);
+            });
+        } else {
+            resultsBox.style.display = 'none';
+        }
     });
 
-    // Handle Pill Selection
-    document.querySelectorAll('.pill').forEach(pill => {
-        pill.addEventListener('click', () => {
-            document.querySelectorAll('.pill').forEach(p => p.classList.remove('selected'));
-            pill.classList.add('selected');
-            document.getElementById('final-selection').value = pill.innerText;
-        });
+    // Close results if clicking outside
+    document.addEventListener('click', (e) => {
+        if (!e.target.closest('.search-container')) resultsBox.style.display = 'none';
     });
-
-    // Formspree logic remains same
-    var form = document.getElementById("my-form");
-    async function handleSubmit(event) {
-        event.preventDefault();
-        var status = document.getElementById("my-form-status");
-        var data = new FormData(event.target);
-        status.innerHTML = "Sending...";
-        fetch(event.target.action, { method: form.method, body: data, headers: { 'Accept': 'application/json' }
-        }).then(response => {
-            if (response.ok) {
-                document.getElementById("success-box").style.display = "block";
-                form.reset();
-            }
-        });
-    }
-    form.addEventListener("submit", handleSubmit);
 </script>
 </body>
 </html>
