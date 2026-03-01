@@ -10,9 +10,36 @@
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', sans-serif; }
         body { color: #333; line-height: 1.6; background: var(--w); overflow-x: hidden; }
 
-        header { padding: 15px 5%; display: flex; flex-direction: column; align-items: center; box-shadow: 0 2px 15px rgba(0,0,0,0.05); position: sticky; top: 0; background: var(--w); z-index: 1000; }
-        .logo-img { height: 50px; margin-bottom: 8px; }
-        nav a { text-decoration: none; color: var(--p); font-weight: 700; text-transform: uppercase; font-size: 11px; letter-spacing: 1.5px; margin: 0 15px; }
+        /* FIXED SINGLE-LINE HEADER */
+        header { 
+            padding: 10px 5%; 
+            display: flex; 
+            flex-direction: row; 
+            justify-content: space-between; 
+            align-items: center; 
+            box-shadow: 0 2px 15px rgba(0,0,0,0.05); 
+            position: sticky; 
+            top: 0; 
+            background: var(--w); 
+            z-index: 2000; 
+        }
+        .logo-img { height: 35px; flex-shrink: 0; }
+        nav { 
+            display: flex; 
+            flex-direction: row; 
+            gap: 15px; 
+            align-items: center; 
+            white-space: nowrap; 
+        }
+        nav a { 
+            text-decoration: none; 
+            color: var(--p); 
+            font-weight: 700; 
+            text-transform: uppercase; 
+            font-size: 10px; 
+            letter-spacing: 1px; 
+            margin: 0; 
+        }
 
         /* 1. HERO */
         .story-hero { height: 50vh; background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('farmer.jpg') center/cover; display: flex; flex-direction: column; justify-content: center; align-items: center; color: var(--w); text-align: center; padding: 0 10%; }
@@ -51,14 +78,26 @@
         .trade-card i { color: var(--a); margin-right: 15px; }
         .quote-btn { background: var(--a); color: var(--w) !important; padding: 15px 30px; display: block; font-weight: 900; text-transform: uppercase; font-size: 0.8rem; letter-spacing: 2px; text-decoration: none; text-align: center; }
 
-        @media (max-width: 1000px) { .pedigree, .manifesto, .stats-grid, .f-grid { grid-template-columns: 1fr; } .ethics-box { border-left: none; border-top: 1px solid #ddd; } }
+        @media (max-width: 1000px) { 
+            header { padding: 10px 4%; }
+            nav { gap: 10px; }
+            nav a { font-size: 9px; }
+            .logo-img { height: 28px; }
+            .pedigree, .manifesto, .stats-grid, .f-grid { grid-template-columns: 1fr; } 
+            .ethics-box { border-left: none; border-top: 1px solid #ddd; } 
+        }
     </style>
 </head>
 <body>
 
 <header>
     <img src="logo.jpg" alt="Agripure Global" class="logo-img">
-    <nav><a href="index.html">Home</a><a href="story.html" style="color:var(--a)">Story</a><a href="index.html#catalogue">Catalogue</a><a href="#contact">Contact</a></nav>
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="story.html" style="color:var(--a)">Story</a>
+        <a href="index.html#catalogue">Catalogue</a>
+        <a href="contact.html">Contact</a>
+    </nav>
 </header>
 
 <section class="story-hero">
@@ -137,7 +176,7 @@
             <h4>Trade Desk</h4>
             <div class="trade-card">
                 <p><i class="fas fa-phone-alt"></i> +91 7666170693</p>
-                <a href="mailto:info@agripureglobal.com" class="quote-btn">Email Trade Quote</a>
+                <a href="contact.html" class="quote-btn">Inquiry Form</a>
             </div>
         </div>
     </div>
