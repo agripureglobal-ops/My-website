@@ -10,10 +10,8 @@
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', sans-serif; }
         body { color: #333; background: #fff; line-height: 1.6; overflow-x: hidden; }
 
-        /* HIDE CITATIONS FROM USER VIEW BUT KEEP IN DOM */
-        cite { display: none; }
+        cite { display: none; } /* Hide citations from UI */
 
-        /* HEADER & HERO */
         header { background: var(--white); padding: 15px 5%; display: flex; flex-direction: column; align-items: center; box-shadow: 0 2px 15px rgba(0,0,0,0.05); position: sticky; top: 0; z-index: 1000; }
         .logo-img { height: 55px; margin-bottom: 10px; }
         nav ul { list-style: none; display: flex; gap: 30px; }
@@ -27,11 +25,10 @@
         .hero h1 { font-size: 2.8rem; font-weight: 900; margin-bottom: 8px; text-transform: uppercase; letter-spacing: -1px; }
         .hero p { font-size: 1rem; font-weight: 300; letter-spacing: 1.5px; text-transform: uppercase; }
 
-        /* SECTION TITLES */
         .section-padding { padding: 80px 2%; width: 100%; }
         .sec-title { text-align: center; color: var(--primary); margin-bottom: 40px; text-transform: uppercase; letter-spacing: 2.5px; font-size: 1.8rem; font-weight: 800; }
 
-        /* EXPORT SUITES (HORIZONTAL) */
+        /* EXPORT SUITES */
         .suite-container { display: flex; width: 100%; gap: 8px; padding: 0 8px; }
         .suite-card { flex: 1; background: #fff; border-radius: 4px; border: 1px solid #eee; text-decoration: none; transition: 0.4s; height: 500px; overflow: hidden; }
         .suite-card:hover { flex: 1.3; border-color: var(--accent); }
@@ -40,23 +37,22 @@
         .suite-card h4 { color: var(--primary); font-size: 0.95rem; text-transform: uppercase; font-weight: 900; margin-bottom: 4px; }
         .suite-card p { color: #666; font-size: 0.75rem; font-style: italic; border-top: 1px solid #f5f5f5; padding-top: 6px; }
 
-        /* CORE PILLARS */
-        .pillar-bg { background: var(--light); padding: 80px 5%; border-top: 1px solid #eef2eb; }
-        .pillar-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 35px; max-width: 1200px; margin: 0 auto; }
+        /* CORE PILLARS & HOW WE WORK - MATCHED BACKGROUNDS */
+        .unified-bg { background: var(--light); padding: 80px 5%; border-top: 1px solid #eef2eb; }
+        .pillar-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 35px; max-width: 1200px; margin: 0 auto; margin-bottom: 80px; }
         .pillar-card { text-align: center; }
         .pillar-card i { font-size: 1.8rem; color: var(--accent); margin-bottom: 15px; }
         .pillar-card h3 { color: var(--primary); font-size: 1rem; text-transform: uppercase; margin-bottom: 10px; font-weight: 800; }
         .pillar-card p { font-size: 0.85rem; color: #555; line-height: 1.6; }
 
-        /* HOW WE WORK (4-STEP) */
-        .work-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 15px; padding: 0 5%; max-width: 1400px; margin: 0 auto; }
+        .work-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 15px; max-width: 1400px; margin: 0 auto; }
         .work-step { background: #fff; padding: 40px 20px; border-radius: 4px; text-align: center; border: 1px solid #eee; }
         .work-step i { font-size: 2rem; color: var(--accent); margin-bottom: 15px; }
         .work-step h4 { color: var(--primary); font-size: 0.85rem; text-transform: uppercase; margin-bottom: 10px; font-weight: 800; }
         .work-step p { font-size: 0.8rem; color: #777; }
 
-        /* FAQ */
-        .faq-section { background: #fcfcfc; padding: 80px 5%; }
+        /* TRADE FAQ */
+        .faq-section { background: #fff; padding: 80px 5%; }
         .faq-container { max-width: 900px; margin: 0 auto; }
         .faq-item { background: #fff; margin-bottom: 12px; border: 1px solid #eee; border-radius: 4px; }
         .faq-question { width: 100%; padding: 20px; background: none; border: none; text-align: left; display: flex; justify-content: space-between; align-items: center; cursor: pointer; font-weight: 700; color: var(--primary); }
@@ -64,17 +60,12 @@
         .faq-answer p { padding: 0 20px 20px; font-size: 0.9rem; color: #666; border-top: 1px solid #f9f9f9; padding-top: 12px; }
         .faq-item.active .faq-answer { max-height: 200px; }
 
-        /* FOOTER (CLEAN LINKS) */
-        footer { background: #0b140e; color: #888; padding: 70px 5% 30px; border-top: 4px solid var(--accent); position: relative; }
+        /* FOOTER */
+        footer { background: #0b140e; color: #888; padding: 70px 5% 30px; border-top: 4px solid var(--accent); }
         .footer-grid { display: grid; grid-template-columns: 1.2fr 1fr 1fr; gap: 50px; max-width: 1200px; margin: 0 auto; }
         .footer-col h4 { color: var(--white); margin-bottom: 20px; text-transform: uppercase; font-size: 0.8rem; letter-spacing: 1.5px; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 8px; display: inline-block; }
-        .footer-col a { color: #777; text-decoration: none; display: block; margin-bottom: 10px; font-size: 0.9rem; transition: 0.2s; position: relative; z-index: 5; }
+        .footer-col a { color: #777; text-decoration: none; display: block; margin-bottom: 10px; font-size: 0.9rem; transition: 0.2s; }
         .footer-col a:hover { color: var(--accent); transform: translateX(5px); }
-        
-        #footer-links-box { position: relative; }
-        .footer-leaf { position: absolute; color: rgba(197, 160, 89, 0.25); font-size: 14px; z-index: 1; pointer-events: none; opacity: 0; }
-        @keyframes leaf-fall { 0% { transform: translateY(-5px) rotate(0deg); opacity: 0; } 100% { transform: translateY(100px) rotate(360deg); opacity: 0; } }
-
         .footer-bottom { text-align: center; margin-top: 50px; border-top: 1px solid rgba(255,255,255,0.05); padding-top: 20px; font-size: 0.75rem; opacity: 0.5; }
     </style>
 </head>
@@ -92,7 +83,7 @@
 
 <section class="hero">
     <h1>7+ Years of Export Integrity</h1>
-    <p>Navi Mumbai's Direct Link to Premium Indian Produce <cite>[cite: 2026-02-28]</cite></p>
+    <p>Premium Indian Produce Delivered Globally <cite>[cite: 2026-02-28]</cite></p>
 </section>
 
 <section class="section-padding" id="suites">
@@ -121,36 +112,45 @@
     </div>
 </section>
 
-<section class="pillar-bg">
-    <h2 class="sec-title">Our Core Pillars</h2>
-    <div class="pillar-grid">
-        <div class="pillar-card"><i class="fas fa-certificate"></i><h3>Quality Graded</h3><p>Strict global phyto-sanitary standards for all suites <cite>[cite: 2026-02-28]</cite>.</p></div>
-        <div class="pillar-card"><i class="fas fa-truck-loading"></i><h3>Logistics Mastery</h3><p>Strategic hub-to-vessel coordination from Navi Mumbai <cite>[cite: 2026-02-28]</cite>.</p></div>
-        <div class="pillar-card"><i class="fas fa-seedling"></i><h3>Direct Sourcing</h3><p>Procurement from verified farm networks for B2B pricing <cite>[cite: 2026-02-28]</cite>.</p></div>
-    </div>
-</section>
+<div class="unified-bg">
+    <section>
+        <h2 class="sec-title">Our Core Pillars</h2>
+        <div class="pillar-grid">
+            <div class="pillar-card"><i class="fas fa-certificate"></i><h3>Quality Graded</h3><p>Strict global phyto-sanitary standards for all suites <cite>[cite: 2026-02-28]</cite>.</p></div>
+            <div class="pillar-card"><i class="fas fa-truck-loading"></i><h3>Logistics Mastery</h3><p>Strategic hub-to-vessel coordination for zero-delay dispatch <cite>[cite: 2026-02-28]</cite>.</p></div>
+            <div class="pillar-card"><i class="fas fa-seedling"></i><h3>Direct Sourcing</h3><p>Procurement from verified farm networks for competitive pricing <cite>[cite: 2026-02-28]</cite>.</p></div>
+        </div>
+    </section>
 
-
-<section class="section-padding">
-    <h2 class="sec-title">How We Work</h2>
-    <div class="work-grid">
-        <div class="work-step"><i class="fas fa-tractor"></i><h4>Sourcing & Grading</h4><p>Manual grading for export quality <cite>[cite: 2026-02-28]</cite>.</p></div>
-        <div class="work-step"><i class="fas fa-warehouse"></i><h4>Processing & Pack</h4><p>Moisture-controlled processing <cite>[cite: 2026-02-28]</cite>.</p></div>
-        <div class="work-step"><i class="fas fa-vial"></i><h4>Quality Inspection</h4><p>Final lab testing and certification <cite>[cite: 2026-02-28]</cite>.</p></div>
-        <div class="work-step"><i class="fas fa-anchor"></i><h4>Port Logistics</h4><p>Secure transport to JNPT for dispatch <cite>[cite: 2026-02-28]</cite>.</p></div>
-    </div>
-</section>
+    <section>
+        <h2 class="sec-title">How We Work</h2>
+        <div class="work-grid">
+            <div class="work-step"><i class="fas fa-tractor"></i><h4>Sourcing & Grading</h4><p>Manual grading for export quality <cite>[cite: 2026-02-28]</cite>.</p></div>
+            <div class="work-step"><i class="fas fa-warehouse"></i><h4>Processing & Pack</h4><p>Moisture-controlled custom packaging <cite>[cite: 2026-02-28]</cite>.</p></div>
+            <div class="work-step"><i class="fas fa-vial"></i><h4>Quality Inspection</h4><p>Final lab testing and certification <cite>[cite: 2026-02-28]</cite>.</p></div>
+            <div class="work-step"><i class="fas fa-anchor"></i><h4>Global Logistics</h4><p>Secure transport for immediate worldwide dispatch <cite>[cite: 2026-02-28]</cite>.</p></div>
+        </div>
+    </section>
+</div>
 
 <section class="faq-section">
     <h2 class="sec-title">Trade FAQ</h2>
     <div class="faq-container">
         <div class="faq-item">
-            <button class="faq-question">What are your lead times? <i class="fas fa-plus"></i></button>
-            <div class="faq-answer"><p>Standard dispatch within 72 hours of harvest <cite>[cite: 2026-02-28]</cite>.</p></div>
+            <button class="faq-question">What are your typical lead times? <i class="fas fa-plus"></i></button>
+            <div class="faq-answer"><p>Standard dispatch occurs within 72 hours of harvest <cite>[cite: 2026-02-28]</cite>.</p></div>
+        </div>
+        <div class="faq-item">
+            <button class="faq-question">Do you offer custom branding? <i class="fas fa-plus"></i></button>
+            <div class="faq-answer"><p>Yes, we provide full white-labeling and customized bulk packaging <cite>[cite: 2026-02-28]</cite>.</p></div>
         </div>
         <div class="faq-item">
             <button class="faq-question">Which global markets do you serve? <i class="fas fa-plus"></i></button>
             <div class="faq-answer"><p>Serving major trade hubs in the Gulf, Europe, and SE Asia <cite>[cite: 2026-02-28]</cite>.</p></div>
+        </div>
+        <div class="faq-item">
+            <button class="faq-question">What are your MOQs? <i class="fas fa-plus"></i></button>
+            <div class="faq-answer"><p>We accommodate both LCL and Full Container Load requirements <cite>[cite: 2026-02-28]</cite>.</p></div>
         </div>
     </div>
 </section>
@@ -159,18 +159,18 @@
     <div class="footer-grid">
         <div class="footer-col">
             <h4>Agripure Global</h4>
-            <p>Plot 34, Sector 36, Mansarovar,<br>Navi Mumbai, India - 410209 <cite>[cite: 2026-02-28]</cite></p>
+            <p>Plot 34, Sector 36, Mansarovar,<br>India - 410209 <cite>[cite: 2026-02-28]</cite></p>
         </div>
-        <div class="footer-col" id="footer-links-box">
+        <div class="footer-col">
             <h4>Quick Links</h4>
-            <a href="index.html">Home Portal <cite>[cite: 2026-02-28]</cite></a>
-            <a href="story.html">7-Year Story <cite>[cite: 2026-02-28]</cite></a>
-            <a href="#suites">Export Suites <cite>[cite: 2026-02-28]</cite></a>
+            <a href="index.html">Home Portal</a>
+            <a href="story.html">7-Year Story</a>
+            <a href="#suites">Export Suites</a>
         </div>
         <div class="footer-col">
             <h4>Trade Contact</h4>
             <p>+91 7666170693 <cite>[cite: 2026-02-28]</cite></p>
-            <a href="mailto:info@agripureglobal.com" style="color:var(--accent);">info@agripureglobal.com <cite>[cite: 2026-02-28]</cite></a>
+            <a href="mailto:info@agripureglobal.com" style="color:var(--accent);">info@agripureglobal.com</a>
         </div>
     </div>
     <div class="footer-bottom">&copy; 2026 Agripure Global. Integrity in Every Export.</div>
@@ -178,18 +178,6 @@
 
 <script>
     document.querySelectorAll('.faq-question').forEach(q => q.addEventListener('click', () => q.parentElement.classList.toggle('active')));
-    const box = document.getElementById('footer-links-box');
-    function createLeaf() {
-        const leaf = document.createElement('i');
-        leaf.className = 'fas fa-leaf footer-leaf';
-        leaf.style.left = Math.random() * 70 + '%';
-        leaf.style.animation = `leaf-fall ${Math.random() * 1.5 + 1}s linear forwards`;
-        box.appendChild(leaf);
-        setTimeout(() => leaf.remove(), 2000);
-    }
-    let leafTimer;
-    box.addEventListener('mouseenter', () => { leafTimer = setInterval(createLeaf, 200); });
-    box.addEventListener('mouseleave', () => { clearInterval(leafTimer); });
 </script>
 </body>
 </html>
