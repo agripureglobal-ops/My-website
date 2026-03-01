@@ -10,62 +10,54 @@
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', sans-serif; }
         body { color: #333; line-height: 1.6; overflow-x: hidden; }
         
-        /* THE ULTIMATE CITE KILLER */
-        cite, [class*="cite"], span:contains("cite") { display: none !important; opacity: 0 !important; pointer-events: none !important; position: absolute !important; }
+        /* THE DOUBLE-LOCK CITE KILLER */
+        cite, .cite-tag, [data-cite] { display: none !important; opacity: 0 !important; visibility: hidden !important; position: absolute !important; }
 
-        header { padding: 15px 5%; display: flex; flex-direction: column; align-items: center; box-shadow: 0 2px 15px rgba(0,0,0,0.05); position: sticky; top: 0; background: var(--w); z-index: 1000; }
-        .logo-img { height: 52px; margin-bottom: 8px; }
+        header { padding: 12px 5%; display: flex; flex-direction: column; align-items: center; box-shadow: 0 2px 15px rgba(0,0,0,0.05); position: sticky; top: 0; background: var(--w); z-index: 1000; }
+        .logo-img { height: 48px; margin-bottom: 5px; }
         nav ul { list-style: none; display: flex; gap: 25px; }
-        nav a { text-decoration: none; color: var(--p); font-weight: 700; text-transform: uppercase; font-size: 11px; letter-spacing: 1.2px; transition: 0.3s; }
-        nav a:hover { color: var(--a); }
+        nav a { text-decoration: none; color: var(--p); font-weight: 700; text-transform: uppercase; font-size: 11px; letter-spacing: 1.2px; }
 
-        .hero { height: 60vh; background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('farmer.jpg') center/cover; display: flex; flex-direction: column; justify-content: center; align-items: center; color: var(--w); text-align: center; }
-        .hero h1 { font-size: 3rem; text-transform: uppercase; font-weight: 900; letter-spacing: -1px; }
+        .hero { height: 50vh; background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('farmer.jpg') center/cover; display: flex; flex-direction: column; justify-content: center; align-items: center; color: var(--w); text-align: center; }
+        .hero h1 { font-size: 2.5rem; text-transform: uppercase; font-weight: 900; }
 
-        .section { padding: 120px 5%; }
-        .sec-title { text-align: center; color: var(--p); margin-bottom: 70px; text-transform: uppercase; letter-spacing: 2.5px; font-size: 1.8rem; font-weight: 800; }
+        .section-compact { padding: 70px 5%; }
+        .sec-title { text-align: center; color: var(--p); margin-bottom: 45px; text-transform: uppercase; letter-spacing: 2px; font-size: 1.5rem; font-weight: 800; }
 
-        /* SUITES GRID */
-        .suite-grid { display: flex; gap: 15px; margin-bottom: 40px; }
-        .suite-card { flex: 1; background: var(--w); border: 1px solid #eee; text-decoration: none; height: 480px; overflow: hidden; transition: 0.5s cubic-bezier(0.4, 0, 0.2, 1); display: flex; flex-direction: column; }
-        .suite-card:hover { border-color: var(--a); transform: translateY(-10px); box-shadow: 0 20px 40px rgba(0,0,0,0.1); }
-        .suite-card img { width: 100%; height: 70%; object-fit: cover; transition: 0.5s; }
-        .suite-card:hover img { transform: scale(1.05); }
-        .suite-card h4 { color: var(--p); padding: 20px 10px 5px; text-transform: uppercase; font-size: 0.9rem; font-weight: 900; }
-        .suite-card p { font-size: 0.75rem; color: #777; font-style: italic; padding: 0 10px 20px; }
+        /* SUITES */
+        .suite-grid { display: flex; gap: 12px; margin-bottom: 20px; }
+        .suite-card { flex: 1; background: var(--w); border: 1px solid #eee; text-decoration: none; height: 440px; overflow: hidden; transition: 0.4s; text-align: center; display: flex; flex-direction: column; }
+        .suite-card:hover { border-color: var(--a); transform: translateY(-5px); box-shadow: 0 15px 30px rgba(0,0,0,0.1); }
+        .suite-card img { width: 100%; height: 65%; object-fit: cover; }
+        .suite-card h4 { color: var(--p); padding: 18px 10px 5px; text-transform: uppercase; font-size: 0.85rem; font-weight: 900; }
+        .suite-card p { font-size: 0.75rem; color: #777; padding: 0 10px 20px; }
 
-        /* EQUALIZED BOXES */
+        /* PILLARS & WORKFLOW */
         .bg-grey { background: var(--l); border-top: 1px solid #eee; }
-        .box-grid { display: grid; gap: 25px; max-width: 1400px; margin: 0 auto; }
-        .g3 { grid-template-columns: repeat(3, 1fr); margin-bottom: 120px; }
+        .box-grid { display: grid; gap: 15px; max-width: 1400px; margin: 0 auto; }
+        .g3 { grid-template-columns: repeat(3, 1fr); margin-bottom: 60px; }
         .g4 { grid-template-columns: repeat(4, 1fr); }
-        .box { background: var(--w); padding: 50px 30px; border: 1px solid #e8ede4; text-align: center; border-radius: 4px; transition: 0.3s; }
-        .box:hover { border-color: var(--a); transform: translateY(-5px); box-shadow: 0 10px 30px rgba(0,0,0,0.05); }
-        .box i { font-size: 2.2rem; color: var(--a); margin-bottom: 20px; }
-        .box h3 { color: var(--p); font-size: 1rem; text-transform: uppercase; margin-bottom: 12px; font-weight: 800; }
-        .box p { font-size: 0.85rem; color: #555; }
+        .box { background: var(--w); padding: 35px 25px; border: 1px solid #e8ede4; text-align: center; transition: 0.3s; }
+        .box i { font-size: 2rem; color: var(--a); margin-bottom: 15px; }
+        .box h3 { color: var(--p); font-size: 0.95rem; text-transform: uppercase; margin-bottom: 10px; font-weight: 800; }
+        .box p { font-size: 0.8rem; color: #555; }
 
         /* FAQ */
-        .faq-item { background: #fff; margin-bottom: 15px; border: 1px solid #eee; border-radius: 4px; transition: 0.3s; }
-        .faq-item:hover { border-color: var(--a); }
-        .faq-q { width: 100%; padding: 25px; background: none; border: none; text-align: left; display: flex; justify-content: space-between; align-items: center; cursor: pointer; font-weight: 700; color: var(--p); font-size: 1rem; }
-        .faq-a { max-height: 0; overflow: hidden; transition: 0.4s cubic-bezier(0.4, 0, 0.2, 1); font-size: 0.9rem; color: #666; }
-        .faq-item.active .faq-a { max-height: 250px; padding: 0 25px 25px; border-top: 1px solid #f9f9f9; padding-top: 15px; }
+        .faq-container { max-width: 850px; margin: 0 auto; }
+        .faq-item { background: #fff; margin-bottom: 12px; border: 1px solid #eee; }
+        .faq-q { width: 100%; padding: 22px; background: none; border: none; text-align: left; display: flex; justify-content: space-between; cursor: pointer; font-weight: 700; color: var(--p); }
+        .faq-a { max-height: 0; overflow: hidden; transition: 0.3s; font-size: 0.9rem; color: #666; padding: 0 22px; }
+        .faq-item.active .faq-a { max-height: 200px; padding: 15px 22px 25px; border-top: 1px solid #f9f9f9; }
 
-        /* PREMIUM ANIMATED FOOTER */
-        footer { background: var(--d); color: #999; padding: 100px 5% 40px; border-top: 5px solid var(--a); }
-        .f-grid { display: grid; grid-template-columns: 1.5fr 1fr 1.2fr; gap: 60px; max-width: 1300px; margin: 0 auto; }
-        .f-col h4 { color: var(--w); margin-bottom: 25px; text-transform: uppercase; font-size: 0.85rem; letter-spacing: 2.5px; position: relative; padding-bottom: 10px; }
-        .f-col h4::after { content: ''; position: absolute; left: 0; bottom: 0; width: 30px; height: 2px; background: var(--a); transition: 0.3s; }
-        .f-col:hover h4::after { width: 60px; }
-        .f-col a { color: #666; text-decoration: none; display: block; margin-bottom: 12px; font-size: 0.9rem; transition: 0.3s ease; }
-        .f-col a:hover { color: var(--a); transform: translateX(8px); }
-        
-        .contact-card { background: rgba(255,255,255,0.04); padding: 30px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.1); backdrop-filter: blur(10px); }
-        .contact-card p { color: var(--w); font-weight: 600; margin-bottom: 15px; font-size: 1rem; }
-        .contact-card i { color: var(--a); margin-right: 12px; }
+        /* FOOTER */
+        footer { background: var(--d); color: #888; padding: 90px 5% 40px; border-top: 5px solid var(--a); }
+        .f-grid { display: grid; grid-template-columns: 1.5fr 1fr 1.2fr; gap: 50px; max-width: 1300px; margin: 0 auto; }
+        .f-col h4 { color: var(--w); margin-bottom: 25px; text-transform: uppercase; font-size: 0.8rem; letter-spacing: 2px; }
+        .f-col a { color: #666; text-decoration: none; display: block; margin-bottom: 12px; font-size: 0.9rem; transition: 0.3s; }
+        .f-col a:hover { color: var(--a); transform: translateX(5px); }
+        .contact-card { background: rgba(255,255,255,0.03); padding: 25px; border-left: 4px solid var(--a); }
 
-        @media (max-width: 1024px) { .suite-grid, .box-grid, .f-grid { grid-template-columns: 1fr; flex-direction: column; } }
+        @media (max-width: 1000px) { .suite-grid, .box-grid, .f-grid { grid-template-columns: 1fr; flex-direction: column; } }
     </style>
 </head>
 <body>
@@ -80,58 +72,58 @@
     <p>Premium Indian Produce Delivered Globally</p>
 </section>
 
-<section class="section" id="suites">
+<section class="section-compact" id="suites">
     <h2 class="sec-title">Our Export Suites</h2>
     <div class="suite-grid">
-        <a href="sweeteners.html" class="suite-card"><img src="jaggery-blocks.jpg"><h4>Natural Sweeteners</h4><p>Jaggery Blocks, Powder, Cubes, & Honey</p></a>
-        <a href="fruits.html" class="suite-card"><img src="fruits-banner.jpg"><h4>Premium Fruits</h4><p>Grapes, Pomegranates, Banana, Guava</p></a>
-        <a href="veggies.html" class="suite-card"><img src="veggies-banner.jpg"><h4>Fresh Veggies</h4><p>Onions, Tomato, Okra, Chilli, Gourds</p></a>
-        <a href="dehydrated.html" class="suite-card"><img src="dehydrated-banner.jpg"><h4>Dehydrated</h4><p>Industrial Onion Powder & Processing</p></a>
-        <a href="snacks.html" class="suite-card"><img src="makhana.jpg"><h4>Superfoods</h4><p>Export-Graded Premium Makhana</p></a>
+        <a href="sweeteners.html" class="suite-card"><img src="jaggery-blocks.jpg"><h4>Natural Sweeteners</h4><p>Jaggery Blocks, Powder, & Honey</p></a>
+        <a href="fruits.html" class="suite-card"><img src="fruits-banner.jpg"><h4>Premium Fruits</h4><p>Grapes, Pomegranates, Banana</p></a>
+        <a href="vegetables.html" class="suite-card"><img src="veggies-banner.jpg"><h4>Fresh Veggies</h4><p>Onions, Tomato, Okra, Chilli</p></a>
+        <a href="dehydrated.html" class="suite-card"><img src="dehydrated-banner.jpg"><h4>Dehydrated</h4><p>Industrial Onion Powder</p></a>
+        <a href="snacks.html" class="suite-card"><img src="makhana.jpg"><h4>Superfoods</h4><p>Premium Makhana</p></a>
     </div>
 </section>
 
-<div class="bg-grey section">
-    <h2 class="sec-title">Our Core Pillars</h2>
+<div class="bg-grey section-compact">
+    <h2 class="sec-title">Core Pillars</h2>
     <div class="box-grid g3">
-        <div class="box"><i class="fas fa-certificate"></i><h3>Quality</h3><p>Strict global phyto-sanitary standards for all suites.</p></div>
-        <div class="box"><i class="fas fa-truck-loading"></i><h3>Logistics</h3><p>Strategic hub-to-vessel coordination for dispatch.</p></div>
-        <div class="box"><i class="fas fa-seedling"></i><h3>Sourcing</h3><p>Direct procurement from verified farm networks.</p></div>
+        <div class="box"><i class="fas fa-certificate"></i><h3>Quality</h3><p>Strict phyto-sanitary standards for all suites <cite class="cite-tag">[cite: 2026-02-28]</cite>.</p></div>
+        <div class="box"><i class="fas fa-truck-loading"></i><h3>Logistics</h3><p>Hub-to-vessel coordination for dispatch <cite class="cite-tag">[cite: 2026-02-28]</cite>.</p></div>
+        <div class="box"><i class="fas fa-seedling"></i><h3>Sourcing</h3><p>Direct procurement from farm networks <cite class="cite-tag">[cite: 2026-02-28]</cite>.</p></div>
     </div>
-    <h2 class="sec-title" style="margin-top:120px;">How We Work</h2>
+
+    <h2 class="sec-title" style="margin-top:60px;">How We Work</h2>
     <div class="box-grid g4">
-        <div class="box"><i class="fas fa-tractor"></i><h3>Sourcing</h3><p>Manual grading from verified farms.</p></div>
-        <div class="box"><i class="fas fa-warehouse"></i><h3>Processing</h3><p>Moisture-controlled packaging.</p></div>
-        <div class="box"><i class="fas fa-vial"></i><h3>Inspection</h3><p>Lab testing and certification.</p></div>
-        <div class="box"><i class="fas fa-anchor"></i><h3>Logistics</h3><p>Worldwide maritime dispatch.</p></div>
+        <div class="box"><i class="fas fa-tractor"></i><h3>Sourcing</h3><p>Manual grading from verified farms <cite class="cite-tag">[cite: 2026-02-28]</cite>.</p></div>
+        <div class="box"><i class="fas fa-warehouse"></i><h3>Processing</h3><p>Moisture-controlled packaging <cite class="cite-tag">[cite: 2026-02-28]</cite>.</p></div>
+        <div class="box"><i class="fas fa-vial"></i><h3>Inspection</h3><p>Lab testing and certification <cite class="cite-tag">[cite: 2026-02-28]</cite>.</p></div>
+        <div class="box"><i class="fas fa-anchor"></i><h3>Logistics</h3><p>Worldwide maritime dispatch <cite class="cite-tag">[cite: 2026-02-28]</cite>.</p></div>
     </div>
 </div>
 
-<section class="faq-section">
+<section class="section-compact">
     <h2 class="sec-title">Trade FAQ</h2>
     <div class="faq-container">
-        <div class="faq-item"><button class="faq-q">Lead Times? <i class="fas fa-plus"></i></button><div class="faq-a"><p>Dispatch occurs within 72 hours of harvest <cite>[cite: 2026-02-28]</cite>.</p></div></div>
-        <div class="faq-item"><button class="faq-q">Custom Branding? <i class="fas fa-plus"></i></button><div class="faq-a"><p>Full white-labeling and custom bulk packing available <cite>[cite: 2026-02-28]</cite>.</p></div></div>
-        <div class="faq-item"><button class="faq-q">Global Markets? <i class="fas fa-plus"></i></button><div class="faq-a"><p>Major trade hubs in the Gulf, Europe, and SE Asia <cite>[cite: 2026-02-28]</cite>.</p></div></div>
-        <div class="faq-item"><button class="faq-q">MOQs? <i class="fas fa-plus"></i></button><div class="faq-a"><p>We accommodate both LCL and Full Container Load requirements <cite>[cite: 2026-02-28]</cite>.</p></div></div>
+        <div class="faq-item"><button class="faq-q">Lead Times? <i class="fas fa-plus"></i></button><div class="faq-a">Dispatch within 72 hours of harvest <cite class="cite-tag">[cite: 2026-02-28]</cite>.</div></div>
+        <div class="faq-item"><button class="faq-q">Custom Branding? <i class="fas fa-plus"></i></button><div class="faq-a">White-labeling and bulk packing available <cite class="cite-tag">[cite: 2026-02-28]</cite>.</div></div>
+        <div class="faq-item"><button class="faq-q">Global Markets? <i class="fas fa-plus"></i></button><div class="faq-a">Serving the Gulf, Europe, and SE Asia <cite class="cite-tag">[cite: 2026-02-28]</cite>.</div></div>
     </div>
 </section>
 
 <footer>
     <div class="f-grid">
-        <div class="f-col"><h4>Agripure Global</h4><p>Premier Indian export house with 7+ years of supply chain integrity. Built on farm-direct transparency.</p></div>
-        <div class="f-col"><h4>Global Portals</h4><a href="index.html">Main Hub</a><a href="story.html">Story</a><a href="fruits.html">Fruits Suite</a><a href="veggies.html">Veggies Suite</a></div>
+        <div class="f-col"><h4>Agripure Global</h4><p>Premium Indian export house with 7+ years of supply chain integrity.</p></div>
+        <div class="f-col"><h4>Global Portals</h4><a href="index.html">Home</a><a href="fruits.html">Fruits Suite</a><a href="vegetables.html">Veggies Suite</a></div>
         <div class="f-col"><h4>Trade Desk</h4>
             <div class="contact-card"><p><i class="fas fa-phone"></i> +91 7666170693</p>
-            <a href="mailto:info@agripureglobal.com" style="color:var(--a); font-weight:700;"><i class="fas fa-envelope"></i> info@agripureglobal.com</a></div>
+            <a href="mailto:info@agripureglobal.com" style="color:var(--a); font-weight:700;">info@agripureglobal.com</a></div>
         </div>
     </div>
-    <p style="text-align:center; margin-top:60px; font-size:0.75rem; opacity:0.4;">&copy; 2026 Agripure Global. Integrity in Every Export.</p>
 </footer>
 
 <script>
     document.querySelectorAll('.faq-q').forEach(q => q.addEventListener('click', () => {
-        const item = q.parentElement; item.classList.toggle('active');
+        const item = q.parentElement; 
+        item.classList.toggle('active');
         q.querySelector('i').className = item.classList.contains('active') ? 'fas fa-minus' : 'fas fa-plus';
     }));
 </script>
