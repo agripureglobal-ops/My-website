@@ -6,79 +6,91 @@
     <title>Agripure Global | Premium Indian Exports</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
-        :root { --primary: #1b4332; --accent: #c5a059; --light: #f4f7f1; --white: #ffffff; }
+        :root { --primary: #1b4332; --accent: #c5a059; --light: #f4f7f1; --white: #ffffff; --gold: #d4af37; }
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', sans-serif; }
         body { color: #333; background: #fff; line-height: 1.6; overflow-x: hidden; }
 
-        /* LEAF ANIMATION */
-        .leaf { position: fixed; top: -10%; color: rgba(27, 67, 50, 0.08); font-size: 20px; z-index: -1; animation: fall linear infinite; }
-        @keyframes fall { to { transform: translateY(110vh) rotate(360deg); } }
+        /* GOLD LEAF ANIMATION */
+        .leaf { position: fixed; top: -10%; color: rgba(197, 160, 89, 0.2); font-size: 24px; z-index: -1; animation: fall linear infinite; }
+        @keyframes fall { 
+            0% { transform: translateY(-10vh) rotate(0deg); opacity: 0; }
+            20% { opacity: 1; }
+            100% { transform: translateY(110vh) rotate(360deg); opacity: 0; }
+        }
 
         /* 1. NAVIGATION & HERO */
-        header { background: var(--white); padding: 15px 5%; display: flex; flex-direction: column; align-items: center; box-shadow: 0 2px 5px rgba(0,0,0,0.05); position: sticky; top: 0; z-index: 1000; }
-        .logo-img { height: 50px; margin-bottom: 10px; }
-        nav ul { list-style: none; display: flex; gap: 25px; }
-        nav a { text-decoration: none; color: var(--primary); font-weight: 700; text-transform: uppercase; font-size: 12px; letter-spacing: 1px; }
+        header { background: var(--white); padding: 15px 5%; display: flex; flex-direction: column; align-items: center; box-shadow: 0 2px 10px rgba(0,0,0,0.05); position: sticky; top: 0; z-index: 1000; }
+        .logo-img { height: 55px; margin-bottom: 12px; }
+        nav ul { list-style: none; display: flex; gap: 30px; }
+        nav a { text-decoration: none; color: var(--primary); font-weight: 700; text-transform: uppercase; font-size: 13px; letter-spacing: 1px; transition: 0.3s; }
+        nav a:hover { color: var(--accent); }
 
         .hero { 
-            height: 65vh; background: linear-gradient(rgba(0,0,0,0.65), rgba(0,0,0,0.65)), url('fruits-banner.jpg'); 
+            height: 70vh; background: linear-gradient(rgba(0,0,0,0.65), rgba(0,0,0,0.65)), url('fruits-banner.jpg'); 
             background-size: cover; background-position: center; display: flex; flex-direction: column; 
             justify-content: center; align-items: center; color: white; text-align: center; padding: 0 5%;
         }
-        .hero h1 { font-size: 3rem; margin-bottom: 12px; font-weight: 800; }
-        .hero p { font-size: 1.2rem; max-width: 700px; opacity: 0.95; }
+        .hero h1 { font-size: 3.5rem; margin-bottom: 15px; font-weight: 900; letter-spacing: -1px; }
+        .hero p { font-size: 1.3rem; max-width: 800px; opacity: 0.9; font-weight: 300; }
 
-        .section-padding { padding: 80px 5%; max-width: 1300px; margin: 0 auto; }
-        .sec-title { text-align: center; color: var(--primary); margin-bottom: 10px; text-transform: uppercase; letter-spacing: 2px; font-size: 1.8rem; }
-        .sec-subtitle { text-align: center; color: #666; font-style: italic; margin-bottom: 50px; font-size: 1rem; }
+        .section-padding { padding: 100px 5%; max-width: 1400px; margin: 0 auto; }
+        .sec-title { text-align: center; color: var(--primary); margin-bottom: 15px; text-transform: uppercase; letter-spacing: 3px; font-size: 2.2rem; font-weight: 800; }
+        .sec-subtitle { text-align: center; color: #666; font-style: italic; margin-bottom: 60px; font-size: 1.1rem; }
 
-        /* 2. EXPORT PRODUCT SUITES (ONE LINE DESKTOP) */
+        /* 2. EXPORT PRODUCT SUITES (DOMINANT SCALE) */
         .suite-grid { display: flex; gap: 20px; justify-content: space-between; }
-        .suite-card { flex: 1; background: #fff; border-radius: 12px; overflow: hidden; border: 1px solid #eee; text-decoration: none; transition: 0.4s; box-shadow: 0 4px 15px rgba(0,0,0,0.05); }
-        .suite-card:hover { transform: translateY(-8px); border-color: var(--accent); }
-        .suite-card img { width: 100%; height: 160px; object-fit: cover; transition: 0.5s; }
-        .suite-card h4 { padding: 18px; color: var(--primary); font-size: 0.8rem; text-align: center; text-transform: uppercase; font-weight: 800; border-top: 1px solid #f5f5f5; }
+        .suite-card { flex: 1; background: #fff; border-radius: 15px; overflow: hidden; border: 1px solid #eee; text-decoration: none; transition: 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275); box-shadow: 0 10px 30px rgba(0,0,0,0.1); }
+        .suite-card:hover { transform: translateY(-15px); border-color: var(--accent); box-shadow: 0 20px 40px rgba(0,0,0,0.15); }
+        .suite-card .img-holder { width: 100%; height: 350px; overflow: hidden; }
+        .suite-card img { width: 100%; height: 100%; object-fit: cover; transition: 0.6s; }
+        .suite-card:hover img { transform: scale(1.1); }
+        .suite-card h4 { padding: 25px; color: var(--primary); font-size: 1.1rem; text-align: center; text-transform: uppercase; font-weight: 900; background: #fff; }
 
-        /* 3. OUR CORE PILLARS */
+        /* 3. OUR CORE PILLARS (LEAN & PRO) */
+        .pillar-bg { background: var(--light); position: relative; }
         .pillar-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; }
-        .pillar-card { background: var(--light); padding: 50px 30px; border-radius: 15px; text-align: center; transition: 0.3s; }
-        .pillar-card i { font-size: 2.8rem; color: var(--accent); margin-bottom: 25px; }
-        .pillar-card h3 { color: var(--primary); margin-bottom: 15px; text-transform: uppercase; font-size: 1.2rem; font-weight: 800; }
-        .pillar-card p { font-size: 0.95rem; color: #444; }
+        .pillar-card { background: #fff; padding: 40px 30px; border-radius: 15px; text-align: center; border: 1px solid #eee; transition: 0.3s; }
+        .pillar-card i { font-size: 2.5rem; color: var(--accent); margin-bottom: 20px; }
+        .pillar-card h3 { color: var(--primary); margin-bottom: 12px; text-transform: uppercase; font-size: 1.25rem; font-weight: 800; }
+        .pillar-card p { font-size: 1rem; color: #555; line-height: 1.6; }
 
-        /* 4. HOW WE WORK (ONE LINE DESKTOP) */
-        .work-grid { display: flex; gap: 20px; justify-content: space-between; }
-        .work-step { flex: 1; background: #fff; padding: 35px 25px; border-radius: 12px; border-left: 6px solid var(--accent); box-shadow: 0 10px 40px rgba(0,0,0,0.06); position: relative; }
-        .step-label { color: var(--accent); font-weight: 900; font-size: 0.75rem; text-transform: uppercase; margin-bottom: 10px; display: block; }
-        .work-step h4 { color: var(--primary); font-size: 1.1rem; margin-bottom: 10px; font-weight: 800; }
-        .work-step p { font-size: 0.9rem; color: #555; }
+        /* 4. HOW WE WORK (ONE LINE WITH ICONS) */
+        .work-grid { display: flex; gap: 25px; justify-content: space-between; margin-top: 20px; }
+        .work-step { flex: 1; background: #fff; padding: 40px 25px; border-radius: 15px; text-align: center; position: relative; transition: 0.3s; box-shadow: 0 5px 20px rgba(0,0,0,0.05); border-bottom: 5px solid transparent; }
+        .work-step:hover { border-bottom-color: var(--accent); transform: translateY(-5px); }
+        .work-step i { font-size: 2.2rem; color: var(--accent); margin-bottom: 20px; display: block; }
+        .work-step h4 { color: var(--primary); font-size: 1.1rem; margin-bottom: 10px; text-transform: uppercase; font-weight: 800; }
+        .work-step p { font-size: 0.95rem; color: #666; }
 
-        /* 5. TRADE FAQ (4 QUESTIONS) */
-        .faq-container { max-width: 900px; margin: 0 auto; }
-        .faq-item { background: #fff; border: 1px solid #eee; margin-bottom: 12px; border-radius: 8px; overflow: hidden; transition: 0.3s; }
-        .faq-question { width: 100%; padding: 22px 30px; background: none; border: none; text-align: left; display: flex; justify-content: space-between; align-items: center; cursor: pointer; font-weight: 800; color: var(--primary); font-size: 1.05rem; }
-        .faq-answer { max-height: 0; overflow: hidden; transition: max-height 0.6s cubic-bezier(0.4, 0, 0.2, 1); background: #fafafa; }
-        .faq-answer p { padding: 0 30px 25px 30px; font-size: 1rem; color: #666; }
-        .faq-item.active { border-color: var(--accent); box-shadow: 0 5px 15px rgba(0,0,0,0.05); }
-        .faq-item.active .faq-answer { max-height: 250px; }
+        /* 5. TRADE FAQ (CLEAN REVEAL) */
+        .faq-container { max-width: 1000px; margin: 0 auto; }
+        .faq-item { background: #fff; border-bottom: 1px solid #eee; transition: 0.3s; }
+        .faq-question { width: 100%; padding: 25px; background: none; border: none; text-align: left; display: flex; justify-content: space-between; align-items: center; cursor: pointer; font-weight: 700; color: var(--primary); font-size: 1.2rem; }
+        .faq-answer { max-height: 0; overflow: hidden; transition: max-height 0.4s ease-in-out; background: #fcfcfc; }
+        .faq-answer p { padding: 0 25px 30px 25px; font-size: 1.05rem; color: #555; line-height: 1.7; }
+        .faq-item.active .faq-answer { max-height: 150px; }
+        .faq-item.active .faq-question { color: var(--accent); }
 
-        /* 6. REFINED FOOTER */
-        footer { background: #0f1a12; color: #bbb; padding: 70px 5% 30px; font-size: 0.85rem; border-top: 4px solid var(--accent); }
-        .footer-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 50px; max-width: 1300px; margin: 0 auto; }
-        .footer-col h4 { color: var(--accent); margin-bottom: 25px; text-transform: uppercase; font-size: 0.9rem; letter-spacing: 1px; }
-        .footer-col p, .footer-col a { color: #999; text-decoration: none; display: block; margin-bottom: 12px; transition: 0.3s; }
-        .footer-col a:hover { color: var(--white); transform: translateX(5px); }
-        .footer-bottom { border-top: 1px solid #1a2e20; margin-top: 50px; padding-top: 25px; text-align: center; opacity: 0.5; font-size: 0.8rem; }
+        /* 6. FOOTER (3-COLUMN ROBUST) */
+        footer { background: #0b140e; color: #999; padding: 80px 5% 40px; border-top: 5px solid var(--accent); }
+        .footer-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 60px; max-width: 1400px; margin: 0 auto; }
+        .footer-col h4 { color: var(--white); margin-bottom: 30px; text-transform: uppercase; letter-spacing: 2px; font-size: 1rem; position: relative; }
+        .footer-col h4::after { content: ''; position: absolute; left: 0; bottom: -10px; width: 40px; height: 2px; background: var(--accent); }
+        .footer-col p, .footer-col a { color: #888; text-decoration: none; display: block; margin-bottom: 15px; font-size: 0.95rem; transition: 0.3s; }
+        .footer-col a:hover { color: var(--accent); transform: translateX(5px); }
+        .footer-bottom { text-align: center; margin-top: 60px; padding-top: 30px; border-top: 1px solid rgba(255,255,255,0.05); font-size: 0.85rem; opacity: 0.6; }
 
+        /* MOBILE FIXES */
         @media (max-width: 1024px) {
-            .suite-grid, .work-grid { display: grid; grid-template-columns: 1fr 1fr; }
-            .pillar-grid, .footer-grid { grid-template-columns: 1fr; }
-            .hero h1 { font-size: 2.2rem; }
+            .suite-grid, .work-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+            .pillar-grid { grid-template-columns: 1fr; }
+            .hero h1 { font-size: 2.5rem; }
         }
         @media (max-width: 600px) {
             .suite-grid { grid-template-columns: 1fr 1fr; gap: 10px; }
+            .suite-card .img-holder { height: 200px; }
             .work-grid { grid-template-columns: 1fr; }
-            .suite-card h4 { font-size: 0.7rem; padding: 12px; }
+            .footer-grid { grid-template-columns: 1fr; gap: 40px; }
         }
     </style>
 </head>
@@ -98,39 +110,38 @@
 
 <section class="hero">
     <h1>7+ Years of Export Integrity</h1>
-    <p>Navi Mumbai's Direct Link to Premium Indian Produce. Sourced with Care, Exported with Precision.</p>
+    <p>Navi Mumbai's Direct Gateway to India's Finest Agricultural Produce.</p>
 </section>
 
 <section class="section-padding" id="suites">
     <h2 class="sec-title">Our Export Suites</h2>
-    <p class="sec-subtitle">Premium Grade Agricultural Commodities</p>
+    <p class="sec-subtitle">The Agripure Gold Standard Catalog</p>
     <div class="suite-grid">
-        <a href="sweeteners.html" class="suite-card"><img src="jaggery-blocks.jpg"><h4>Natural Sweeteners</h4></a>
-        <a href="fruits.html" class="suite-card"><img src="fruits-banner.jpg"><h4>Premium Export Fruits</h4></a>
-        <a href="vegetables.html" class="suite-card"><img src="veggies-banner.jpg"><h4>Farm-Fresh Veggies</h4></a>
-        <a href="dehydrated.html" class="suite-card"><img src="dehydrated-banner.jpg"><h4>Industrial Dehydrated</h4></a>
-        <a href="snacks.html" class="suite-card"><img src="makhana.jpg"><h4>Superfood Snacks</h4></a>
+        <a href="sweeteners.html" class="suite-card"><div class="img-holder"><img src="jaggery-blocks.jpg"></div><h4>Sweeteners</h4></a>
+        <a href="fruits.html" class="suite-card"><div class="img-holder"><img src="fruits-banner.jpg"></div><h4>Premium Fruits</h4></a>
+        <a href="vegetables.html" class="suite-card"><div class="img-holder"><img src="veggies-banner.jpg"></div><h4>Fresh Veggies</h4></a>
+        <a href="dehydrated.html" class="suite-card"><div class="img-holder"><img src="dehydrated-banner.jpg"></div><h4>Dehydrated</h4></a>
+        <a href="snacks.html" class="suite-card"><div class="img-holder"><img src="makhana.jpg"></div><h4>Superfoods</h4></a>
     </div>
 </section>
 
-<section class="section-padding" style="background:#fafafa;">
+<section class="section-padding pillar-bg">
     <h2 class="sec-title">Our Core Pillars</h2>
     <div class="pillar-grid">
-        <div class="pillar-card"><i class="fas fa-certificate"></i><h3>Quality Graded</h3><p>Strict adherence to international size and phyto-sanitary standards for zero-rejection trade.</p></div>
-        <div class="pillar-card"><i class="fas fa-truck-loading"></i><h3>Logistics Mastery</h3><p>Direct proximity to major hubs ensuring rapid container loading and zero-delay dispatch.</p></div>
-        <div class="pillar-card"><i class="fas fa-handshake"></i><h3>Direct Sourcing</h3><p>Eliminating middlemen by sourcing at the farm-gate for competitive B2B pricing.</p></div>
+        <div class="pillar-card"><i class="fas fa-certificate"></i><h3>Quality Graded</h3><p>Adherence to strict global phyto-sanitary and sizing standards.</p></div>
+        <div class="pillar-card"><i class="fas fa-shipping-fast"></i><h3>Logistics</h3><p>Strategic hub coordination for zero-delay global vessel dispatch.</p></div>
+        <div class="pillar-card"><i class="fas fa-seedling"></i><h3>Direct Sourcing</h3><p>Farm-gate procurement ensuring competitive B2B market rates.</p></div>
     </div>
 </section>
 
 
 <section class="section-padding">
     <h2 class="sec-title">How We Work</h2>
-    <p class="sec-subtitle">Our End-to-End Export Protocol</p>
     <div class="work-grid">
-        <div class="work-step"><span class="step-label">Step 01</span><h4>Sourcing</h4><p>Procurement from our verified network of farms.</p></div>
-        <div class="work-step"><span class="step-label">Step 02</span><h4>Processing</h4><p>Grading and moisture-controlled packaging.</p></div>
-        <div class="work-step"><span class="step-label">Step 03</span><h4>Inspection</h4><p>Final lab testing and certification audits.</p></div>
-        <div class="work-step"><span class="step-label">Step 04</span><h4>Dispatch</h4><p>Secure transport and immediate export handling.</p></div>
+        <div class="work-step"><i class="fas fa-tractor"></i><h4>Sourcing</h4><p>From our 7-year verified farm network.</p></div>
+        <div class="work-step"><i class="fas fa-warehouse"></i><h4>Processing</h4><p>Custom grading and moisture-controlled pack.</p></div>
+        <div class="work-step"><i class="fas fa-vial"></i><h4>Inspection</h4><p>Final lab audits and certification clearance.</p></div>
+        <div class="work-step"><i class="fas fa-anchor"></i><h4>Dispatch</h4><p>Immediate handling for global sea-freight.</p></div>
     </div>
 </section>
 
@@ -138,20 +149,20 @@
     <h2 class="sec-title">Trade FAQ</h2>
     <div class="faq-container">
         <div class="faq-item">
-            <button class="faq-question">What are your typical lead times? <i class="fas fa-plus"></i></button>
-            <div class="faq-answer"><p>Most fresh produce is dispatched within 72 hours of harvest to ensure peak freshness at your destination.</p></div>
+            <button class="faq-question">Export Lead Times <i class="fas fa-chevron-down"></i></button>
+            <div class="faq-answer"><p>Standard dispatch occurs within 72 hours of harvest to ensure peak shelf-life upon arrival.</p></div>
         </div>
         <div class="faq-item">
-            <button class="faq-question">Do you offer custom branding? <i class="fas fa-plus"></i></button>
-            <div class="faq-answer"><p>Yes, we specialize in retail-ready white labeling and customized industrial bulk packaging.</p></div>
+            <button class="faq-question">Custom White Labeling <i class="fas fa-chevron-down"></i></button>
+            <div class="faq-answer"><p>We provide full retail-ready packaging and branding solutions for global supermarket chains.</p></div>
         </div>
         <div class="faq-item">
-            <button class="faq-question">Which countries do you export to? <i class="fas fa-plus"></i></button>
-            <div class="faq-answer"><p>We serve major markets across the Gulf, Europe, and South East Asia, adhering to country-specific norms.</p></div>
+            <button class="faq-question">Global Reach <i class="fas fa-chevron-down"></i></button>
+            <div class="faq-answer"><p>Actively exporting to major trade hubs in the Gulf, Europe, and the SE Asia regions.</p></div>
         </div>
         <div class="faq-item">
-            <button class="faq-question">What is your minimum order quantity? <i class="fas fa-plus"></i></button>
-            <div class="faq-answer"><p>MOQs vary by product suite, typically starting from LCL to full container loads based on requirements.</p></div>
+            <button class="faq-question">Trade MOQs <i class="fas fa-chevron-down"></i></button>
+            <div class="faq-answer"><p>Varies by product suite; we support both LCL and Full Container Load (FCL) requirements.</p></div>
         </div>
     </div>
 </section>
@@ -163,19 +174,19 @@
             <p>Plot 34, Sector 36, Mansarovar,<br>Navi Mumbai, India - 410209</p>
         </div>
         <div class="footer-col">
-            <h4>Quick Links</h4>
-            <a href="index.html">Home</a>
-            <a href="story.html">Our Story</a>
+            <h4>Trade Desk</h4>
+            <a href="index.html">Home Portal</a>
+            <a href="story.html">7-Year Story</a>
             <a href="contact.html">Request Quote</a>
         </div>
         <div class="footer-col">
-            <h4>Trade Contact</h4>
+            <h4>Contact Details</h4>
             <p><i class="fas fa-phone"></i> +91 7666170693</p>
             <a href="mailto:info@agripureglobal.com"><i class="fas fa-envelope"></i> info@agripureglobal.com</a>
         </div>
     </div>
     <div class="footer-bottom">
-        &copy; 2026 Agripure Global. All Rights Reserved. | 7+ Years of Excellence.
+        &copy; 2026 Agripure Global. Excellence in Export Since 2019.
     </div>
 </footer>
 
@@ -183,14 +194,14 @@
     // FAQ Toggle
     document.querySelectorAll('.faq-question').forEach(q => q.addEventListener('click', () => q.parentElement.classList.toggle('active')));
 
-    // Leaf Animation
+    // Gold Leaf Animation
     const container = document.getElementById('leaf-container');
-    for(let i=0; i<15; i++) {
+    for(let i=0; i<20; i++) {
         const leaf = document.createElement('i');
         leaf.className = 'fas fa-leaf leaf';
         leaf.style.left = Math.random() * 100 + 'vw';
-        leaf.style.animationDuration = (Math.random() * 6 + 6) + 's';
-        leaf.style.opacity = Math.random() * 0.4;
+        leaf.style.animationDuration = (Math.random() * 4 + 6) + 's';
+        leaf.style.animationDelay = (Math.random() * 5) + 's';
         container.appendChild(leaf);
     }
 </script>
