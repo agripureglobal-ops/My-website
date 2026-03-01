@@ -6,14 +6,15 @@
     <title>Contact Our Trade Desk | Agripure Global</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
-        /* UPDATED PALETTE: Deep Forest Charcoal instead of Black */
+        /* THEME: Synced with Index */
         :root { --p: #1b4332; --a: #c5a059; --d: #141d18; --l: #f9fbf7; --w: #fff; }
+        
+        html { scroll-behavior: smooth; }
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', sans-serif; }
         body { color: #333; line-height: 1.6; background: var(--l); overflow-x: hidden; }
 
         header { padding: 15px 5%; display: flex; flex-direction: column; align-items: center; box-shadow: 0 2px 15px rgba(0,0,0,0.05); position: sticky; top: 0; background: var(--w); z-index: 1000; }
         .logo-img { height: 50px; margin-bottom: 8px; }
-        nav ul { list-style: none; display: flex; gap: 0; padding: 0; margin: 0; }
         nav a { text-decoration: none; color: var(--p); font-weight: 700; text-transform: uppercase; font-size: 11px; letter-spacing: 1.5px; margin: 0 15px; }
 
         .contact-hero { background: var(--p); color: var(--w); padding: 50px 5%; text-align: center; border-bottom: 5px solid var(--a); }
@@ -21,24 +22,21 @@
         .contact-hero p { opacity: 0.8; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 2px; margin-top: 10px; }
 
         .contact-container { 
-            max-width: 1200px; 
-            margin: 40px auto; 
-            padding: 0 5%; 
-            display: grid; 
-            grid-template-columns: 1fr 1.5fr; 
-            gap: 30px; 
+            max-width: 1200px; margin: 40px auto; padding: 0 5%; 
+            display: grid; grid-template-columns: 1fr 1.5fr; gap: 30px; 
             grid-template-areas: "info form";
         }
 
         /* INFO PANE - Deep Forest Shade */
-        .info-pane { grid-area: info; background: var(--d); color: var(--w); padding: 40px; border-radius: 4px; display: flex; flex-direction: column; justify-content: space-between; }
+        .info-pane { grid-area: info; background: var(--d); color: var(--w); padding: 40px; border-radius: 4px; display: flex; flex-direction: column; justify-content: space-between; border-bottom: 4px solid var(--a); }
         .info-group { margin-bottom: 30px; }
         .info-group h3 { color: var(--a); font-size: 0.7rem; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 10px; }
         .info-group p, .info-group a { font-size: 1rem; font-weight: 700; color: #fff; text-decoration: none; line-height: 1.4; transition: 0.3s; }
         .info-group a:hover { color: var(--a); }
         .info-group i { margin-right: 12px; color: var(--a); }
 
-        .form-card { grid-area: form; background: var(--w); padding: 40px; border-radius: 4px; box-shadow: 0 15px 40px rgba(0,0,0,0.05); border: 1px solid #eee; }
+        /* FORM CARD */
+        .form-card { grid-area: form; background: var(--w); padding: 40px; border-radius: 4px; box-shadow: 0 15px 40px rgba(0,0,0,0.05); border: 1px solid #eee; border-bottom: 4px solid var(--a); }
         .form-group { margin-bottom: 20px; }
         label { display: block; margin-bottom: 8px; font-weight: 900; color: var(--p); text-transform: uppercase; font-size: 0.7rem; letter-spacing: 1px; }
         input, select, textarea { width: 100%; padding: 14px; border: 1px solid #eee; background: #fbfbfb; font-size: 15px; outline: none; transition: 0.3s; }
@@ -49,21 +47,17 @@
 
         #success-box { display: none; margin-top: 20px; padding: 15px; border: 1px solid #28a745; background: #f4fff4; color: #1b5e20; border-radius: 4px; text-align: center; font-weight: 600; }
 
-        /* FOOTER SYNC - Deep Forest Shade */
-        footer { background: var(--d); color: #999; padding: 60px 8% 40px; border-top: 5px solid var(--a); text-align: left; }
-        .f-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 40px; max-width: 1200px; margin: 0 auto; }
+        /* FOOTER - Brighter Links & Deep Forest Shade */
+        footer { background: var(--d); color: #999; padding: 80px 8% 40px; border-top: 5px solid var(--a); text-align: left; }
+        .f-grid { display: grid; grid-template-columns: 1.5fr 1fr 1.5fr; gap: 40px; max-width: 1200px; margin: 0 auto; }
         .f-col h4 { color: var(--w); margin-bottom: 20px; text-transform: uppercase; font-size: 0.8rem; letter-spacing: 2px; position: relative; padding-bottom: 10px; }
         .f-col h4::after { content: ''; position: absolute; left: 0; bottom: 0; width: 30px; height: 2px; background: var(--a); }
-        .f-col p { font-size: 0.8rem; line-height: 1.6; }
-        .f-col a { color: #999; text-decoration: none; }
-        .f-col a:hover { color: var(--a); }
+        .f-links a { color: #bbb; text-decoration: none; display: block; margin-bottom: 15px; font-size: 0.9rem; transition: 0.3s; }
+        .f-links a:hover { color: var(--a); transform: translateX(8px); }
 
+        /* MOBILE RE-ORDER: Form Pops First */
         @media (max-width: 900px) { 
-            .contact-container { 
-                grid-template-columns: 1fr; 
-                grid-template-areas: "form" "info";
-                margin: 20px auto;
-            } 
+            .contact-container { grid-template-columns: 1fr; grid-template-areas: "form" "info"; margin: 20px auto; } 
             .f-grid { grid-template-columns: 1fr; gap: 30px; }
         }
     </style>
@@ -73,18 +67,16 @@
 <header>
     <img src="logo.jpg" alt="Agripure Global" class="logo-img">
     <nav>
-        <ul>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="story.html">Story</a></li>
-            <li><a href="index.html#catalogue">Catalogue</a></li>
-            <li><a href="contact.html" style="color:var(--a)">Contact</a></li>
-        </ul>
+        <a href="index.html">Home</a>
+        <a href="story.html">Story</a>
+        <a href="index.html#catalogue">Catalogue</a>
+        <a href="contact.html" style="color:var(--a)">Contact</a>
     </nav>
 </header>
 
 <section class="contact-hero">
     <h1>Trade Inquiry</h1>
-    <p>Get a Quote from our Trade Desk</p>
+    <p>Global Export Desk • Direct Sourcing</p>
 </section>
 
 <div class="contact-container">
@@ -99,37 +91,49 @@
                 <input type="email" name="_replyto" placeholder="email@company.com" required>
             </div>
             <div class="form-group">
-                <label>Product Interest</label>
-                <select name="product" id="product-dropdown">
-                    <optgroup label="Natural Sweeteners">
+                <label>Select Product Interest</label>
+                <select name="product" id="product-dropdown" required>
+                    <option value="" disabled selected>Choose a category...</option>
+                    <optgroup label="Natural Sweeteners (Suite 01)">
                         <option value="Jaggery Blocks">Jaggery Blocks</option>
                         <option value="Jaggery Liquid">Jaggery Liquid</option>
                         <option value="Jaggery Cubes">Jaggery Cubes</option>
                         <option value="Jaggery Powder">Jaggery Powder</option>
+                        <option value="Raw Forest Honey">Raw Forest Honey</option>
                     </optgroup>
-                    <optgroup label="Premium Export Fruits">
+                    <optgroup label="Premium Export Fruits (Suite 02)">
                         <option value="Export Grapes">Export Grapes</option>
                         <option value="Pomegranates">Pomegranates</option>
                         <option value="Banana">Banana</option>
+                        <option value="Guava">Guava</option>
+                        <option value="Papaya">Papaya</option>
                     </optgroup>
-                    <optgroup label="Farm-Fresh Vegetables">
+                    <optgroup label="Farm-Fresh Vegetables (Suite 03)">
                         <option value="Red Onions">Red Onions</option>
                         <option value="Tomato">Tomato</option>
+                        <option value="Okra">Okra</option>
                         <option value="Green Chilli">Green Chilli</option>
+                        <option value="3 Gourds (Bottle, Ridge, Bitter)">3 Gourds (Bottle, Ridge, Bitter)</option>
+                        <option value="Cabbage">Cabbage</option>
+                        <option value="Cauliflower">Cauliflower</option>
+                        <option value="Capsicum">Capsicum</option>
+                        <option value="Baby Potato">Baby Potato</option>
                     </optgroup>
-                    <optgroup label="Industrial">
+                    <optgroup label="Dehydrated Products (Suite 04)">
                         <option value="Onion Powder">Onion Powder</option>
-                        <option value="Makhana">Premium Makhana</option>
+                    </optgroup>
+                    <optgroup label="Superfood Snacks (Suite 05)">
+                        <option value="Premium Makhana">Premium Makhana</option>
                     </optgroup>
                 </select>
             </div>
             <div class="form-group">
                 <label>Trade Requirements</label>
-                <textarea name="message" rows="4" placeholder="Quantities, destination port, etc." required></textarea>
+                <textarea name="message" rows="4" placeholder="Quantities, destination port, specialized packing etc." required></textarea>
             </div>
             <button type="submit" id="my-form-status" class="btn-submit">Send Trade Inquiry</button>
         </form>
-        <div id="success-box">Thank you. We will respond within 4 trade hours.</div>
+        <div id="success-box">Thank you. Our trade desk will respond shortly.</div>
     </section>
 
     <div class="info-pane">
@@ -157,12 +161,13 @@
     <div class="f-grid">
         <div class="f-col">
             <h4>Agripure Global</h4>
-            <p>7+ years of supply chain integrity and farm-direct transparency.</p>
+            <p>Direct farm-gate transparency and supply chain integrity since 2019.</p>
         </div>
-        <div class="f-col">
-            <h4>Trade Desk</h4>
-            <p style="color:#fff; font-weight:700;"><a href="tel:+917666170693" style="color:#fff; text-decoration:none;">+91 7666170693</a></p>
-            <p style="font-size: 0.8rem; margin-top:5px;"><a href="mailto:info@agripureglobal.com">info@agripureglobal.com</a></p>
+        <div class="f-col f-links">
+            <h4>Portals</h4>
+            <a href="index.html">Home</a>
+            <a href="story.html">Our Story</a>
+            <a href="index.html#catalogue">Catalogue</a>
         </div>
         <div class="f-col" style="text-align: right;">
             <p>&copy; 2026 Agripure Global</p>
@@ -171,6 +176,7 @@
 </footer>
 
 <script>
+  // Handle URL Auto-Select
   window.addEventListener('DOMContentLoaded', () => {
     const urlParams = new URLSearchParams(window.location.search);
     const productToSelect = urlParams.get('product');
@@ -180,6 +186,7 @@
     }
   });
 
+  // Formspree Submission
   var form = document.getElementById("my-form");
   var status = document.getElementById("my-form-status");
   var successBox = document.getElementById("success-box");
