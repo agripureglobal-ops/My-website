@@ -11,7 +11,7 @@
         body { color: #333; line-height: 1.6; overflow-x: hidden; }
         
         /* THE DOUBLE-LOCK CITE KILLER */
-        cite, .cite-tag, [data-cite] { display: none !important; opacity: 0 !important; visibility: hidden !important; position: absolute !important; }
+        cite, .cite-tag { display: none !important; opacity: 0 !important; visibility: hidden !important; position: absolute !important; }
 
         header { padding: 12px 5%; display: flex; flex-direction: column; align-items: center; box-shadow: 0 2px 15px rgba(0,0,0,0.05); position: sticky; top: 0; background: var(--w); z-index: 1000; }
         .logo-img { height: 48px; margin-bottom: 5px; }
@@ -42,6 +42,12 @@
         .box h3 { color: var(--p); font-size: 0.95rem; text-transform: uppercase; margin-bottom: 10px; font-weight: 800; }
         .box p { font-size: 0.8rem; color: #555; }
 
+        /* EXCLUSIVE GLOBAL SECTION */
+        .global-strip { background: var(--p); color: var(--w); padding: 60px 5%; text-align: center; position: relative; overflow: hidden; }
+        .global-grid { display: flex; justify-content: space-around; max-width: 1200px; margin: 40px auto 0; gap: 20px; }
+        .stat-item h2 { color: var(--a); font-size: 2.2rem; font-weight: 900; }
+        .stat-item p { text-transform: uppercase; font-size: 0.7rem; letter-spacing: 2px; opacity: 0.8; }
+
         /* FAQ */
         .faq-container { max-width: 850px; margin: 0 auto; }
         .faq-item { background: #fff; margin-bottom: 12px; border: 1px solid #eee; }
@@ -55,9 +61,9 @@
         .f-col h4 { color: var(--w); margin-bottom: 25px; text-transform: uppercase; font-size: 0.8rem; letter-spacing: 2px; }
         .f-col a { color: #666; text-decoration: none; display: block; margin-bottom: 12px; font-size: 0.9rem; transition: 0.3s; }
         .f-col a:hover { color: var(--a); transform: translateX(5px); }
-        .contact-card { background: rgba(255,255,255,0.03); padding: 25px; border-left: 4px solid var(--a); }
+        .contact-card { background: rgba(255,255,255,0.03); padding: 25px; border-left: 4px solid var(--a); box-shadow: 0 0 20px rgba(197, 160, 89, 0.1); }
 
-        @media (max-width: 1000px) { .suite-grid, .box-grid, .f-grid { grid-template-columns: 1fr; flex-direction: column; } }
+        @media (max-width: 1000px) { .suite-grid, .box-grid, .f-grid, .global-grid { grid-template-columns: 1fr; flex-direction: column; } }
     </style>
 </head>
 <body>
@@ -99,6 +105,16 @@
         <div class="box"><i class="fas fa-anchor"></i><h3>Logistics</h3><p>Worldwide maritime dispatch <cite class="cite-tag">[cite: 2026-02-28]</cite>.</p></div>
     </div>
 </div>
+
+<section class="global-strip">
+    <h3 style="text-transform: uppercase; letter-spacing: 4px; font-size: 0.9rem;">Global Trade Footprint</h3>
+    <div class="global-grid">
+        <div class="stat-item"><h2>12+</h2><p>Countries Served</p></div>
+        <div class="stat-item"><h2>72H</h2><p>Harvest to Dispatch</p></div>
+        <div class="stat-item"><h2>100%</h2><p>Quality Inspected</p></div>
+    </div>
+    
+</section>
 
 <section class="section-compact">
     <h2 class="sec-title">Trade FAQ</h2>
