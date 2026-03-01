@@ -8,6 +8,10 @@
     <style>
         /* THEME: Deep Forest Charcoal Palette */
         :root { --p: #1b4332; --a: #c5a059; --d: #141d18; --l: #f9fbf7; --w: #fff; }
+        
+        /* THE FIX: Prevents header from covering the section title when clicking 'Catalogue' */
+        html { scroll-behavior: smooth; scroll-padding-top: 100px; }
+
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', sans-serif; }
         body { color: #333; line-height: 1.6; background: var(--w); overflow-x: hidden; }
 
@@ -22,7 +26,7 @@
         .section { padding: 80px 8%; }
         .sec-title { text-align: center; color: var(--p); margin-bottom: 50px; text-transform: uppercase; letter-spacing: 3px; font-size: 1.6rem; font-weight: 900; }
 
-        /* CATALOGUE */
+        /* CATALOGUE GRID */
         .suite-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 12px; }
         .suite-card { background: var(--w); border: 1px solid #eee; text-decoration: none; height: 480px; overflow: hidden; transition: 0.4s; display: flex; flex-direction: column; }
         .suite-card:hover { transform: translateY(-5px); box-shadow: 0 15px 30px rgba(0,0,0,0.1); border-color: var(--a); }
@@ -31,14 +35,14 @@
         .suite-card h4 { color: var(--p); text-transform: uppercase; font-size: 0.85rem; font-weight: 900; margin-bottom: 8px; border-bottom: 2px solid var(--a); display: inline-block; }
         .suite-card p { font-size: 0.7rem; color: #666; line-height: 1.4; }
 
-        /* ACCREDITATION STRIP - MOBILE ALIGNED */
+        /* ACCREDITATION STRIP */
         .acc-strip { background: var(--p); color: var(--w); padding: 50px 8%; text-align: center; border-bottom: 5px solid var(--a); }
         .acc-grid { display: flex; flex-wrap: wrap; justify-content: center; max-width: 1000px; margin: 0 auto; gap: 30px; }
         .acc-item { flex: 1; min-width: 250px; padding: 10px; }
         .acc-item h2 { color: var(--a); font-size: 1.5rem; font-weight: 900; margin-bottom: 5px; }
         .acc-item p { text-transform: uppercase; font-size: 0.7rem; letter-spacing: 2px; opacity: 0.8; }
 
-        /* PILLARS & HOW WE WORK - CONSISTENT GOLD STYLE */
+        /* PILLARS & HOW WE WORK */
         .bg-grey { background: var(--l); padding: 80px 8%; border-top: 1px solid #eee; }
         .box-grid { display: grid; gap: 20px; max-width: 1100px; margin: 0 auto; }
         .g3 { grid-template-columns: repeat(3, 1fr); margin-bottom: 70px; }
@@ -59,7 +63,7 @@
         .faq-a { max-height: 0; overflow: hidden; transition: 0.4s; padding: 0 22px; color: #555; font-size: 0.88rem; line-height: 1.7; }
         .faq-item.active .faq-a { max-height: 400px; padding: 15px 22px 30px; border-top: 1px solid #f9f9f9; }
 
-        /* FOOTER - Brighter Links */
+        /* FOOTER */
         footer { background: var(--d); color: #999; padding: 100px 8% 50px; border-top: 5px solid var(--a); position: relative; }
         .f-grid { display: grid; grid-template-columns: 1.5fr 1fr 1.5fr; gap: 80px; max-width: 1200px; margin: 0 auto; }
         .f-col h4 { color: var(--w); margin-bottom: 30px; text-transform: uppercase; font-size: 0.85rem; letter-spacing: 3px; position: relative; padding-bottom: 10px; }
@@ -86,8 +90,7 @@
     <nav>
         <a href="index.html">Home</a>
         <a href="story.html">Story</a>
-        <a href="index.html#catalogue">Catalogue</a>
-        <a href="contact.html">Contact</a>
+        <a href="#catalogue">Catalogue</a> <a href="contact.html">Contact</a>
     </nav>
 </header>
 
