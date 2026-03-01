@@ -3,81 +3,96 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact Our Trade Desk | Agripure Global</title>
+    <title>Trade Inquiry | Agripure Global</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
-        :root { --p: #1b4332; --a: #c5a059; --d: #141d18; --l: #f9fbf7; --w: #fff; }
-        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', sans-serif; }
-        body { color: #333; line-height: 1.6; background: var(--l); }
+        /* THEME: Warm Earth & Champagne Gold */
+        :root { 
+            --p: #2d3a28; /* Warm Earthy Moss */
+            --a: #c5a059; /* Champagne Gold */
+            --l: #fdfaf4; /* Soft Cream */
+            --w: #fff; 
+            --txt: #4a4a4a;
+        }
 
-        header { padding: 15px 5%; display: flex; flex-direction: column; align-items: center; box-shadow: 0 2px 15px rgba(0,0,0,0.05); position: sticky; top: 0; background: var(--w); z-index: 1000; }
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', sans-serif; }
+        body { color: var(--txt); line-height: 1.6; background: var(--l); }
+
+        header { padding: 15px 5%; display: flex; flex-direction: column; align-items: center; background: var(--w); position: sticky; top: 0; z-index: 1000; box-shadow: 0 2px 10px rgba(0,0,0,0.03); }
         .logo-img { height: 50px; margin-bottom: 8px; }
         nav a { text-decoration: none; color: var(--p); font-weight: 700; text-transform: uppercase; font-size: 11px; letter-spacing: 1.5px; margin: 0 15px; }
 
         .contact-hero { background: var(--p); color: var(--w); padding: 60px 5%; text-align: center; border-bottom: 5px solid var(--a); }
         .contact-hero h1 { font-size: 2.2rem; text-transform: uppercase; font-weight: 900; }
 
-        .contact-container { max-width: 1100px; margin: 40px auto; padding: 0 5%; display: grid; grid-template-columns: 1fr 1.5fr; gap: 30px; }
+        /* REORDERED LAYOUT: Form First */
+        .contact-container { 
+            max-width: 1100px; margin: 40px auto; padding: 0 5%; 
+            display: grid; grid-template-columns: 1.5fr 1fr; gap: 30px; 
+        }
 
-        .info-pane { background: var(--d); color: var(--w); padding: 40px; border-bottom: 4px solid var(--a); display: flex; flex-direction: column; justify-content: space-between; }
-        .info-group h3 { color: var(--a); font-size: 0.7rem; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 10px; }
-
-        .form-card { background: var(--w); padding: 40px; box-shadow: 0 15px 40px rgba(0,0,0,0.05); border-bottom: 4px solid var(--a); }
-        .form-group { margin-bottom: 25px; position: relative; }
-        label { display: block; margin-bottom: 10px; font-weight: 900; color: var(--p); text-transform: uppercase; font-size: 0.75rem; }
+        /* FORM CARD */
+        .form-card { background: var(--w); padding: 40px; border-radius: 8px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); border-bottom: 4px solid var(--a); }
+        .form-group { margin-bottom: 20px; position: relative; }
+        label { display: block; margin-bottom: 10px; font-weight: 900; color: var(--p); text-transform: uppercase; font-size: 0.75rem; letter-spacing: 1px; }
 
         /* SMART SEARCH BOX */
-        .search-container { position: relative; width: 100%; }
-        .search-input { width: 100%; padding: 15px; border: 1px solid #eee; background: #fbfbfb; font-size: 15px; outline: none; }
+        .search-container { position: relative; }
+        .search-input { width: 100%; padding: 15px; border: 1px solid #eee; background: #fdfdfd; font-size: 15px; outline: none; border-radius: 4px; }
         .search-input:focus { border-color: var(--a); }
-        
         .search-results { 
-            position: absolute; top: 100%; left: 0; right: 0; 
-            background: #fff; border: 1px solid #eee; border-top: none;
-            max-height: 200px; overflow-y: auto; z-index: 10; display: none;
-            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+            position: absolute; top: 100%; left: 0; right: 0; background: #fff; 
+            border: 1px solid #eee; border-top: none; max-height: 200px; 
+            overflow-y: auto; z-index: 10; display: none; box-shadow: 0 10px 20px rgba(0,0,0,0.1); 
         }
         .result-item { padding: 12px 15px; cursor: pointer; font-size: 0.9rem; border-bottom: 1px solid #f9f9f9; }
         .result-item:hover { background: var(--l); color: var(--p); font-weight: 700; }
-        .result-item span { font-size: 0.7rem; color: var(--a); float: right; text-transform: uppercase; }
+        .result-item span { font-size: 0.65rem; color: var(--a); float: right; text-transform: uppercase; padding-top: 3px; }
 
-        input[type="text"], input[type="email"], textarea { width: 100%; padding: 15px; border: 1px solid #eee; background: #fbfbfb; font-size: 15px; outline: none; }
+        input[type="text"], input[type="email"], textarea { width: 100%; padding: 15px; border: 1px solid #eee; background: #fdfdfd; font-size: 15px; outline: none; border-radius: 4px; }
         
-        .btn-submit { width: 100%; padding: 18px; background: var(--p); color: white; border: none; font-weight: 900; cursor: pointer; text-transform: uppercase; letter-spacing: 2px; }
+        .btn-submit { width: 100%; padding: 18px; background: var(--p); color: white; border: none; font-weight: 900; cursor: pointer; text-transform: uppercase; letter-spacing: 2px; transition: 0.3s; }
         .btn-submit:hover { background: var(--a); }
 
-        @media (max-width: 800px) { .contact-container { grid-template-columns: 1fr; } }
+        /* WARM INFO PANE */
+        .info-pane { background: #3e4d39; color: var(--w); padding: 40px; border-radius: 8px; border-bottom: 4px solid var(--a); display: flex; flex-direction: column; justify-content: space-between; }
+        .info-group { margin-bottom: 30px; }
+        .info-group h3 { color: var(--a); font-size: 0.7rem; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 12px; }
+        .info-group a { color: #fff; text-decoration: none; font-weight: 700; font-size: 1.1rem; transition: 0.3s; display: block; }
+        .info-group a:hover { color: var(--a); }
+        .info-group i { margin-right: 10px; color: var(--a); width: 20px; }
+
+        footer { background: var(--p); color: #ccc; padding: 40px 8%; border-top: 5px solid var(--a); text-align: center; font-size: 0.8rem; }
+
+        @media (max-width: 850px) { 
+            .contact-container { grid-template-columns: 1fr; } 
+            .form-card { order: 1; }
+            .info-pane { order: 2; }
+        }
     </style>
 </head>
 <body>
 
 <header>
     <img src="logo.jpg" alt="Agripure Global" class="logo-img">
-    <nav><a href="index.html">Home</a> <a href="story.html">Story</a> <a href="index.html#catalogue">Catalogue</a> <a href="contact.html" style="color:var(--a)">Contact</a></nav>
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="story.html">Story</a>
+        <a href="index.html#catalogue">Catalogue</a>
+        <a href="contact.html" style="color:var(--a)">Contact</a>
+    </nav>
 </header>
 
 <section class="contact-hero">
-    <h1>Trade Inquiry</h1>
-    <p>Direct Sourcing Desk</p>
+    <h1>Trade Desk</h1>
+    <p>Premium Indian Export Inquiry</p>
 </section>
 
 <div class="contact-container">
-    <div class="info-pane">
-        <div class="info-group">
-            <h3>Trade Line</h3>
-            <p><a href="https://wa.me/917666170693" style="color:#fff; text-decoration:none;"><i class="fab fa-whatsapp"></i> +91 7666170693</a></p>
-        </div>
-        <div class="info-group">
-            <h3>Email</h3>
-            <p>info@agripureglobal.com</p>
-        </div>
-        <p style="font-size: 0.7rem; color: var(--a); font-weight: 800; text-transform: uppercase;">7+ Years Integrity</p>
-    </div>
-
     <section class="form-card">
         <form id="trade-form" action="https://formspree.io/f/mykdelle" method="POST">
             <div class="form-group">
-                <label>What are you looking for?</label>
+                <label>Product Interest</label>
                 <div class="search-container">
                     <input type="text" id="product-search" class="search-input" placeholder="Start typing... (e.g. Grapes, Onion, Makhana)" autocomplete="off">
                     <div id="results-box" class="search-results"></div>
@@ -86,40 +101,56 @@
             </div>
 
             <div class="form-group" style="display:grid; grid-template-columns: 1fr 1fr; gap:15px;">
-                <div><label>Name</label><input type="text" name="name" required></div>
-                <div><label>Email</label><input type="email" name="email" required></div>
+                <div><label>Your Name</label><input type="text" name="name" required></div>
+                <div><label>Business Email</label><input type="email" name="email" required></div>
             </div>
 
             <div class="form-group">
-                <label>Message / Requirements</label>
-                <textarea name="message" rows="3" placeholder="Tonnage, Destination Port..." required></textarea>
+                <label>Inquiry Details</label>
+                <textarea name="message" rows="4" placeholder="Mention volume, destination port, or specific packing needs..." required></textarea>
             </div>
 
             <button type="submit" class="btn-submit">Dispatch Inquiry</button>
         </form>
     </section>
+
+    <div class="info-pane">
+        <div>
+            <div class="info-group">
+                <h3>Direct WhatsApp</h3>
+                <p><a href="https://wa.me/917666170693" target="_blank"><i class="fab fa-whatsapp"></i> +91 7666170693</a></p>
+            </div>
+            <div class="info-group">
+                <h3>Official Email</h3>
+                <p><a href="mailto:info@agripureglobal.com"><i class="far fa-envelope"></i> info@agripureglobal.com</a></p>
+            </div>
+            <div class="info-group">
+                <h3>Trade Office</h3>
+                <p style="font-weight:700;"><i class="fas fa-map-marker-alt"></i> Navi Mumbai, Maharashtra, India.</p>
+            </div>
+        </div>
+        <div style="border-top: 1px solid rgba(255,255,255,0.1); padding-top: 20px;">
+            <p style="font-size: 0.65rem; color: var(--a); font-weight: 800; text-transform: uppercase; letter-spacing: 1px;">Sourcing Integrity Since 2019</p>
+        </div>
+    </div>
 </div>
 
+<footer>
+    &copy; 2026 Agripure Global | APEDA & NPPO Compliant Exports
+</footer>
+
 <script>
-    // The "Growing" Product Database
+    // Product List Database
     const products = [
-        { name: "Export Grapes", cat: "Suite 02" },
-        { name: "Pomegranates", cat: "Suite 02" },
-        { name: "Banana", cat: "Suite 02" },
-        { name: "Guava", cat: "Suite 02" },
-        { name: "Papaya", cat: "Suite 02" },
-        { name: "Red Onions", cat: "Suite 03" },
-        { name: "Tomato", cat: "Suite 03" },
-        { name: "Okra", cat: "Suite 03" },
-        { name: "Green Chilli", cat: "Suite 03" },
-        { name: "Gourds (Bottle/Bitter/Ridge)", cat: "Suite 03" },
-        { name: "Cabbage", cat: "Suite 03" },
-        { name: "Cauliflower", cat: "Suite 03" },
-        { name: "Capsicum", cat: "Suite 03" },
-        { name: "Baby Potato", cat: "Suite 03" },
-        { name: "Onion Powder", cat: "Suite 04" },
-        { name: "Premium Makhana", cat: "Suite 05" },
-        { name: "Jaggery Blocks", cat: "Suite 01" }
+        { name: "Export Grapes", cat: "Suite 02" }, { name: "Pomegranates", cat: "Suite 02" },
+        { name: "Banana", cat: "Suite 02" }, { name: "Guava", cat: "Suite 02" },
+        { name: "Papaya", cat: "Suite 02" }, { name: "Red Onions", cat: "Suite 03" },
+        { name: "Tomato", cat: "Suite 03" }, { name: "Okra", cat: "Suite 03" },
+        { name: "Green Chilli", cat: "Suite 03" }, { name: "3 Gourds (Bottle, Ridge, Bitter)", cat: "Suite 03" },
+        { name: "Cabbage", cat: "Suite 03" }, { name: "Cauliflower", cat: "Suite 03" },
+        { name: "Capsicum", cat: "Suite 03" }, { name: "Baby Potato", cat: "Suite 03" },
+        { name: "Onion Powder", cat: "Suite 04" }, { name: "Premium Makhana", cat: "Suite 05" },
+        { name: "Jaggery Blocks", cat: "Suite 01" }, { name: "Raw Honey", cat: "Suite 01" }
     ];
 
     const searchInput = document.getElementById('product-search');
@@ -130,9 +161,7 @@
         const val = this.value.toLowerCase();
         resultsBox.innerHTML = '';
         if (val.length < 1) { resultsBox.style.display = 'none'; return; }
-
         const filtered = products.filter(p => p.name.toLowerCase().includes(val));
-        
         if (filtered.length > 0) {
             resultsBox.style.display = 'block';
             filtered.forEach(p => {
@@ -146,14 +175,21 @@
                 };
                 resultsBox.appendChild(div);
             });
-        } else {
-            resultsBox.style.display = 'none';
-        }
+        } else { resultsBox.style.display = 'none'; }
     });
 
-    // Close results if clicking outside
     document.addEventListener('click', (e) => {
         if (!e.target.closest('.search-container')) resultsBox.style.display = 'none';
+    });
+
+    // Auto-select product from URL if coming from catalogue
+    window.addEventListener('DOMContentLoaded', () => {
+        const urlParams = new URLSearchParams(window.location.search);
+        const prod = urlParams.get('product');
+        if (prod) {
+            searchInput.value = decodeURIComponent(prod);
+            hiddenInput.value = decodeURIComponent(prod);
+        }
     });
 </script>
 </body>
