@@ -14,32 +14,32 @@
         .logo-img { height: 50px; margin-bottom: 8px; }
         nav a { text-decoration: none; color: var(--p); font-weight: 700; text-transform: uppercase; font-size: 11px; letter-spacing: 1.5px; margin: 0 15px; }
 
-        /* 1. STORY HERO */
+        /* 1. HERO */
         .story-hero { height: 50vh; background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('farmer.jpg') center/cover; display: flex; flex-direction: column; justify-content: center; align-items: center; color: var(--w); text-align: center; padding: 0 10%; }
         .story-hero h1 { font-size: 3rem; text-transform: uppercase; font-weight: 900; letter-spacing: -1px; margin-bottom: 15px; }
         .story-hero p { font-size: 1.1rem; max-width: 700px; font-weight: 300; opacity: 0.9; }
 
-        /* 2. THE PEDIGREE SECTION */
+        /* 2. PEDIGREE SECTION */
         .pedigree { padding: 100px 10%; display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
         .pedigree-text h2 { color: var(--p); text-transform: uppercase; font-size: 2rem; font-weight: 900; margin-bottom: 25px; line-height: 1.1; }
         .pedigree-text p { margin-bottom: 20px; color: #555; font-size: 1rem; }
         .exp-badge { display: inline-block; background: var(--a); color: #fff; padding: 10px 20px; font-weight: 900; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 20px; }
 
-        /* 3. EXPERIENCE STATS */
-        .stats-bar { background: var(--d); color: var(--w); padding: 80px 5%; text-align: center; }
-        .stats-grid { display: grid; grid-template-columns: repeat(4, 1fr); max-width: 1200px; margin: 0 auto; gap: 40px; }
-        .stat-box h2 { color: var(--a); font-size: 3rem; font-weight: 900; margin-bottom: 10px; }
-        .stat-box p { text-transform: uppercase; font-size: 0.75rem; letter-spacing: 2px; opacity: 0.7; }
+        /* 3. MANIFESTO (GOALS & ETHICS) */
+        .manifesto { display: grid; grid-template-columns: 1fr 1fr; }
+        .goals-box { background: var(--d); padding: 100px 10%; color: var(--w); }
+        .ethics-box { background: var(--l); padding: 100px 10%; color: var(--p); border-left: 1px solid #eee; }
+        .m-title { text-transform: uppercase; letter-spacing: 3px; margin-bottom: 45px; font-size: 1.5rem; font-weight: 900; }
+        .goal-gold { color: var(--a); }
+        .item { margin-bottom: 35px; }
+        .item h4 { text-transform: uppercase; font-size: 0.9rem; margin-bottom: 10px; font-weight: 800; letter-spacing: 1px; }
+        .item p { font-size: 0.85rem; opacity: 0.8; line-height: 1.7; }
 
-        /* 4. THE EDGE (PILLARS) */
-        .edge-sec { padding: 100px 10%; background: var(--l); }
-        .sec-title { text-align: center; color: var(--p); margin-bottom: 60px; text-transform: uppercase; letter-spacing: 3px; font-size: 1.6rem; font-weight: 900; }
-        .edge-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 30px; max-width: 1000px; margin: 0 auto; }
-        .edge-card { background: var(--w); padding: 40px; border: 1px solid #eee; transition: 0.3s; }
-        .edge-card:hover { border-color: var(--a); }
-        .edge-card i { color: var(--a); font-size: 2rem; margin-bottom: 20px; display: block; }
-        .edge-card h3 { color: var(--p); text-transform: uppercase; font-size: 1rem; margin-bottom: 15px; font-weight: 800; }
-        .edge-card p { font-size: 0.85rem; color: #666; }
+        /* 4. STATS BAR */
+        .stats-bar { background: #fff; padding: 80px 5%; text-align: center; border-top: 1px solid #eee; border-bottom: 1px solid #eee; }
+        .stats-grid { display: grid; grid-template-columns: repeat(4, 1fr); max-width: 1200px; margin: 0 auto; gap: 40px; }
+        .stat-box h2 { color: var(--p); font-size: 3rem; font-weight: 900; margin-bottom: 10px; }
+        .stat-box p { text-transform: uppercase; font-size: 0.75rem; letter-spacing: 2px; color: var(--a); font-weight: 700; }
 
         /* FOOTER */
         footer { background: var(--d); color: #999; padding: 100px 8% 50px; border-top: 5px solid var(--a); position: relative; }
@@ -51,7 +51,7 @@
         .trade-card i { color: var(--a); margin-right: 15px; }
         .quote-btn { background: var(--a); color: var(--w) !important; padding: 15px 30px; display: block; font-weight: 900; text-transform: uppercase; font-size: 0.8rem; letter-spacing: 2px; text-decoration: none; text-align: center; }
 
-        @media (max-width: 1000px) { .pedigree, .stats-grid, .edge-grid, .f-grid { grid-template-columns: 1fr; gap: 40px; } }
+        @media (max-width: 1000px) { .pedigree, .manifesto, .stats-grid, .f-grid { grid-template-columns: 1fr; } .ethics-box { border-left: none; border-top: 1px solid #ddd; } }
     </style>
 </head>
 <body>
@@ -70,44 +70,53 @@
     <div class="pedigree-text">
         <span class="exp-badge">7+ Years Industry Experience</span>
         <h2>Deep Roots. <br>Global Vision.</h2>
-        <p>While the Agripure name represents a modern, agile approach to trade, our foundations are nearly a decade deep. Our leadership is steered by industry veterans who have managed complex supply chains across the EU, Gulf, and SE Asia.</p>
-        <p>We believe that international trade is built on <strong>predictability</strong>. By combining startup energy with seasoned logistics mastery, we offer a zero-compromise gateway to India's finest produce.</p>
+        <p>Agripure Global was founded to modernize the supply chain, backed by seasoned leadership. While our name is fresh, our director brings over 7 years of frontline experience navigating complex phytosanitary protocols and international trade routes.</p>
+        <p>We bridge the gap between "New Brand Agility" and "Veteran Industry Wisdom," utilizing a pre-verified network of 500+ farmers across Maharashtra built over the last decade.</p>
     </div>
     <div class="pedigree-img">
-        <img src="farmer.jpg" alt="Direct Sourcing" style="width:100%; box-shadow: 40px 40px 0 var(--l); border: 1px solid #eee;">
+        <img src="farmer.jpg" alt="Direct Sourcing" style="width:100%; box-shadow: 30px 30px 0 var(--l); border: 1px solid #eee;">
     </div>
 </section>
 
 <section class="stats-bar">
     <div class="stats-grid">
         <div class="stat-box"><h2>7+</h2><p>Years Trade Expertise</p></div>
-        <div class="stat-box"><h2>100+</h2><p>Verified Farmers</p></div>
+        <div class="stat-box"><h2>500+</h2><p>Verified Farmers</p></div>
         <div class="stat-box"><h2>100%</h2><p>Phyto-Compliance</p></div>
+        <div class="stat-box"><h2>Zero</h2><p>Rejection Policy</p></div>
     </div>
 </section>
 
-<section class="edge-sec">
-    <h2 class="sec-title">The Agripure Edge</h2>
-    <div class="edge-grid">
-        <div class="edge-card">
-            <i class="fas fa-handshake"></i>
-            <h3>Relationship Equity</h3>
-            <p>We don't buy from open markets. We leverage 7 years of direct relationships with farm-gate clusters to ensure "First-Pick" quality.</p>
+<section class="manifesto">
+    <div class="goals-box">
+        <h2 class="m-title goal-gold">Our Goals</h2>
+        <div class="item">
+            <h4>01. Precision Logistics</h4>
+            <p>To reduce transit time from harvest to container loading to under 48 hours, ensuring maximum shelf-life for our global partners.</p>
         </div>
-        <div class="edge-card">
-            <i class="fas fa-microscope"></i>
-            <h3>Protocol Mastery</h3>
-            <p>Our experience ensures 100% accuracy in APEDA, NPPO, and NABL testing requirements. We know the MRL standards of your port before we ship.</p>
+        <div class="item">
+            <h4>02. Pesticide-Free Standard</h4>
+            <p>To achieve 100% MRL compliance across all suites, moving towards a future of purely organic-certified exports.</p>
         </div>
-        <div class="edge-card">
-            <i class="fas fa-ship"></i>
-            <h3>Logistics Leverage</h3>
-            <p>Through our established ties with major shipping lines, we secure priority Reefer bookings even during peak export seasons.</p>
+        <div class="item">
+            <h4>03. Digital Traceability</h4>
+            <p>Implementing batch-level tracking so buyers can identify the exact farm cluster their produce originated from.</p>
         </div>
-        <div class="edge-card">
-            <i class="fas fa-check-double"></i>
-            <h3>Quality Command</h3>
-            <p>Every batch undergoes a multi-point inspection protocol developed over years of managing international B2B expectations.</p>
+    </div>
+
+    <div class="ethics-box">
+        <h2 class="m-title">Our Ethics</h2>
+        <div class="item">
+            <h4>Farmer-First Pricing</h4>
+            <p>We ensure a fair-trade bridge where farmers are compensated above market rates for meeting our "Export-Grade" standards.</p>
+        </div>
+        <div class="item">
+            <h4>Absolute Transparency</h4>
+            <p>We maintain absolute transparency in lab reports. If a batch fails NABL testing, it never leaves our facility—period.</p>
+        </div>
+        <div class="item">
+            <h4>Quality Over Volume</h4>
+            <p>In the fresh produce trade, integrity matters more than tonnage. We promise proactive communication regarding seasonal health and lead times.</p>
         </div>
     </div>
 </section>
@@ -116,13 +125,13 @@
     <div class="f-grid">
         <div class="f-col">
             <h4>Agripure Global</h4>
-            <p>A modern export house backed by seasoned leadership and a commitment to farm-direct transparency.</p>
+            <p>A modern export house backed by 7+ years of leadership and a commitment to farm-direct transparency.</p>
         </div>
-        <div class="f-col">
-            <h4>Trade Portals</h4>
-            <a href="fruits.html" style="color:#777; text-decoration:none; display:block; margin-bottom:10px;">Export Fruits</a>
-            <a href="vegetables.html" style="color:#777; text-decoration:none; display:block; margin-bottom:10px;">Fresh Veggies</a>
-            <a href="dehydrated.html" style="color:#777; text-decoration:none; display:block; margin-bottom:10px;">Dehydrated Line</a>
+        <div class="f-col f-links">
+            <h4>Portals</h4>
+            <a href="fruits.html" style="color:#777; text-decoration:none; display:block; margin-bottom:12px;">Export Fruits</a>
+            <a href="vegetables.html" style="color:#777; text-decoration:none; display:block; margin-bottom:12px;">Fresh Veggies</a>
+            <a href="dehydrated.html" style="color:#777; text-decoration:none; display:block; margin-bottom:12px;">Dehydrated Line</a>
         </div>
         <div class="f-col">
             <h4>Trade Desk</h4>
