@@ -14,85 +14,80 @@
         header { background: var(--white); padding: 20px 5%; display: flex; flex-direction: column; align-items: center; box-shadow: 0 2px 15px rgba(0,0,0,0.05); position: sticky; top: 0; z-index: 1000; }
         .logo-img { height: 60px; margin-bottom: 12px; }
         nav ul { list-style: none; display: flex; gap: 30px; }
-        nav a { text-decoration: none; color: var(--primary); font-weight: 700; text-transform: uppercase; font-size: 12px; letter-spacing: 1.5px; transition: 0.3s; }
-        nav a:hover { color: var(--accent); }
+        nav a { text-decoration: none; color: var(--primary); font-weight: 700; text-transform: uppercase; font-size: 12px; letter-spacing: 1.5px; }
 
         .hero { 
-            height: 60vh; background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('fruits-banner.jpg'); 
+            height: 60vh; background: linear-gradient(rgba(0,0,0,0.65), rgba(0,0,0,0.65)), url('fruits-banner.jpg'); 
             background-size: cover; background-position: center; display: flex; flex-direction: column; 
             justify-content: center; align-items: center; color: white; text-align: center; padding: 0 5%;
         }
-        .hero h1 { font-size: 3.2rem; font-weight: 900; margin-bottom: 15px; letter-spacing: -1px; }
-        .hero p { font-size: 1.2rem; opacity: 0.9; font-weight: 300; max-width: 800px; }
+        .hero h1 { font-size: 3.2rem; font-weight: 900; margin-bottom: 15px; }
 
-        .section-padding { padding: 90px 5%; max-width: 1400px; margin: 0 auto; }
-        .sec-title { text-align: center; color: var(--primary); margin-bottom: 50px; text-transform: uppercase; letter-spacing: 3px; font-size: 2rem; font-weight: 800; }
+        .section-padding { padding: 80px 5%; max-width: 1600px; margin: 0 auto; }
+        .sec-title { text-align: center; color: var(--primary); margin-bottom: 40px; text-transform: uppercase; letter-spacing: 3px; font-size: 2rem; font-weight: 800; }
 
-        /* 2. EXPORT PRODUCT SUITES (HORIZONTAL - FULL WIDTH FOCUS) */
-        .suite-grid { display: flex; flex-direction: column; gap: 30px; }
-        .suite-card { display: flex; background: #fff; border-radius: 15px; overflow: hidden; border: 1px solid #eee; text-decoration: none; transition: 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94); height: 260px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); }
-        .suite-card:hover { transform: translateX(10px); border-color: var(--accent); box-shadow: 0 15px 40px rgba(0,0,0,0.1); }
-        .suite-card .img-holder { width: 35%; height: 100%; overflow: hidden; }
-        .suite-card img { width: 100%; height: 100%; object-fit: cover; transition: 0.6s; }
-        .suite-card:hover img { transform: scale(1.05); }
-        .suite-card .content { width: 65%; padding: 40px; display: flex; flex-direction: column; justify-content: center; }
-        .suite-card h4 { color: var(--primary); font-size: 1.4rem; text-transform: uppercase; font-weight: 900; margin-bottom: 15px; }
-        .suite-card p { color: #555; font-size: 1rem; border-top: 1px solid #f0f0f0; padding-top: 15px; line-height: 1.6; }
+        /* 2. EXPORT PRODUCT SUITES (ONE LINE - BIG IMAGES) */
+        .suite-wrapper { overflow-x: auto; padding-bottom: 20px; scrollbar-width: none; } /* Hide scrollbar for clean look */
+        .suite-wrapper::-webkit-scrollbar { display: none; }
+        
+        .suite-grid { display: flex; gap: 20px; min-width: 1200px; justify-content: space-between; }
+        .suite-card { flex: 1; min-width: 280px; background: #fff; border-radius: 15px; overflow: hidden; border: 1px solid #eee; text-decoration: none; transition: 0.4s; box-shadow: 0 10px 30px rgba(0,0,0,0.05); }
+        .suite-card:hover { transform: translateY(-10px); border-color: var(--accent); }
+        .suite-card .img-holder { width: 100%; height: 400px; overflow: hidden; } /* BIG VERTICAL SPACE */
+        .suite-card img { width: 100%; height: 100%; object-fit: cover; }
+        .suite-card .content { padding: 25px; text-align: center; border-top: 1px solid #f0f0f0; }
+        .suite-card h4 { color: var(--primary); font-size: 1.1rem; text-transform: uppercase; font-weight: 900; margin-bottom: 10px; }
+        .suite-card p { color: #666; font-size: 0.85rem; line-height: 1.4; font-style: italic; }
 
         /* 3. CORE PILLARS (SMALL & LEAN) */
-        .pillar-bg { background: var(--light); border-top: 1px solid #e8ede4; border-bottom: 1px solid #e8ede4; }
-        .pillar-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
-        .pillar-card { background: #fff; padding: 30px 20px; border-radius: 12px; text-align: center; border: 1px solid #eee; }
-        .pillar-card i { font-size: 1.6rem; color: var(--accent); margin-bottom: 15px; }
-        .pillar-card h3 { color: var(--primary); font-size: 0.9rem; text-transform: uppercase; margin-bottom: 10px; font-weight: 800; }
-        .pillar-card p { font-size: 0.8rem; color: #666; line-height: 1.5; }
+        .pillar-bg { background: var(--light); padding: 60px 5%; }
+        .pillar-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; max-width: 1200px; margin: 0 auto; }
+        .pillar-card { text-align: center; }
+        .pillar-card i { font-size: 1.4rem; color: var(--accent); margin-bottom: 12px; }
+        .pillar-card h3 { color: var(--primary); font-size: 0.85rem; text-transform: uppercase; margin-bottom: 8px; font-weight: 800; }
+        .pillar-card p { font-size: 0.75rem; color: #666; line-height: 1.4; }
 
-        /* 4. HOW WE WORK (SMALL FONT / ICONS / ONE LINE) */
-        .work-grid { display: flex; gap: 20px; justify-content: space-between; }
-        .work-step { flex: 1; background: #fff; padding: 30px 20px; border-radius: 12px; text-align: center; border: 1px solid #f0f0f0; transition: 0.3s; }
-        .work-step:hover { border-top: 4px solid var(--accent); transform: translateY(-5px); }
-        .work-step i { font-size: 1.8rem; color: var(--accent); margin-bottom: 15px; display: block; }
-        .work-step h4 { color: var(--primary); font-size: 0.85rem; text-transform: uppercase; margin-bottom: 8px; font-weight: 800; }
-        .work-step p { font-size: 0.75rem; color: #777; line-height: 1.4; }
+        /* 4. HOW WE WORK (ONE LINE / SMALL FONT) */
+        .work-grid { display: flex; gap: 20px; justify-content: space-between; max-width: 1200px; margin: 0 auto; }
+        .work-step { flex: 1; text-align: center; padding: 20px; border-radius: 10px; background: #fff; border: 1px solid #f0f0f0; }
+        .work-step i { font-size: 1.6rem; color: var(--accent); margin-bottom: 12px; }
+        .work-step h4 { color: var(--primary); font-size: 0.8rem; text-transform: uppercase; margin-bottom: 6px; }
+        .work-step p { font-size: 0.7rem; color: #888; }
 
-        /* 5. TRADE FAQ (4 QUESTIONS - REFINED) */
-        .faq-container { max-width: 900px; margin: 0 auto; }
-        .faq-item { background: #fff; border-bottom: 1px solid #eee; }
-        .faq-question { width: 100%; padding: 25px; background: none; border: none; text-align: left; display: flex; justify-content: space-between; align-items: center; cursor: pointer; font-weight: 700; color: var(--primary); font-size: 1.1rem; }
-        .faq-answer { max-height: 0; overflow: hidden; transition: max-height 0.4s ease-in-out; background: #fcfcfc; }
-        .faq-answer p { padding: 0 25px 25px; font-size: 0.95rem; color: #666; line-height: 1.6; }
-        .faq-item.active .faq-answer { max-height: 150px; }
-        .faq-item.active .faq-question { color: var(--accent); }
+        /* 5. TRADE FAQ (4 QUESTIONS) */
+        .faq-container { max-width: 800px; margin: 0 auto; }
+        .faq-item { border-bottom: 1px solid #eee; }
+        .faq-question { width: 100%; padding: 20px; background: none; border: none; text-align: left; display: flex; justify-content: space-between; cursor: pointer; font-weight: 700; color: var(--primary); }
+        .faq-answer { max-height: 0; overflow: hidden; transition: max-height 0.3s ease-out; }
+        .faq-answer p { padding: 0 20px 20px; font-size: 0.9rem; color: #666; }
+        .faq-item.active .faq-answer { max-height: 100px; }
 
-        /* 6. THE MISSING FOOTER (HARD-LOCKED) */
-        footer { background: #0b140e; color: #888; padding: 80px 5% 40px; border-top: 5px solid var(--accent); position: relative; z-index: 10; }
+        /* 6. THE FOOTER (HARD-LOCKED) */
+        footer { background: #0b140e; color: #888; padding: 70px 5% 30px; border-top: 5px solid var(--accent); position: relative; }
         .footer-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 60px; max-width: 1400px; margin: 0 auto; }
-        .footer-col h4 { color: var(--white); margin-bottom: 25px; text-transform: uppercase; letter-spacing: 2px; font-size: 0.9rem; position: relative; }
-        .footer-col h4::after { content: ''; position: absolute; left: 0; bottom: -8px; width: 30px; height: 2px; background: var(--accent); }
+        .footer-col h4 { color: var(--white); margin-bottom: 25px; text-transform: uppercase; font-size: 0.85rem; }
         
-        /* FOOTER ANIMATION TARGET */
-        .quick-links-area { position: relative; overflow: hidden; padding: 10px 0; }
-        .footer-col a { color: #777; text-decoration: none; display: block; margin-bottom: 12px; font-size: 0.9rem; transition: 0.3s; position: relative; z-index: 5; }
-        .footer-col a:hover { color: var(--accent); transform: translateX(5px); }
+        .quick-links-area { position: relative; overflow: hidden; }
+        .footer-col a { color: #777; text-decoration: none; display: block; margin-bottom: 10px; font-size: 0.9rem; position: relative; z-index: 5; }
+        .footer-col a:hover { color: var(--accent); }
         
+        /* QUICK LINK LEAF ANIMATION */
         .footer-leaf { position: absolute; color: rgba(197, 160, 89, 0.2); font-size: 14px; z-index: 1; pointer-events: none; animation: leaf-fall linear infinite; }
-        @keyframes leaf-fall { 0% { transform: translateY(-20px) rotate(0deg); opacity: 0; } 50% { opacity: 1; } 100% { transform: translateY(180px) rotate(360deg); opacity: 0; } }
+        @keyframes leaf-fall { 0% { transform: translateY(-10px) rotate(0deg); opacity: 0; } 50% { opacity: 1; } 100% { transform: translateY(120px) rotate(360deg); opacity: 0; } }
 
-        .footer-bottom { text-align: center; margin-top: 60px; padding-top: 30px; border-top: 1px solid rgba(255,255,255,0.05); font-size: 0.8rem; opacity: 0.5; }
+        .footer-bottom { text-align: center; margin-top: 50px; border-top: 1px solid rgba(255,255,255,0.05); padding-top: 20px; font-size: 0.75rem; opacity: 0.4; }
 
-        @media (max-width: 900px) {
-            .suite-card { flex-direction: column; height: auto; }
-            .suite-card .img-holder, .suite-card .content { width: 100%; }
-            .suite-card .img-holder { height: 200px; }
-            .pillar-grid, .footer-grid { grid-template-columns: 1fr; gap: 40px; }
-            .work-grid { display: grid; grid-template-columns: 1fr 1fr; }
+        @media (max-width: 768px) {
+            .suite-grid { min-width: 1000px; } /* Keep them horizontal on mobile */
+            .pillar-grid, .work-grid, .footer-grid { grid-template-columns: 1fr; }
+            .hero h1 { font-size: 2.2rem; }
         }
     </style>
 </head>
 <body>
 
 <header>
-    <img src="logo.jpg" alt="Agripure Global Logo" class="logo-img">
+    <img src="logo.jpg" alt="Agripure Global" class="logo-img">
     <nav><ul>
         <li><a href="index.html">Home</a></li>
         <li><a href="story.html">Our Story</a></li>
@@ -103,41 +98,42 @@
 
 <section class="hero">
     <h1>7+ Years of Export Integrity</h1>
-    <p>Navi Mumbai's Direct Gateway to India's Finest Agricultural Produce.</p>
+    <p>Navi Mumbai's Direct Link to Premium Indian Produce.</p>
 </section>
 
 <section class="section-padding" id="suites">
     <h2 class="sec-title">Our Export Suites</h2>
-    <div class="suite-grid">
-        <a href="sweeteners.html" class="suite-card">
-            <div class="img-holder"><img src="jaggery-blocks.jpg" alt="Natural Sweeteners"></div>
-            <div class="content"><h4>Natural Sweeteners</h4><p>Jaggery Blocks, Powder, Cubes, and Pure Raw Forest Honey.</p></div>
-        </a>
-        <a href="fruits.html" class="suite-card">
-            <div class="img-holder"><img src="fruits-banner.jpg" alt="Premium Fruits"></div>
-            <div class="content"><h4>Premium Fruits</h4><p>Export-Grade Grapes, Pomegranates, Banana, Guava, and Papaya.</p></div>
-        </a>
-        <a href="vegetables.html" class="suite-card">
-            <div class="img-holder"><img src="veggies-banner.jpg" alt="Farm Fresh Veggies"></div>
-            <div class="content"><h4>Farm-Fresh Veggies</h4><p>Onions, Tomato, Okra, Chilli, Gourds, Cabbage, and Baby Potato.</p></div>
-        </a>
-        <a href="dehydrated.html" class="suite-card">
-            <div class="img-holder"><img src="dehydrated-banner.jpg" alt="Dehydrated Products"></div>
-            <div class="content"><h4>Industrial Dehydrated</h4><p>Premium Grade Moisture-Controlled Onion Powder for Food Industry.</p></div>
-        </a>
-        <a href="snacks.html" class="suite-card">
-            <div class="img-holder"><img src="makhana.jpg" alt="Superfood Snacks"></div>
-            <div class="content"><h4>Superfood Snacks</h4><p>Hand-Picked, Export-Graded Premium Makhana (Fox Nuts).</p></div>
-        </a>
+    <div class="suite-wrapper">
+        <div class="suite-grid">
+            <a href="sweeteners.html" class="suite-card">
+                <div class="img-holder"><img src="jaggery-blocks.jpg"></div>
+                <div class="content"><h4>Sweeteners</h4><p>Jaggery Blocks, Powder, Cubes, & Honey</p></div>
+            </a>
+            <a href="fruits.html" class="suite-card">
+                <div class="img-holder"><img src="fruits-banner.jpg"></div>
+                <div class="content"><h4>Premium Fruits</h4><p>Grapes, Pomegranates, Banana, Guava, Papaya</p></div>
+            </a>
+            <a href="vegetables.html" class="suite-card">
+                <div class="img-holder"><img src="veggies-banner.jpg"></div>
+                <div class="content"><h4>Fresh Veggies</h4><p>Onions, Tomato, Okra, Chilli, Gourds, Potato</p></div>
+            </a>
+            <a href="dehydrated.html" class="suite-card">
+                <div class="img-holder"><img src="dehydrated-banner.jpg"></div>
+                <div class="content"><h4>Dehydrated</h4><p>Premium Moisture-Controlled Onion Powder</p></div>
+            </a>
+            <a href="snacks.html" class="suite-card">
+                <div class="img-holder"><img src="makhana.jpg"></div>
+                <div class="content"><h4>Superfoods</h4><p>Export-Graded Premium Makhana (Fox Nuts)</p></div>
+            </a>
+        </div>
     </div>
 </section>
 
-<section class="section-padding pillar-bg">
-    <h2 class="sec-title">Our Core Pillars</h2>
+<section class="pillar-bg">
     <div class="pillar-grid">
-        <div class="pillar-card"><i class="fas fa-certificate"></i><h3>Quality Graded</h3><p>Strict global phyto-sanitary and sizing standards.</p></div>
-        <div class="pillar-card"><i class="fas fa-truck-loading"></i><h3>Logistics Mastery</h3><p>Strategic hub coordination for zero-delay vessel dispatch.</p></div>
-        <div class="pillar-card"><i class="fas fa-seedling"></i><h3>Direct Sourcing</h3><p>Farm-gate procurement for competitive B2B market pricing.</p></div>
+        <div class="pillar-card"><i class="fas fa-certificate"></i><h3>Quality Graded</h3><p>Strict global phyto-sanitary standards.</p></div>
+        <div class="pillar-card"><i class="fas fa-truck-loading"></i><h3>Logistics Mastery</h3><p>Strategic hub-to-vessel coordination.</p></div>
+        <div class="pillar-card"><i class="fas fa-seedling"></i><h3>Direct Sourcing</h3><p>Farm-gate procurement for B2B pricing.</p></div>
     </div>
 </section>
 
@@ -145,10 +141,10 @@
 <section class="section-padding">
     <h2 class="sec-title">How We Work</h2>
     <div class="work-grid">
-        <div class="work-step"><i class="fas fa-tractor"></i><h4>Sourcing</h4><p>7-year verified farm network.</p></div>
-        <div class="work-step"><i class="fas fa-warehouse"></i><h4>Processing</h4><p>Export-grade custom packing.</p></div>
-        <div class="work-step"><i class="fas fa-vial"></i><h4>Inspection</h4><p>Final lab testing & certification.</p></div>
-        <div class="work-step"><i class="fas fa-anchor"></i><h4>Dispatch</h4><p>Immediate sea-freight handling.</p></div>
+        <div class="work-step"><i class="fas fa-tractor"></i><h4>Sourcing</h4><p>Verified farm networks.</p></div>
+        <div class="work-step"><i class="fas fa-warehouse"></i><h4>Processing</h4><p>Custom export packing.</p></div>
+        <div class="work-step"><i class="fas fa-vial"></i><h4>Inspection</h4><p>Final lab testing.</p></div>
+        <div class="work-step"><i class="fas fa-anchor"></i><h4>Dispatch</h4><p>Immediate sea-freight.</p></div>
     </div>
 </section>
 
@@ -156,20 +152,20 @@
     <h2 class="sec-title">Trade FAQ</h2>
     <div class="faq-container">
         <div class="faq-item">
-            <button class="faq-question">Export Lead Times <i class="fas fa-chevron-down"></i></button>
-            <div class="faq-answer"><p>Standard dispatch occurs within 72 hours of harvest for peak shelf-life.</p></div>
+            <button class="faq-question">Export Lead Times <i class="fas fa-plus"></i></button>
+            <div class="faq-answer"><p>Standard dispatch occurs within 72 hours of harvest.</p></div>
         </div>
         <div class="faq-item">
-            <button class="faq-question">Custom White Labeling <i class="fas fa-chevron-down"></i></button>
-            <div class="faq-answer"><p>We offer full retail-ready branding and customized bulk packaging.</p></div>
+            <button class="faq-question">Custom Branding <i class="fas fa-plus"></i></button>
+            <div class="faq-answer"><p>White-labeling and bulk packaging available.</p></div>
         </div>
         <div class="faq-item">
-            <button class="faq-question">Primary Markets <i class="fas fa-chevron-down"></i></button>
-            <div class="faq-answer"><p>Currently serving major trade hubs in the Gulf, Europe, and SE Asia.</p></div>
+            <button class="faq-question">Global Reach <i class="fas fa-plus"></i></button>
+            <div class="faq-answer"><p>Serving the Gulf, Europe, and SE Asia hubs.</p></div>
         </div>
         <div class="faq-item">
-            <button class="faq-question">Minimum Order (MOQ) <i class="fas fa-chevron-down"></i></button>
-            <div class="faq-answer"><p>MOQs depend on the product suite; we support both LCL and FCL shipments.</p></div>
+            <button class="faq-question">Trade MOQs <i class="fas fa-plus"></i></button>
+            <div class="faq-answer"><p>Supporting both LCL and Full Container Load requirements.</p></div>
         </div>
     </div>
 </section>
@@ -187,9 +183,9 @@
             <a href="contact.html">Request Quote</a>
         </div>
         <div class="footer-col">
-            <h4>Trade Desk</h4>
-            <p><i class="fas fa-phone"></i> +91 7666170693</p>
-            <a href="mailto:info@agripureglobal.com"><i class="fas fa-envelope"></i> info@agripureglobal.com</a>
+            <h4>Trade Contact</h4>
+            <p>+91 7666170693</p>
+            <a href="mailto:info@agripureglobal.com">info@agripureglobal.com</a>
         </div>
     </div>
     <div class="footer-bottom">
@@ -201,13 +197,13 @@
     // FAQ Toggle
     document.querySelectorAll('.faq-question').forEach(q => q.addEventListener('click', () => q.parentElement.classList.toggle('active')));
 
-    // Gold Leaf Animation ONLY for Quick Links Box
+    // Leaf Animation Restricted to Link Box
     const box = document.getElementById('link-box');
-    for(let i=0; i<12; i++) {
+    for(let i=0; i<10; i++) {
         const leaf = document.createElement('i');
         leaf.className = 'fas fa-leaf footer-leaf';
         leaf.style.left = Math.random() * 90 + '%';
-        leaf.style.animationDuration = (Math.random() * 3 + 4) + 's';
+        leaf.style.animationDuration = (Math.random() * 3 + 3) + 's';
         leaf.style.animationDelay = (Math.random() * 5) + 's';
         box.appendChild(leaf);
     }
