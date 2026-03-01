@@ -10,63 +10,53 @@
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', sans-serif; }
         body { color: #333; line-height: 1.6; background: var(--w); overflow-x: hidden; }
         
-        /* THE ULTIMATE CITE KILLER */
+        /* CITE HIDER */
         cite, .cite-tag { display: none !important; opacity: 0 !important; visibility: hidden !important; position: absolute !important; }
 
         header { padding: 15px 5%; display: flex; flex-direction: column; align-items: center; box-shadow: 0 2px 15px rgba(0,0,0,0.05); position: sticky; top: 0; background: var(--w); z-index: 1000; }
-        .logo-img { height: 55px; margin-bottom: 8px; }
-        nav a { text-decoration: none; color: var(--p); font-weight: 700; text-transform: uppercase; font-size: 11px; letter-spacing: 1.5px; margin: 0 20px; transition: 0.3s; }
-        nav a:hover { color: var(--a); }
+        .logo-img { height: 50px; margin-bottom: 8px; }
+        nav a { text-decoration: none; color: var(--p); font-weight: 700; text-transform: uppercase; font-size: 11px; letter-spacing: 1.5px; margin: 0 15px; }
 
-        /* THE FARMERS PIC (HERO) */
-        .hero { height: 65vh; background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('fruits-banner.jpg') center/cover; display: flex; flex-direction: column; justify-content: center; align-items: center; color: var(--w); text-align: center; }
-        .hero h1 { font-size: 3.5rem; text-transform: uppercase; font-weight: 900; letter-spacing: -1px; }
+        /* RESTORED FARMER.JPG HERO */
+        .hero { height: 60vh; background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('farmer.jpg') center/cover; display: flex; flex-direction: column; justify-content: center; align-items: center; color: var(--w); text-align: center; }
+        .hero h1 { font-size: 3.2rem; text-transform: uppercase; font-weight: 900; letter-spacing: -1px; }
 
-        .section { padding: 100px 8%; }
-        .sec-title { text-align: center; color: var(--p); margin-bottom: 60px; text-transform: uppercase; letter-spacing: 4px; font-size: 1.8rem; font-weight: 900; }
+        .section { padding: 80px 8%; }
+        .sec-title { text-align: center; color: var(--p); margin-bottom: 50px; text-transform: uppercase; letter-spacing: 3px; font-size: 1.6rem; font-weight: 900; }
 
-        /* CATALOGUE LIST (3D HOVER RESTORED) */
-        .suite-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 15px; }
-        .suite-card { background: var(--w); border: 1px solid #eee; text-decoration: none; height: 520px; overflow: hidden; transition: all 0.6s cubic-bezier(0.165, 0.84, 0.44, 1); display: flex; flex-direction: column; }
-        .suite-card:hover { transform: translateY(-15px); box-shadow: 0 30px 60px rgba(0,0,0,0.15); border-color: var(--a); }
-        .suite-card img { width: 100%; height: 60%; object-fit: cover; transition: 0.8s; }
+        /* CATALOGUE - 5 COLUMN GRID */
+        .suite-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 12px; }
+        .suite-card { background: var(--w); border: 1px solid #eee; text-decoration: none; height: 480px; overflow: hidden; transition: 0.5s cubic-bezier(0.165, 0.84, 0.44, 1); display: flex; flex-direction: column; }
+        .suite-card:hover { transform: translateY(-10px); box-shadow: 0 20px 40px rgba(0,0,0,0.1); border-color: var(--a); }
+        .suite-card img { width: 100%; height: 55%; object-fit: cover; transition: 0.6s; }
         .suite-card:hover img { transform: scale(1.1); }
-        .suite-card .content { padding: 20px; }
-        .suite-card h4 { color: var(--p); text-transform: uppercase; font-size: 0.95rem; font-weight: 900; margin-bottom: 10px; border-bottom: 2px solid var(--a); display: inline-block; }
-        .suite-card p { font-size: 0.8rem; color: #666; line-height: 1.5; font-style: italic; }
+        .suite-card .content { padding: 15px; }
+        .suite-card h4 { color: var(--p); text-transform: uppercase; font-size: 0.85rem; font-weight: 900; margin-bottom: 8px; border-bottom: 2px solid var(--a); display: inline-block; }
+        .suite-card p { font-size: 0.7rem; color: #666; line-height: 1.4; }
 
-        /* ACCREDITATION STRIP */
-        .acc-strip { background: var(--p); color: var(--w); padding: 60px 5%; text-align: center; border-bottom: 6px solid var(--a); }
-        .acc-grid { display: flex; justify-content: space-around; max-width: 1200px; margin: 0 auto; }
-        .acc-item h2 { color: var(--a); font-size: 1.8rem; font-weight: 900; margin-bottom: 5px; }
-        .acc-item p { text-transform: uppercase; font-size: 0.75rem; letter-spacing: 2px; opacity: 0.8; }
-
-        /* PILLARS & WORKFLOW */
-        .bg-grey { background: var(--l); padding: 100px 8%; }
-        .box-grid { display: grid; gap: 25px; max-width: 1400px; margin: 0 auto; }
-        .g3 { grid-template-columns: repeat(3, 1fr); margin-bottom: 80px; }
+        /* MEDIUM SIZED PILLARS & WORK */
+        .bg-grey { background: var(--l); padding: 50px 8%; border-top: 1px solid #eee; }
+        .box-grid { display: grid; gap: 20px; max-width: 1000px; margin: 0 auto; }
+        .g3 { grid-template-columns: repeat(3, 1fr); margin-bottom: 50px; }
         .g4 { grid-template-columns: repeat(4, 1fr); }
-        .box { background: var(--w); padding: 50px 30px; border: 1px solid #e8ede4; text-align: center; transition: 0.4s; }
-        .box:hover { border-color: var(--a); transform: translateY(-5px); }
-        .box i { font-size: 2.5rem; color: var(--a); margin-bottom: 20px; }
-        .box h3 { color: var(--p); font-size: 1.1rem; text-transform: uppercase; margin-bottom: 15px; font-weight: 800; }
+        .box { background: var(--w); padding: 30px 20px; border: 1px solid #e8ede4; text-align: center; transition: 0.3s; }
+        .box i { font-size: 1.8rem; color: var(--a); margin-bottom: 12px; }
+        .box h3 { color: var(--p); font-size: 0.85rem; text-transform: uppercase; margin-bottom: 8px; font-weight: 800; }
+        .box p { font-size: 0.75rem; color: #666; }
 
-        /* FAQ */
-        .faq-item { background: #fff; margin-bottom: 15px; border: 1px solid #eee; }
-        .faq-q { width: 100%; padding: 25px; background: none; border: none; text-align: left; display: flex; justify-content: space-between; cursor: pointer; font-weight: 700; color: var(--p); font-size: 1rem; }
-        .faq-a { max-height: 0; overflow: hidden; transition: 0.4s; padding: 0 25px; color: #666; }
-        .faq-item.active .faq-a { max-height: 200px; padding: 10px 25px 30px; border-top: 1px solid #f9f9f9; }
+        /* DETAILED TRADE FAQ */
+        .faq-container { max-width: 850px; margin: 0 auto; }
+        .faq-item { background: #fff; margin-bottom: 12px; border: 1px solid #eee; }
+        .faq-q { width: 100%; padding: 22px; background: none; border: none; text-align: left; display: flex; justify-content: space-between; cursor: pointer; font-weight: 700; color: var(--p); font-size: 0.95rem; }
+        .faq-a { max-height: 0; overflow: hidden; transition: 0.4s; padding: 0 22px; color: #555; font-size: 0.88rem; line-height: 1.7; }
+        .faq-item.active .faq-a { max-height: 400px; padding: 15px 22px 30px; border-top: 1px solid #f9f9f9; }
 
-        /* PREMIUM FOOTER */
-        footer { background: var(--d); color: #999; padding: 100px 8% 50px; border-top: 5px solid var(--a); }
-        .f-grid { display: grid; grid-template-columns: 1.5fr 1fr 1.5fr; gap: 80px; }
-        .f-col h4 { color: var(--w); margin-bottom: 30px; text-transform: uppercase; font-size: 0.9rem; letter-spacing: 3px; }
-        .f-col a { color: #666; text-decoration: none; display: block; margin-bottom: 15px; transition: 0.3s; }
-        .f-col a:hover { color: var(--a); transform: translateX(10px); }
-        .trade-card { background: rgba(255,255,255,0.03); padding: 40px; border-radius: 4px; border: 1px solid rgba(255,255,255,0.1); }
-        .trade-card p { color: var(--w); font-weight: 800; font-size: 1.1rem; margin-bottom: 15px; }
+        footer { background: var(--d); color: #888; padding: 80px 8% 40px; border-top: 5px solid var(--a); }
+        .f-grid { display: grid; grid-template-columns: 1fr 1fr 1.2fr; gap: 50px; }
+        .f-col h4 { color: var(--w); margin-bottom: 25px; text-transform: uppercase; font-size: 0.8rem; letter-spacing: 2px; }
+        .trade-card { background: rgba(255,255,255,0.03); padding: 25px; border-left: 3px solid var(--a); }
 
-        @media (max-width: 1200px) { .suite-grid { grid-template-columns: repeat(2, 1fr); } .f-grid, .g3, .g4 { grid-template-columns: 1fr; } }
+        @media (max-width: 1100px) { .suite-grid { grid-template-columns: repeat(2, 1fr); } .f-grid, .g3, .g4 { grid-template-columns: 1fr; } }
     </style>
 </head>
 <body>
@@ -78,7 +68,7 @@
 
 <section class="hero">
     <h1>7+ Years of Export Integrity</h1>
-    <p>Premium Indian Produce • Direct From Farms</p>
+    <p>Premium Indian Produce • Direct From Verified Farm Networks</p>
 </section>
 
 <section class="section" id="catalogue">
@@ -90,72 +80,76 @@
         </a>
         <a href="fruits.html" class="suite-card">
             <img src="fruits-banner.jpg">
-            <div class="content"><h4>Export Fruits</h4><p>Grapes, Pomegranates, Banana, Guava, Papaya.</p></div>
+            <div class="content"><h4>Export Fruits</h4><p>Premium Grapes, Pomegranates, Banana, Guava, Papaya.</p></div>
         </a>
         <a href="vegetables.html" class="suite-card">
             <img src="veggies-banner.jpg">
-            <div class="content"><h4>Fresh Veggies</h4><p>Red Onions, Tomato, Okra, Chilli, 3 Gourds, Cabbage, Cauliflower, Capsicum, Baby Potato.</p></div>
+            <div class="content"><h4>Fresh Veggies</h4><p>Red Onions, Tomato, Okra, Green Chilli, 3 Gourds (Bottle, Ridge, Bitter), Cabbage, Cauliflower, Capsicum, Baby Potato.</p></div>
         </a>
         <a href="dehydrated.html" class="suite-card">
             <img src="dehydrated-banner.jpg">
-            <div class="content"><h4>Dehydrated</h4><p>Industrial Onion Powder. Moisture-controlled, 7+ years expertise.</p></div>
+            <div class="content"><h4>Dehydrated Suite</h4><p>Industrial Onion Powder. Moisture-controlled, 7+ years of processing expertise.</p></div>
         </a>
         <a href="snacks.html" class="suite-card">
             <img src="makhana.jpg">
-            <div class="content"><h4>Superfood Snacks</h4><p>Premium Makhana. Hand-picked, export-graded crunch.</p></div>
+            <div class="content"><h4>Superfood Snacks</h4><p>Premium Makhana (makhana.jpg). Health-conscious, export-graded crunch.</p></div>
         </a>
-    </div>
-</section>
-
-<section class="acc-strip">
-    <div class="acc-grid">
-        <div class="acc-item"><h2>APEDA & NPPO</h2><p>Certified Standards</p></div>
-        <div class="acc-item"><h2>100% QUALITY</h2><p>Batch-Level Inspected</p></div>
-        <div class="acc-item"><h2>FSSAI / NABL</h2><p>Lab Accredited</p></div>
     </div>
 </section>
 
 <div class="bg-grey">
-    <h2 class="sec-title">Our Core Pillars</h2>
+    <h2 class="sec-title">Core Pillars</h2>
     <div class="box-grid g3">
-        <div class="box"><i class="fas fa-certificate"></i><h3>Quality</h3><p>Strict global phyto-sanitary standards for all suites.</p></div>
-        <div class="box"><i class="fas fa-truck-loading"></i><h3>Logistics</h3><p>Strategic hub-to-vessel coordination for dispatch.</p></div>
-        <div class="box"><i class="fas fa-seedling"></i><h3>Sourcing</h3><p>Direct procurement from verified farm networks.</p></div>
+        <div class="box"><i class="fas fa-certificate"></i><h3>Quality</h3><p>Strict phyto-sanitary compliance for EU, Gulf, and SE Asian markets.</p></div>
+        <div class="box"><i class="fas fa-truck-loading"></i><h3>Logistics</h3><p>Direct hub-to-vessel coordination for minimal turnaround time.</p></div>
+        <div class="box"><i class="fas fa-seedling"></i><h3>Sourcing</h3><p>Direct procurement from verified farm-gate networks.</p></div>
     </div>
 
-    <h2 class="sec-title" style="margin-top:100px;">How We Work</h2>
+    <h2 class="sec-title" style="margin-top:60px;">How We Work</h2>
     <div class="box-grid g4">
-        <div class="box"><i class="fas fa-tractor"></i><h3>Sourcing</h3><p>Manual grading from farms.</p></div>
-        <div class="box"><i class="fas fa-warehouse"></i><h3>Processing</h3><p>Moisture-controlled packing.</p></div>
+        <div class="box"><i class="fas fa-tractor"></i><h3>Sourcing</h3><p>Farm-gate grading.</p></div>
+        <div class="box"><i class="fas fa-warehouse"></i><h3>Processing</h3><p>Moisture control.</p></div>
         <div class="box"><i class="fas fa-vial"></i><h3>Inspection</h3><p>NABL Lab testing.</p></div>
-        <div class="box"><i class="fas fa-anchor"></i><h3>Logistics</h3><p>Global Port Dispatch.</p></div>
+        <div class="box"><i class="fas fa-anchor"></i><h3>Logistics</h3><p>Global dispatch.</p></div>
     </div>
 </div>
 
 <section class="section">
     <h2 class="sec-title">Trade FAQ</h2>
-    <div class="faq-container" style="max-width: 900px; margin: 0 auto;">
+    <div class="faq-container">
         <div class="faq-item">
-            <button class="faq-q">Lead Times? <i class="fas fa-plus"></i></button>
-            <div class="faq-a"><p>Dispatch occurs within 72 hours of harvest.</p></div>
+            <button class="faq-q">What are the standard lead times for dispatch? <i class="fas fa-plus"></i></button>
+            <div class="faq-a">
+                <p>Fresh produce is harvested on-demand and dispatched within 48-72 hours to maintain maximum shelf life. Industrial and Dehydrated orders typically dispatch within 7-10 working days depending on quantity and custom grading specs.</p>
+            </div>
         </div>
         <div class="faq-item">
-            <button class="faq-q">Custom Branding? <i class="fas fa-plus"></i></button>
-            <div class="faq-a"><p>Full white-labeling and custom bulk packing available.</p></div>
+            <button class="faq-q">Do you provide custom branding and white-labeling? <i class="fas fa-plus"></i></button>
+            <div class="faq-a">
+                <p>Yes. We offer complete OEM solutions, including custom pouch designs for Makhana and branded corrugated packaging for fresh fruits. We ensure all packaging complies with the labeling laws of the destination country.</p>
+            </div>
+        </div>
+        <div class="faq-item">
+            <button class="faq-q">How is quality verified for international standards? <i class="fas fa-plus"></i></button>
+            <div class="faq-a">
+                <p>Every consignment is batch-tested at NABL-accredited labs for MRL compliance. We provide full documentation including APEDA certificates, Phytosanitary certificates from NPPO, and Certificates of Origin for every shipment.</p>
+            </div>
+        </div>
+        <div class="faq-item">
+            <button class="faq-q">What are the available shipping and payment terms? <i class="fas fa-plus"></i></button>
+            <div class="faq-a">
+                <p>We primarily operate on FOB, CIF, and CNF terms. We utilize Reefer containers for fresh suites and dry containers for processed goods. Payment is typically structured via Irrevocable LC or Advance TT, depending on the contract volume.</p>
+            </div>
         </div>
     </div>
 </section>
 
-<footer id="contact">
+<footer>
     <div class="f-grid">
-        <div class="f-col"><h4>Agripure Global</h4><p>Premier Indian export house with 7+ years of supply chain integrity. Built on farm-direct transparency.</p></div>
-        <div class="f-col"><h4>Portals</h4><a href="fruits.html">Fruits Suite</a><a href="vegetables.html">Veggies Suite</a><a href="dehydrated.html">Dehydrated</a></div>
-        <div class="f-col">
-            <h4>Trade Desk</h4>
-            <div class="trade-card">
-                <p><i class="fas fa-phone-alt" style="color:var(--a); margin-right:10px;"></i> +91 7666170693</p>
-                <a href="mailto:info@agripureglobal.com" style="background:var(--a); color:#fff; padding:12px 20px; text-decoration:none; font-weight:800; display:inline-block; margin-top:10px;">Request Quote</a>
-            </div>
+        <div class="f-col"><h4>Agripure Global</h4><p>7+ years of supply chain integrity. Built on farm-direct transparency and global standards.</p></div>
+        <div class="f-col"><h4>Portals</h4><a href="fruits.html">Fruits</a><a href="vegetables.html">Vegetables</a><a href="dehydrated.html">Dehydrated</a></div>
+        <div class="f-col"><h4>Trade Desk</h4>
+            <div class="trade-card"><p>+91 7666170693</p><a href="mailto:info@agripureglobal.com" style="color:var(--a); font-weight:800; text-decoration:none;">Email Trade Desk</a></div>
         </div>
     </div>
 </footer>
