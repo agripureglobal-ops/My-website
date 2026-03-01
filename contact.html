@@ -6,10 +6,8 @@
     <title>Contact Our Trade Desk | Agripure Global</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
-        /* THEME: Synced with Index */
         :root { --p: #1b4332; --a: #c5a059; --d: #141d18; --l: #f9fbf7; --w: #fff; }
         
-        html { scroll-behavior: smooth; }
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', sans-serif; }
         body { color: #333; line-height: 1.6; background: var(--l); overflow-x: hidden; }
 
@@ -27,19 +25,29 @@
             grid-template-areas: "info form";
         }
 
-        /* INFO PANE - Deep Forest Shade */
         .info-pane { grid-area: info; background: var(--d); color: var(--w); padding: 40px; border-radius: 4px; display: flex; flex-direction: column; justify-content: space-between; border-bottom: 4px solid var(--a); }
         .info-group { margin-bottom: 30px; }
         .info-group h3 { color: var(--a); font-size: 0.7rem; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 10px; }
-        .info-group p, .info-group a { font-size: 1rem; font-weight: 700; color: #fff; text-decoration: none; line-height: 1.4; transition: 0.3s; }
-        .info-group a:hover { color: var(--a); }
+        .info-group p, .info-group a { font-size: 1rem; font-weight: 700; color: #fff; text-decoration: none; }
         .info-group i { margin-right: 12px; color: var(--a); }
 
-        /* FORM CARD */
         .form-card { grid-area: form; background: var(--w); padding: 40px; border-radius: 4px; box-shadow: 0 15px 40px rgba(0,0,0,0.05); border: 1px solid #eee; border-bottom: 4px solid var(--a); }
         .form-group { margin-bottom: 20px; }
         label { display: block; margin-bottom: 8px; font-weight: 900; color: var(--p); text-transform: uppercase; font-size: 0.7rem; letter-spacing: 1px; }
-        input, select, textarea { width: 100%; padding: 14px; border: 1px solid #eee; background: #fbfbfb; font-size: 15px; outline: none; transition: 0.3s; }
+        
+        /* CLEAN DROPDOWN STYLING */
+        select { 
+            width: 100%; padding: 14px; border: 1px solid #eee; background: #fbfbfb; 
+            font-size: 15px; outline: none; cursor: pointer; color: #333;
+            appearance: none; background-image: url("data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%231b4332%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-5%200-9.3%201.8-12.9%205.4A17.6%2017.6%200%200%200%200%2082.2c0%205%201.8%209.3%205.4%2012.9l128%20127.9c3.6%203.6%207.8%205.4%2012.8%205.4s9.2-1.8%2012.8-5.4L287%2095c3.5-3.5%205.4-7.8%205.4-12.8%200-5-1.9-9.2-5.5-12.8z%22%2F%3E%3C%2Fsvg%3E");
+            background-repeat: no-repeat; background-position: right 15px top 50%; background-size: 12px auto;
+        }
+        
+        /* Grouping Headers Styling */
+        optgroup { font-weight: 700; font-style: normal; color: var(--p); text-transform: uppercase; letter-spacing: 1px; padding: 10px 0; }
+        option { font-weight: 400; padding: 10px; color: #333; text-transform: none; letter-spacing: 0; }
+
+        input, textarea { width: 100%; padding: 14px; border: 1px solid #eee; background: #fbfbfb; font-size: 15px; outline: none; transition: 0.3s; }
         input:focus, textarea:focus, select:focus { border-color: var(--a); background: var(--w); }
         
         .btn-submit { width: 100%; padding: 18px; background: var(--p); color: white; border: none; font-weight: 900; cursor: pointer; text-transform: uppercase; letter-spacing: 2px; transition: 0.3s; }
@@ -47,15 +55,13 @@
 
         #success-box { display: none; margin-top: 20px; padding: 15px; border: 1px solid #28a745; background: #f4fff4; color: #1b5e20; border-radius: 4px; text-align: center; font-weight: 600; }
 
-        /* FOOTER - Brighter Links & Deep Forest Shade */
-        footer { background: var(--d); color: #999; padding: 80px 8% 40px; border-top: 5px solid var(--a); text-align: left; }
+        footer { background: var(--d); color: #999; padding: 60px 8% 40px; border-top: 5px solid var(--a); }
         .f-grid { display: grid; grid-template-columns: 1.5fr 1fr 1.5fr; gap: 40px; max-width: 1200px; margin: 0 auto; }
         .f-col h4 { color: var(--w); margin-bottom: 20px; text-transform: uppercase; font-size: 0.8rem; letter-spacing: 2px; position: relative; padding-bottom: 10px; }
         .f-col h4::after { content: ''; position: absolute; left: 0; bottom: 0; width: 30px; height: 2px; background: var(--a); }
         .f-links a { color: #bbb; text-decoration: none; display: block; margin-bottom: 15px; font-size: 0.9rem; transition: 0.3s; }
         .f-links a:hover { color: var(--a); transform: translateX(8px); }
 
-        /* MOBILE RE-ORDER: Form Pops First */
         @media (max-width: 900px) { 
             .contact-container { grid-template-columns: 1fr; grid-template-areas: "form" "info"; margin: 20px auto; } 
             .f-grid { grid-template-columns: 1fr; gap: 30px; }
@@ -76,7 +82,7 @@
 
 <section class="contact-hero">
     <h1>Trade Inquiry</h1>
-    <p>Global Export Desk • Direct Sourcing</p>
+    <p>Premium Sourcing Desk</p>
 </section>
 
 <div class="contact-container">
@@ -91,9 +97,10 @@
                 <input type="email" name="_replyto" placeholder="email@company.com" required>
             </div>
             <div class="form-group">
-                <label>Select Product Interest</label>
+                <label>Select Product Suite</label>
                 <select name="product" id="product-dropdown" required>
-                    <option value="" disabled selected>Choose a category...</option>
+                    <option value="" disabled selected>— Choose Produce Category —</option>
+                    
                     <optgroup label="Natural Sweeteners (Suite 01)">
                         <option value="Jaggery Blocks">Jaggery Blocks</option>
                         <option value="Jaggery Liquid">Jaggery Liquid</option>
@@ -101,6 +108,7 @@
                         <option value="Jaggery Powder">Jaggery Powder</option>
                         <option value="Raw Forest Honey">Raw Forest Honey</option>
                     </optgroup>
+
                     <optgroup label="Premium Export Fruits (Suite 02)">
                         <option value="Export Grapes">Export Grapes</option>
                         <option value="Pomegranates">Pomegranates</option>
@@ -108,6 +116,7 @@
                         <option value="Guava">Guava</option>
                         <option value="Papaya">Papaya</option>
                     </optgroup>
+
                     <optgroup label="Farm-Fresh Vegetables (Suite 03)">
                         <option value="Red Onions">Red Onions</option>
                         <option value="Tomato">Tomato</option>
@@ -119,11 +128,10 @@
                         <option value="Capsicum">Capsicum</option>
                         <option value="Baby Potato">Baby Potato</option>
                     </optgroup>
-                    <optgroup label="Dehydrated Products (Suite 04)">
+
+                    <optgroup label="Dehydrated & Superfoods (04-05)">
                         <option value="Onion Powder">Onion Powder</option>
-                    </optgroup>
-                    <optgroup label="Superfood Snacks (Suite 05)">
-                        <option value="Premium Makhana">Premium Makhana</option>
+                        <option value="Premium Makhana">Premium Makhana (Fox Nuts)</option>
                     </optgroup>
                 </select>
             </div>
@@ -148,7 +156,7 @@
             </div>
             <div class="info-group">
                 <h3>Headquarters</h3>
-                <p><i class="fas fa-map-marker-alt"></i> Plot 34, Sector 36, Mansarovar,<br>Navi Mumbai, Maharashtra, India.</p>
+                <p><i class="fas fa-map-marker-alt"></i> Plot 34, Sector 36, Mansarovar,<br>Navi Mumbai, MH, India.</p>
             </div>
         </div>
         <div class="details-bottom">
@@ -176,7 +184,6 @@
 </footer>
 
 <script>
-  // Handle URL Auto-Select
   window.addEventListener('DOMContentLoaded', () => {
     const urlParams = new URLSearchParams(window.location.search);
     const productToSelect = urlParams.get('product');
@@ -186,7 +193,6 @@
     }
   });
 
-  // Formspree Submission
   var form = document.getElementById("my-form");
   var status = document.getElementById("my-form-status");
   var successBox = document.getElementById("success-box");
