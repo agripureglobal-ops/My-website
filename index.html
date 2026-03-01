@@ -15,9 +15,38 @@
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', sans-serif; }
         body { color: #333; line-height: 1.6; background: var(--w); overflow-x: hidden; }
 
-        header { padding: 15px 5%; display: flex; flex-direction: column; align-items: center; box-shadow: 0 2px 15px rgba(0,0,0,0.05); position: sticky; top: 0; background: var(--w); z-index: 1000; }
-        .logo-img { height: 50px; margin-bottom: 8px; }
-        nav a { text-decoration: none; color: var(--p); font-weight: 700; text-transform: uppercase; font-size: 11px; letter-spacing: 1.5px; margin: 0 15px; }
+        /* FIXED MOBILE HEADER: Logo and Nav on one line */
+        header { 
+            padding: 10px 5%; 
+            display: flex; 
+            flex-direction: row; 
+            justify-content: space-between; 
+            align-items: center; 
+            box-shadow: 0 2px 15px rgba(0,0,0,0.05); 
+            position: sticky; 
+            top: 0; 
+            background: var(--w); 
+            z-index: 1000; 
+        }
+
+        .logo-img { height: 35px; flex-shrink: 0; }
+
+        nav { 
+            display: flex; 
+            flex-direction: row; 
+            gap: 12px; 
+            align-items: center; 
+            white-space: nowrap;
+        }
+
+        nav a { 
+            text-decoration: none; 
+            color: var(--p); 
+            font-weight: 700; 
+            text-transform: uppercase; 
+            font-size: 10px; 
+            letter-spacing: 1px; 
+        }
 
         /* HERO */
         .hero { height: 60vh; background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('farmer.jpg') center/cover; display: flex; flex-direction: column; justify-content: center; align-items: center; color: var(--w); text-align: center; padding: 20px; }
@@ -80,6 +109,11 @@
             .hero h1 { font-size: 2.2rem; }
             .acc-item { border-bottom: 1px solid rgba(255,255,255,0.1); padding: 25px 0; }
             .acc-item:last-child { border-bottom: none; }
+            /* Force single line header on mobile */
+            header { flex-direction: row; justify-content: space-between; padding: 10px 4%; }
+            nav { gap: 8px; }
+            nav a { font-size: 9px; margin: 0; }
+            .logo-img { height: 28px; }
         }
     </style>
 </head>
@@ -90,7 +124,8 @@
     <nav>
         <a href="index.html">Home</a>
         <a href="story.html">Story</a>
-        <a href="#catalogue">Catalogue</a> <a href="contact.html">Contact</a>
+        <a href="#catalogue">Catalogue</a> 
+        <a href="contact.html">Contact</a>
     </nav>
 </header>
 
@@ -115,7 +150,7 @@
             <div class="content"><h4>Fresh Veggies</h4><p>Red Onions, Tomato, Okra, Chilli, Gourds & more.</p></div>
         </a>
         <a href="dehydrated.html" class="suite-card">
-            <img src="dehydrated-banner.jpg" alt="Dehydrated">
+            <img src="dehydrated-banner.jpg" alt="Dehydrated line">
             <div class="content"><h4>Dehydrated</h4><p>Industrial Onion Powder. Moisture-controlled expertise.</p></div>
         </a>
         <a href="snacks.html" class="suite-card">
