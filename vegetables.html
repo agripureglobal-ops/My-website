@@ -17,12 +17,46 @@
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', sans-serif; }
         body { background-color: var(--light); color: var(--text); line-height: 1.6; }
 
-        nav { 
-            background: var(--white); padding: 1rem 5%; display: flex; 
-            justify-content: space-between; align-items: center; 
-            position: sticky; top: 0; z-index: 1000; box-shadow: 0 2px 10px rgba(0,0,0,0.1); 
+        /* FIXED SINGLE-LINE HEADER */
+        header.site-nav { 
+            padding: 10px 5% !important; 
+            display: flex !important; 
+            flex-direction: row !important; 
+            justify-content: space-between !important; 
+            align-items: center !important; 
+            background: #fff !important; 
+            position: sticky !important; 
+            top: 0 !important; 
+            z-index: 3000 !important; 
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            width: 100%;
         }
-        .logo { font-size: 1.5rem; font-weight: bold; color: var(--primary); text-transform: uppercase; text-decoration: none; }
+
+        .logo-img { height: 35px !important; width: auto !important; flex-shrink: 0 !important; }
+
+        nav.menu-links { 
+            display: flex !important; 
+            flex-direction: row !important;
+            gap: 15px !important; 
+            align-items: center !important;
+            white-space: nowrap !important;
+        }
+
+        nav.menu-links a { 
+            text-decoration: none !important; 
+            color: var(--primary) !important; 
+            font-weight: 700 !important; 
+            text-transform: uppercase !important; 
+            font-size: 10px !important; 
+            letter-spacing: 1px !important;
+        }
+
+        @media (max-width: 480px) {
+            header.site-nav { padding: 10px 3% !important; }
+            .logo-img { height: 26px !important; }
+            nav.menu-links { gap: 8px !important; }
+            nav.menu-links a { font-size: 8.5px !important; letter-spacing: 0px !important; }
+        }
         
         .suite-hero { 
             background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('veggies-banner.jpg');
@@ -64,7 +98,15 @@
 </head>
 <body>
 
-<nav><a href="index.html" class="logo">Agripure Global</a></nav>
+<header class="site-nav">
+    <img src="logo.jpg" alt="Agripure Global" class="logo-img">
+    <nav class="menu-links">
+        <a href="index.html">Home</a>
+        <a href="story.html">Story</a>
+        <a href="index.html#catalogue" style="color:var(--accent) !important;">Catalogue</a>
+        <a href="contact.html">Contact</a>
+    </nav>
+</header>
 
 <header class="suite-hero">
     <h1>Farm-Fresh Vegetables</h1>
