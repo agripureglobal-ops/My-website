@@ -10,80 +10,53 @@
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', sans-serif; }
         body { color: #333; line-height: 1.6; background: var(--w); overflow-x: hidden; }
 
-        /* FIXED SINGLE-LINE HEADER */
+        /* MASTER SINGLE-LINE HEADER */
         header { 
-            padding: 10px 5%; 
-            display: flex; 
-            flex-direction: row; 
-            justify-content: space-between; 
-            align-items: center; 
-            box-shadow: 0 2px 15px rgba(0,0,0,0.05); 
-            position: sticky; 
-            top: 0; 
-            background: var(--w); 
-            z-index: 2000; 
+            padding: 10px 5%; display: flex; flex-direction: row; justify-content: space-between; 
+            align-items: center; box-shadow: 0 2px 15px rgba(0,0,0,0.05); position: sticky; 
+            top: 0; background: var(--w); z-index: 2000; 
         }
         .logo-img { height: 35px; flex-shrink: 0; }
-        nav { 
-            display: flex; 
-            flex-direction: row; 
-            gap: 15px; 
-            align-items: center; 
-            white-space: nowrap; 
-        }
-        nav a { 
-            text-decoration: none; 
-            color: var(--p); 
-            font-weight: 700; 
-            text-transform: uppercase; 
-            font-size: 10px; 
-            letter-spacing: 1px; 
-            margin: 0; 
-        }
+        nav { display: flex; flex-direction: row; gap: 15px; align-items: center; white-space: nowrap; }
+        nav a { text-decoration: none; color: var(--p); font-weight: 700; text-transform: uppercase; font-size: 10px; letter-spacing: 1px; }
 
-        /* 1. HERO */
+        /* HERO */
         .story-hero { height: 50vh; background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('farmer.jpg') center/cover; display: flex; flex-direction: column; justify-content: center; align-items: center; color: var(--w); text-align: center; padding: 0 10%; }
         .story-hero h1 { font-size: 3rem; text-transform: uppercase; font-weight: 900; letter-spacing: -1px; margin-bottom: 15px; }
         .story-hero p { font-size: 1.1rem; max-width: 700px; font-weight: 300; opacity: 0.9; }
 
-        /* 2. PEDIGREE SECTION */
+        /* PEDIGREE */
         .pedigree { padding: 100px 10%; display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
         .pedigree-text h2 { color: var(--p); text-transform: uppercase; font-size: 2rem; font-weight: 900; margin-bottom: 25px; line-height: 1.1; }
         .pedigree-text p { margin-bottom: 20px; color: #555; font-size: 1rem; }
         .exp-badge { display: inline-block; background: var(--a); color: #fff; padding: 10px 20px; font-weight: 900; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 20px; }
 
-        /* 3. MANIFESTO (GOALS & ETHICS) */
+        /* MANIFESTO */
         .manifesto { display: grid; grid-template-columns: 1fr 1fr; }
-        .goals-box { background: var(--d); padding: 100px 10%; color: var(--w); }
-        .ethics-box { background: var(--l); padding: 100px 10%; color: var(--p); border-left: 1px solid #eee; }
+        .goals-box { background: var(--d); padding: 80px 10%; color: var(--w); }
+        .ethics-box { background: var(--l); padding: 80px 10%; color: var(--p); border-left: 1px solid #eee; }
         .m-title { text-transform: uppercase; letter-spacing: 3px; margin-bottom: 45px; font-size: 1.5rem; font-weight: 900; }
         .goal-gold { color: var(--a); }
         .item { margin-bottom: 35px; }
         .item h4 { text-transform: uppercase; font-size: 0.9rem; margin-bottom: 10px; font-weight: 800; letter-spacing: 1px; }
         .item p { font-size: 0.85rem; opacity: 0.8; line-height: 1.7; }
 
-        /* 4. STATS BAR */
-        .stats-bar { background: #fff; padding: 80px 5%; text-align: center; border-top: 1px solid #eee; border-bottom: 1px solid #eee; }
-        .stats-grid { display: grid; grid-template-columns: repeat(4, 1fr); max-width: 1200px; margin: 0 auto; gap: 40px; }
-        .stat-box h2 { color: var(--p); font-size: 3rem; font-weight: 900; margin-bottom: 10px; }
-        .stat-box p { text-transform: uppercase; font-size: 0.75rem; letter-spacing: 2px; color: var(--a); font-weight: 700; }
-
         /* FOOTER */
-        footer { background: var(--d); color: #999; padding: 100px 8% 50px; border-top: 5px solid var(--a); position: relative; }
+        footer { background: var(--d); color: #999; padding: 80px 8% 50px; border-top: 5px solid var(--a); }
         .f-grid { display: grid; grid-template-columns: 1.5fr 1fr 1.5fr; gap: 80px; max-width: 1200px; margin: 0 auto; }
         .f-col h4 { color: var(--w); margin-bottom: 30px; text-transform: uppercase; font-size: 0.85rem; letter-spacing: 3px; position: relative; padding-bottom: 10px; }
         .f-col h4::after { content: ''; position: absolute; left: 0; bottom: 0; width: 30px; height: 2px; background: var(--a); }
-        .trade-card { background: rgba(255,255,255,0.03); padding: 35px; border: 1px solid rgba(255,255,255,0.08); border-radius: 4px; }
-        .trade-card p { color: var(--w); font-weight: 800; font-size: 1.2rem; margin-bottom: 20px; display: flex; align-items: center; }
-        .trade-card i { color: var(--a); margin-right: 15px; }
-        .quote-btn { background: var(--a); color: var(--w) !important; padding: 15px 30px; display: block; font-weight: 900; text-transform: uppercase; font-size: 0.8rem; letter-spacing: 2px; text-decoration: none; text-align: center; }
+        .trade-card { background: rgba(255,255,255,0.03); padding: 35px; border: 1px solid rgba(255,255,255,0.08); }
+        .trade-card p { color: var(--w); font-weight: 800; font-size: 1.1rem; margin-bottom: 20px; }
+        .trade-card i { color: var(--a); margin-right: 12px; }
+        .quote-btn { background: var(--a); color: var(--w) !important; padding: 14px 25px; display: block; font-weight: 900; text-transform: uppercase; font-size: 0.8rem; letter-spacing: 2px; text-decoration: none; text-align: center; }
 
         @media (max-width: 1000px) { 
             header { padding: 10px 4%; }
             nav { gap: 10px; }
             nav a { font-size: 9px; }
             .logo-img { height: 28px; }
-            .pedigree, .manifesto, .stats-grid, .f-grid { grid-template-columns: 1fr; } 
+            .pedigree, .manifesto, .f-grid { grid-template-columns: 1fr; } 
             .ethics-box { border-left: none; border-top: 1px solid #ddd; } 
         }
     </style>
@@ -102,27 +75,18 @@
 
 <section class="story-hero">
     <h1>New Identity. Proven Integrity.</h1>
-    <p>Agripure Global is the strategic evolution of 7+ years of frontline expertise in Indian agricultural exports.</p>
+    <p>The strategic evolution of 7+ years of frontline expertise in Indian agricultural exports.</p>
 </section>
 
 <section class="pedigree">
     <div class="pedigree-text">
         <span class="exp-badge">7+ Years Industry Experience</span>
         <h2>Deep Roots. <br>Global Vision.</h2>
-        <p>Agripure Global was founded to modernize the supply chain, backed by seasoned leadership. Our director brings in over 7 years of frontline experience navigating complex phytosanitary protocols in domestic as well as modern trade.</p>
-        <p>We bridge the gap between "New Brand Agility" and "Veteran Industry Wisdom," utilizing a pre-verified network of 200+ farmers across Maharashtra built over the last decade.</p>
+        <p>Agripure Global was founded to modernize the supply chain, utilizing a pre-verified network of 200+ farmers across Maharashtra built over the last decade.</p>
+        <p>We bridge the gap between "New Brand Agility" and "Veteran Industry Wisdom," navigating complex phytosanitary protocols for modern global trade.</p>
     </div>
     <div class="pedigree-img">
         <img src="farmer.jpg" alt="Direct Sourcing" style="width:100%; box-shadow: 30px 30px 0 var(--l); border: 1px solid #eee;">
-    </div>
-</section>
-
-<section class="stats-bar">
-    <div class="stats-grid">
-        <div class="stat-box"><h2>7+</h2><p>Years Trade Expertise</p></div>
-        <div class="stat-box"><h2>200+</h2><p>Verified Farmers</p></div>
-        <div class="stat-box"><h2>100%</h2><p>Phyto-Compliance</p></div>
-        <div class="stat-box"><h2>Minimal</h2><p>Rejection Policy</p></div>
     </div>
 </section>
 
@@ -131,15 +95,11 @@
         <h2 class="m-title goal-gold">Our Goals</h2>
         <div class="item">
             <h4>01. Precision Logistics</h4>
-            <p>To reduce transit time from harvest to container loading to under 48 hours, ensuring maximum shelf-life for our global partners.</p>
+            <p>Reducing transit time from harvest to container loading to under 48 hours for maximum shelf-life.</p>
         </div>
         <div class="item">
             <h4>02. Pesticide-Free Standard</h4>
-            <p>To achieve 100% MRL compliance across all suites, moving towards a future of purely organic-certified exports.</p>
-        </div>
-        <div class="item">
-            <h4>03. Digital Traceability</h4>
-            <p>Implementing batch-level tracking so buyers can identify the exact farm cluster their produce originated from.</p>
+            <p>Achieving 100% MRL compliance across all suites for safe, global consumption.</p>
         </div>
     </div>
 
@@ -147,30 +107,26 @@
         <h2 class="m-title">Our Ethics</h2>
         <div class="item">
             <h4>Farmer-First Pricing</h4>
-            <p>We ensure a fair-trade bridge where farmers are compensated above market rates for meeting our "Export-Grade" standards.</p>
+            <p>Ensuring farmers are compensated above market rates for meeting Export-Grade standards.</p>
         </div>
         <div class="item">
             <h4>Absolute Transparency</h4>
-            <p>We maintain absolute transparency in lab reports. If a batch fails NABL testing, it never leaves our facility—period.</p>
-        </div>
-        <div class="item">
-            <h4>Quality Over Volume</h4>
-            <p>In the fresh produce trade, integrity matters more than tonnage. We promise proactive communication regarding seasonal health and lead times.</p>
+            <p>If a batch fails NABL testing, it never leaves our facility. Period.</p>
         </div>
     </div>
 </section>
 
-<footer id="contact">
+<footer>
     <div class="f-grid">
         <div class="f-col">
             <h4>Agripure Global</h4>
-            <p>A modern export house backed by 7+ years of leadership and a commitment to farm-direct transparency.</p>
+            <p>A modern export house backed by 7+ years of leadership and farm-direct transparency.</p>
         </div>
-        <div class="f-col f-links">
+        <div class="f-col" style="display: flex; flex-direction: column; gap: 12px;">
             <h4>Portals</h4>
-            <a href="fruits.html" style="color:#777; text-decoration:none; display:block; margin-bottom:12px;">Export Fruits</a>
-            <a href="vegetables.html" style="color:#777; text-decoration:none; display:block; margin-bottom:12px;">Fresh Veggies</a>
-            <a href="dehydrated.html" style="color:#777; text-decoration:none; display:block; margin-bottom:12px;">Dehydrated Line</a>
+            <a href="fruits.html" style="color: #999; text-decoration: none; font-size: 0.9rem;">Export Fruits</a>
+            <a href="vegetables.html" style="color: #999; text-decoration: none; font-size: 0.9rem;">Fresh Veggies</a>
+            <a href="dehydrated.html" style="color: #999; text-decoration: none; font-size: 0.9rem;">Dehydrated Line</a>
         </div>
         <div class="f-col">
             <h4>Trade Desk</h4>
