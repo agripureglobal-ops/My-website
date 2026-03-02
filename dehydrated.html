@@ -6,112 +6,131 @@
     <title>Dehydrated Products | Agripure Global</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
-        :root {
-            --primary: #1a472a; 
-            --accent: #c5a059;  
-            --light: #f4f7f1;
-            --white: #ffffff;
-            --text: #333;
-        }
-
+        :root { --primary: #1a472a; --accent: #c5a059; --light: #f4f7f1; --white: #ffffff; }
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', sans-serif; }
-        body { background-color: var(--light); color: var(--text); line-height: 1.6; }
+        body { background-color: var(--light); color: #333; line-height: 1.6; }
 
-        nav { 
-            background: var(--white); padding: 1rem 5%; display: flex; 
-            justify-content: space-between; align-items: center; 
-            position: sticky; top: 0; z-index: 1000; box-shadow: 0 2px 10px rgba(0,0,0,0.1); 
+        /* MASTER HEADER: Precision Engineered for Single-Line Fit */
+        header.site-nav { 
+            padding: 10px 5% !important; 
+            display: flex !important; 
+            flex-direction: row !important; 
+            justify-content: space-between !important; 
+            align-items: center !important; 
+            background: #fff !important; 
+            position: sticky !important; 
+            top: 0 !important; 
+            z-index: 3000 !important; 
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            width: 100%;
         }
-        .logo { font-size: 1.5rem; font-weight: bold; color: var(--primary); text-transform: uppercase; text-decoration: none; }
+
+        .logo-img { height: 35px !important; width: auto !important; flex-shrink: 0 !important; }
+
+        nav.menu-links { 
+            display: flex !important; 
+            flex-direction: row !important;
+            gap: 15px !important; 
+            align-items: center !important;
+            white-space: nowrap !important;
+        }
+
+        nav.menu-links a { 
+            text-decoration: none !important; 
+            color: var(--primary) !important; 
+            font-weight: 700 !important; 
+            text-transform: uppercase !important; 
+            font-size: 10px !important; 
+            letter-spacing: 1px !important;
+        }
+
+        @media (max-width: 480px) {
+            header.site-nav { padding: 10px 3% !important; }
+            .logo-img { height: 26px !important; }
+            nav.menu-links { gap: 8px !important; }
+            nav.menu-links a { font-size: 8.5px !important; letter-spacing: 0px !important; }
+        }
+
+        .suite-hero { background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('dehydrated-banner.jpg'); background-size: cover; background-position: center; padding: 7rem 5% 4rem; color: white; text-align: center; }
         
-        .suite-hero { 
-            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('dehydrated-banner.jpg');
-            background-size: cover; background-position: center;
-            padding: 8rem 5% 4rem; color: white; text-align: center;
-        }
-        .suite-hero h1 { font-size: 3rem; color: var(--accent); margin-bottom: 10px; }
+        .product-focus { background: var(--white); padding: 4rem 10%; text-align: center; border-bottom: 1px solid #eee; }
+        .product-focus h2 { color: var(--primary); margin-bottom: 15px; text-transform: uppercase; }
+        .product-focus p { max-width: 800px; margin: 0 auto; color: #666; font-size: 1.1rem; }
 
-        .catalog-container { padding: 5rem 5%; max-width: 1100px; margin: 0 auto; }
+        .catalog-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 30px; padding: 5rem 5%; max-width: 1400px; margin: 0 auto; }
+        .product-card { background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 5px 15px rgba(0,0,0,0.05); transition: 0.4s ease; border: 1px solid #eee; display: flex; flex-direction: column; }
+        .product-card:hover { transform: translateY(-10px); }
+        .product-img { width: 100%; height: 250px; object-fit: cover; }
+        .product-body { padding: 25px; flex-grow: 1; display: flex; flex-direction: column; }
+        .product-body h3 { color: var(--primary); font-size: 1.3rem; margin-bottom: 15px; border-bottom: 2px solid var(--accent); display: inline-block; width: fit-content; }
         
-        .product-focus { 
-            background: white; border-radius: 15px; overflow: hidden; 
-            display: grid; grid-template-columns: 1fr 1.2fr; gap: 40px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.05); padding: 40px; border: 1px solid #eee;
-        }
-
-        .product-img-wrap img { width: 100%; border-radius: 10px; object-fit: cover; height: 400px; }
-
-        .product-details h2 { color: var(--primary); font-size: 2.2rem; margin-bottom: 10px; }
-        .focus-tag { display: inline-block; padding: 5px 15px; background: var(--accent); color: white; border-radius: 20px; font-weight: bold; margin-bottom: 20px; font-size: 0.8rem; }
+        .spec-mini { width: 100%; border-collapse: collapse; margin-bottom: 20px; font-size: 0.85rem; }
+        .spec-mini td { padding: 8px 0; border-bottom: 1px dotted #ddd; }
+        .spec-mini td:last-child { text-align: right; font-weight: bold; color: var(--primary); }
         
-        .expertise-box { background: #f9f9f9; padding: 20px; border-left: 4px solid var(--primary); margin: 20px 0; }
-        .expertise-box p { font-size: 0.95rem; color: #555; font-style: italic; }
+        .btn-inquire { margin-top: auto; text-align: center; padding: 12px; background: var(--primary); color: white; text-decoration: none; border-radius: 5px; font-weight: bold; text-transform: uppercase; font-size: 0.8rem; }
+        
+        footer { background: #0f1a12; color: white; padding: 5rem 5% 2rem; }
+        .f-grid { display:grid; grid-template-columns: 2fr 1fr 1.5fr; gap: 4rem; }
+        .footer-col a { color: #999; text-decoration: none; display: flex; align-items: center; margin-bottom: 12px; }
+        .footer-col a i { color: var(--accent); margin-right: 12px; }
 
-        .spec-table { width: 100%; border-collapse: collapse; margin-bottom: 30px; }
-        .spec-table td { padding: 12px 0; border-bottom: 1px solid #eee; font-size: 0.95rem; }
-        .spec-table td:first-child { font-weight: bold; color: var(--primary); width: 40%; }
-
-        .btn-trade { 
-            display: block; text-align: center; padding: 15px; 
-            background: var(--primary); color: white; text-decoration: none; 
-            font-weight: bold; border-radius: 5px; transition: 0.3s;
-        }
-        .btn-trade:hover { background: #12311d; }
-
-        footer { background: #0f1a12; color: white; padding: 4rem 5%; margin-top: 5rem; }
-        .footer-content { display: flex; justify-content: space-between; align-items: center; max-width: 1100px; margin: 0 auto; }
-
-        @media (max-width: 850px) {
-            .product-focus { grid-template-columns: 1fr; }
-            .product-img-wrap img { height: 300px; }
-        }
+        @media (max-width: 768px) { .f-grid { grid-template-columns: 1fr; text-align: center; } .footer-col a { justify-content: center; } }
     </style>
 </head>
 <body>
 
-<nav>
-    <a href="index.html" class="logo">Agripure Global</a>
-</nav>
+<header class="site-nav">
+    <img src="logo.jpg" alt="Agripure Global" class="logo-img">
+    <nav class="menu-links">
+        <a href="index.html">Home</a>
+        <a href="story.html">Story</a>
+        <a href="index.html#catalogue" style="color:var(--accent) !important;">Catalogue</a>
+        <a href="contact.html">Contact</a>
+    </nav>
+</header>
 
 <header class="suite-hero">
     <h1>Dehydrated Products</h1>
-    <p>Precision Industrial Processing | 7+ Years Expertise</p>
+    <p>Industrial Grade | Moisture-Controlled | 7+ Years Processing Expertise</p>
 </header>
 
-<div class="catalog-container">
-    <div class="product-focus">
-        <div class="product-img-wrap">
-            <img src="onion-powder.jpg" alt="Premium Onion Powder">
-        </div>
-        <div class="product-details">
-            <span class="focus-tag">INDUSTRIAL GRADE</span>
-            <h2>Onion Powder</h2>
-            
-            <div class="expertise-box">
-                <p>"Moisture-controlled processing with 7+ years of technical expertise ensuring high-potency flavor and extended shelf-life."</p>
-            </div>
+<section class="product-focus">
+    <h2>Advanced Processing</h2>
+    <p>Utilizing high-end dehydration technology to preserve the natural pungency, flavor, and nutritional profile of the harvest for global industrial applications.</p>
+</section>
 
-            <table class="spec-table">
-                <tr><td>Form</td><td>Fine Dehydrated Powder</td></tr>
-                <tr><td>Moisture Content</td><td>Controlled (Premium Grade)</td></tr>
-                <tr><td>Application</td><td>Food Processing / Seasonings</td></tr>
-                <tr><td>Sourcing</td><td>Premium Nashik Red Onions</td></tr>
+<section class="catalog-grid">
+    <div class="product-card">
+        <img src="onion-powder.jpg" class="product-img" alt="Dehydrated Onion Powder">
+        <div class="product-body">
+            <h3>Onion Powder</h3>
+            <table class="spec-mini">
+                <tr><td>Grade</td><td>Premium Industrial</td></tr>
+                <tr><td>Moisture</td><td>&lt; 5% Max</td></tr>
+                <tr><td>Mesh Size</td><td>80-100 Mesh</td></tr>
+                <tr><td>Color</td><td>Creamish White / Red</td></tr>
             </table>
-
-            <a href="contact.html?product=onion-powder" class="btn-trade">Request Industrial Quote</a>
+            <a href="contact.html" class="btn-inquire">Request Quote</a>
         </div>
     </div>
-</div>
+</section>
 
 <footer>
-    <div class="footer-content">
+    <div class="f-grid">
         <div>
-            <h4 style="color: var(--accent);">Agripure Global</h4>
-            <p style="font-size: 0.8rem; opacity: 0.7;">Navi Mumbai, India | Export Quality Guaranteed</p>
+            <h4>Agripure Global</h4>
+            <p>Navi Mumbai, India - 410209.</p>
         </div>
-        <div style="text-align: right;">
-            <p style="font-weight: bold;">+91 7666170693</p>
-            <p style="font-size: 0.8rem; opacity: 0.7;">info@agripureglobal.com</p>
+        <div class="footer-col">
+            <h4>Links</h4>
+            <a href="index.html"><i class="fas fa-leaf"></i> Home</a>
+            <a href="contact.html"><i class="fas fa-leaf"></i> Contact</a>
+        </div>
+        <div>
+            <h4>Connect</h4>
+            <p>info@agripureglobal.com</p>
+            <p style="color: var(--accent); font-weight: bold; margin-top: 10px;">+91 7666170693</p>
         </div>
     </div>
 </footer>
