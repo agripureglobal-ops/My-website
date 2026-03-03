@@ -20,16 +20,28 @@
         nav { display: flex; flex-direction: row; gap: 15px; align-items: center; white-space: nowrap; }
         nav a { text-decoration: none; color: var(--p); font-weight: 700; text-transform: uppercase; font-size: 10px; letter-spacing: 1px; }
 
-        /* HERO */
-        .story-hero { height: 50vh; background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('container.jpg') center/cover; display: flex; flex-direction: column; justify-content: center; align-items: center; color: var(--w); text-align: center; padding: 0 10%; }
-        .story-hero h1 { font-size: 3rem; text-transform: uppercase; font-weight: 900; letter-spacing: -1px; margin-bottom: 15px; }
+        /* HERO - Adjusted padding for mobile visibility */
+        .story-hero { 
+            min-height: 60vh; 
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('container.jpg') center/cover; 
+            display: flex; flex-direction: column; justify-content: center; align-items: center; 
+            color: var(--w); text-align: center; 
+            padding: 120px 10% 60px; /* Increased top padding to clear sticky header */
+        }
+        .story-hero h1 { font-size: 3.5rem; text-transform: uppercase; font-weight: 900; letter-spacing: -1px; margin-bottom: 15px; line-height: 1; }
         .story-hero p { font-size: 1.1rem; max-width: 700px; font-weight: 300; opacity: 0.9; }
 
         /* PEDIGREE */
         .pedigree { padding: 100px 10%; display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
-        .pedigree-text h2 { color: var(--p); text-transform: uppercase; font-size: 2rem; font-weight: 900; margin-bottom: 25px; line-height: 1.1; }
+        .pedigree-text h2 { color: var(--p); text-transform: uppercase; font-size: 2.5rem; font-weight: 900; margin-bottom: 25px; line-height: 1.1; }
         .pedigree-text p { margin-bottom: 20px; color: #555; font-size: 1rem; }
-        .exp-badge { display: inline-block; background: var(--a); color: #fff; padding: 10px 20px; font-weight: 900; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 20px; }
+        
+        /* Modernized Badge */
+        .exp-badge { 
+            display: inline-block; background: var(--a); color: #fff; 
+            padding: 8px 15px; font-weight: 800; font-size: 11px; 
+            text-transform: uppercase; letter-spacing: 2px; margin-bottom: 20px; 
+        }
 
         /* MANIFESTO */
         .manifesto { display: grid; grid-template-columns: 1fr 1fr; }
@@ -58,6 +70,9 @@
             .logo-img { height: 28px; }
             .pedigree, .manifesto, .f-grid { grid-template-columns: 1fr; } 
             .ethics-box { border-left: none; border-top: 1px solid #ddd; } 
+            .story-hero { padding-top: 100px; } /* Ensures text clears mobile header height */
+            .story-hero h1 { font-size: 2.2rem; }
+            .pedigree-text h2 { font-size: 2rem; }
         }
     </style>
 </head>
@@ -74,13 +89,13 @@
 </header>
 
 <section class="story-hero">
-    <h1>New Identity. Proven Integrity.</h1>
+    <h1>New Identity.<br>Proven Integrity.</h1>
     <p>A strategic evolution of agricultural stewardship, built on the belief that the best way to honor the harvest is to perfect the path it takes.</p>
 </section>
 
 <section class="pedigree">
     <div class="pedigree-text">
-        <span class="exp-badge">7+ Years Industry Experience</span>
+        <span class="exp-badge">Legacy of Trust • Sourced with Integrity</span>
         <h2>Deep Roots. <br>Global Vision.</h2>
         <p>Agripure Global was founded to modernize the supply chain, utilizing a pre-verified network of 200+ farmers across Maharashtra built over the last decade.</p>
         <p>We bridge the gap between New Brand Agility and Veteran Industry Wisdom, navigating complex protocols for modern global trade.</p>
@@ -120,7 +135,7 @@
     <div class="f-grid">
         <div class="f-col">
             <h4>Agripure Global</h4>
-            <p>A modern trade house backed by 7+ years of leadership and farm-direct transparency.</p>
+            <p>A modern trade house backed by years of leadership and farm-direct transparency.</p>
         </div>
         <div class="f-col" style="display: flex; flex-direction: column; gap: 12px;">
             <h4>Portals</h4>
